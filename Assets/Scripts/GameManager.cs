@@ -11,27 +11,33 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private TrackManager trackManager;
 
-    private static GameManager _instance;
+    private static GameManager instance;
 
     /// <summary>
-    /// Vrati instanciu na game manager singleton
+    /// Vrati instanciu na game manager singleton (http://wiki.unity3d.com/index.php/Singleton)
     /// </summary>
-    public static GameManager instance
+    public static GameManager Instance
     {
         get
         {
-            if (_instance == null)
+            if (instance == null)
             {
-                _instance = (GameManager) FindObjectOfType(typeof(GameManager));
+                instance = (GameManager) FindObjectOfType(typeof(GameManager));
             }
 
-            return _instance;
+            return instance;
         }
     }
+
+    /// <summary>
+    /// Nejake ziskane body
+    /// </summary>
+    public int Score { get; set; }
 
     // Use this for initialization
     void Start()
     {
+        this.Score = 0;
     }
 
     // Update is called once per frame
