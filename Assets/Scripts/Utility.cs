@@ -10,4 +10,9 @@ public static class Utility
 	{
 		return array[Random.Range(0, array.Length)];
 	}
+
+	public static bool GetRandomBool()
+	{
+		return Random.value < 0.5f;
+	}
 }

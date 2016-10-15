@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// Generovanie trate
@@ -22,28 +24,36 @@ public class TrackManager : MonoBehaviour
 	private Camera mainCamera;
 
 	private List<GameObject> gameObjectsInGame = new List<GameObject>();
+	private int counter = 0;
+
+	private GameObject lastGeneratedGameObject = null;
+	private GameObject lastGeneratedSkyObject = null;
+	private GameObject lastGeneratedTerrainObject = null;
 
 	public enum SortingLayer
 	{
-		Sky = 1,
-		BackObjects = 2,
-		Terrain = 3,
-		Dyno = 4,
-		FrontObjects = 5
+		Sky,
+		BackObjects,
+		Terrain,
+		Dyno,
+		FrontObjects
+	}
+
+	void Update()
+	{
+		// staci to robit kazdy 5. frame
+		if (counter++%5 == 0)
+		{
+			this.DestroyNotVisibleObjects();
+			this.GenerateRandomTerrain();
+		}
 	}
 
 
-	void Update ()
-    {
-		this.DestroyNotVisibleObjects();
-		this.GenerateRandomTerrain();
-    }
-
-
-    private void DestroyNotVisibleObjects()
-    {
-	    for (int i = this.gameObjectsInGame.Count - 1; i >= 0; i--)
-	    {
+	private void DestroyNotVisibleObjects()
+	{
+		for (int i = this.gameObjectsInGame.Count - 1; i >= 0; i--)
+		{
 			GameObject objectInGame = this.gameObjectsInGame[i];
 
 			// ked je objekt uz za kamerou
@@ -55,47 +65,94 @@ public class TrackManager : MonoBehaviour
 				Destroy(objectInGame);
 				this.gameObjectsInGame.RemoveAt(i);
 			}
-	    }
-    }
+		}
+	}
 
 	private void GenerateRandomTerrain()
 	{
-		return; // zatial
+		//return; // zatial
 
-        // vytvori teren
-		this.CreateTerrainObject(this.terrainObjects.GetRandomItem(), new Vector2(0, 0));
+		// vytvori teren
+		this.CreateTerrainObject();
 
 		// vytvori oblohu
-		this.CreateSkyObject(this.terrainObjects.GetRandomItem(), new Vector2(0, 0));
+		//this.CreateSkyObject();
 
-        // vytvori nejake objekty
-		this.CreateBasicObject(this.nonCollidableObjects.GetRandomItem(), new Vector2(0, 0), false, true);
+		// vytvori objekt na pozadi
+		this.CreateBasicObject(false, true);
 
-	    bool isInFront = Random.value < 0.5f;
-		this.CreateBasicObject(this.collidableObjects.GetRandomItem(), new Vector2(0, 0), true, isInFront);
-    }
-
-
-	public void CreateTerrainObject(Sprite texture, Vector2 position)
-    {
-		this.CreateGameObject("Terrain", texture, position, true, SortingLayer.Terrain);
-    }
-
-	public void CreateSkyObject(Sprite texture, Vector2 position)
-	{
-		this.CreateGameObject("Sky", texture, position, false, SortingLayer.Sky);
+		// vytvori koliovatelny objekt na popredi
+		this.CreateBasicObject(true, Utility.GetRandomBool());
 	}
 
-	public void CreateBasicObject(Sprite texture, Vector2 position, bool isCollidable, bool isInFront)
+	public void CreateTerrainObject()
+	{
+		Vector2 position;
+		if (this.lastGeneratedTerrainObject == null)
+		{
+			position = new Vector2(0, 0);
+		}
+		else
+		{
+			Bounds lastObjectBounds = this.lastGeneratedTerrainObject.GetComponent<Renderer>().bounds;
+
+			float x = this.lastGeneratedTerrainObject.transform.position.x + lastObjectBounds.size.x;
+			float y = this.lastGeneratedTerrainObject.transform.position.y;
+
+			position = new Vector2(x, y);
+		}
+		Sprite texture = this.terrainObjects.GetRandomItem();
+
+		this.lastGeneratedTerrainObject = this.CreateGameObject("Terrain", texture, position, true, SortingLayer.Terrain);
+	}
+
+	public void CreateSkyObject()
+	{
+		Vector2 position;
+		if (this.lastGeneratedSkyObject == null)
+		{
+			position = new Vector2(0, 0);
+		}
+		else
+		{
+			Bounds lastObjectBounds = this.lastGeneratedSkyObject.GetComponent<Renderer>().bounds;
+
+			float x = this.lastGeneratedSkyObject.transform.position.x + lastObjectBounds.size.x;
+			float y = this.lastGeneratedSkyObject.transform.position.y;
+
+			position = new Vector2(x, y);
+		}
+		Sprite texture = this.terrainObjects.GetRandomItem();
+
+		this.lastGeneratedSkyObject = this.CreateGameObject("Sky", texture, position, false, SortingLayer.Sky);
+	}
+
+	public void CreateBasicObject(bool isCollidable, bool isInFront)
 	{
 		string objectName = isCollidable ? "Collidable GameObject" : "Non collidable GameObject";
 		SortingLayer sortingLayer = isInFront ? SortingLayer.FrontObjects : SortingLayer.BackObjects;
+		Sprite texture = this.terrainObjects.GetRandomItem();
 
-		this.CreateGameObject(objectName, texture, position, isCollidable, sortingLayer);
+		Vector2 position;
+		if (this.lastGeneratedGameObject == null)
+		{
+			position = new Vector2(0, 0);
+		}
+		else
+		{
+			Bounds lastObjectBounds = this.lastGeneratedGameObject.GetComponent<Renderer>().bounds;
+
+			float x = this.lastGeneratedGameObject.transform.position.x + lastObjectBounds.size.x + Random.Range(1f, 1f);
+			float y = this.lastGeneratedGameObject.transform.position.y;
+
+			position = new Vector2(x, y);
+		}
+
+		this.lastGeneratedGameObject = this.CreateGameObject(objectName, texture, position, isCollidable, sortingLayer);
 	}
 
 
-	private void CreateGameObject(string objectName, Sprite texture, Vector2 position, bool isCollidable, SortingLayer sortingLayer)
+	private GameObject CreateGameObject(string objectName, Sprite texture, Vector2 position, bool isCollidable, SortingLayer sortingLayer)
 	{
 		Debug.Log("Creating " + objectName + " at " + position);
 
@@ -105,7 +162,7 @@ public class TrackManager : MonoBehaviour
 
 		SpriteRenderer spriteRenderer = newGameObject.AddComponent<SpriteRenderer>();
 		spriteRenderer.sprite = texture;
-		spriteRenderer.sortingLayerID = (int) sortingLayer;
+		spriteRenderer.sortingLayerID = GetSortingLayerID(sortingLayer);
 
 		if (isCollidable)
 		{
@@ -114,5 +171,31 @@ public class TrackManager : MonoBehaviour
 		}
 
 		this.gameObjectsInGame.Add(newGameObject);
-    }
+
+		return newGameObject;
+	}
+
+	public static int GetSortingLayerID(SortingLayer layer)
+	{
+		switch (layer)
+		{
+			case SortingLayer.Sky:
+				return UnityEngine.SortingLayer.NameToID("Sky");
+
+			case SortingLayer.BackObjects:
+				return UnityEngine.SortingLayer.NameToID("BackObjects");
+
+			case SortingLayer.Terrain:
+				return UnityEngine.SortingLayer.NameToID("Terrain");
+
+			case SortingLayer.Dyno:
+				return UnityEngine.SortingLayer.NameToID("Dyno");
+
+			case SortingLayer.FrontObjects:
+				return UnityEngine.SortingLayer.NameToID("FrontObjects");
+
+			default:
+				return -1;
+		}
+	}
 }
