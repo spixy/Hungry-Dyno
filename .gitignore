@@ -13,6 +13,8 @@ obj/
 *.suo
 *.user
 *.unityproj
+*.csproj
+*.sln
 *.booproj
 
 

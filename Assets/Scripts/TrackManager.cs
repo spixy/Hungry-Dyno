@@ -6,80 +6,103 @@ using UnityEngine;
 /// </summary>
 public class TrackManager : MonoBehaviour
 {
-    [SerializeField]
-    private Texture[] groundTextures;
+	[SerializeField]
+	private Sprite[] skies;
 
     [SerializeField]
-    private Texture[] nonCollidableObjects;
+    private Sprite[] terrainObjects;
 
     [SerializeField]
-    private Texture[] collidableObjects;
+	private Sprite[] nonCollidableObjects;
 
-    private List<GameObject> gameObjectsInGame = new List<GameObject>();
+    [SerializeField]
+	private Sprite[] collidableObjects;
 
-    // Use this for initialization
-    void Start ()
-    {
+	[SerializeField]
+	private RectTransform cameraTransform;
+
+	private List<RectTransform> gameObjectsInGame = new List<RectTransform>();
+
+	public enum SortingLayer
+	{
+		Sky = 1,
+		BackObjects = 2,
+		Terrain = 3,
+		Dyno = 4,
+		FrontObjects = 5
 	}
-	
-	// Update is called once per frame
+
+
 	void Update ()
     {
-        // this.GenerateRandomTerrain();
-	    this.DestroyOldObjects();
+		this.DestroyOldObjects();
+		this.GenerateRandomTerrain();
     }
 
     private void DestroyOldObjects()
     {
-        /*foreach (GameObject gameObject in this.gameObjectsInGame)
+	    float cameraLeftPos = this.cameraTransform.rect.xMin;
+
+		foreach (RectTransform gameObjectTransform in this.gameObjectsInGame)
         {
-            if (gameObject not in scene)
+			// ked je objekt uz za kamerou
+            if (gameObjectTransform.rect.xMax < cameraLeftPos)
             {
-                Destroy(gameObject);
+				// vymazem ho
+                Destroy(gameObjectTransform);
             }
-        }*/
+        }
     }
 
     private void GenerateRandomTerrain()
     {
         // vytvori teren
-        Texture randomTexture = GetRandomItem(this.groundTextures);
-        this.CreateTerrainGameObject(randomTexture, new Vector2(0, 0));
+		this.CreateTerrainObject(this.terrainObjects.GetRandomItem(), new Vector2(0, 0));
+
+		// vytvori oblohu
+		this.CreateSkyObject(this.terrainObjects.GetRandomItem(), new Vector2(0, 0));
 
         // vytvori nejake objekty
-        this.CreateNonCollidableGameObject(GetRandomItem(this.nonCollidableObjects), new Vector2(0, 0));
-        this.CreateCollidableGameObject(GetRandomItem(this.collidableObjects), new Vector2(0, 0));
+		this.CreateBasicObject(this.nonCollidableObjects.GetRandomItem(), new Vector2(0, 0), false, true);
+
+	    bool isInFront = Random.value < 0.5f;
+		this.CreateBasicObject(this.collidableObjects.GetRandomItem(), new Vector2(0, 0), true, isInFront);
     }
 
-    private void CreateTerrainGameObject(Texture texture, Vector2 position)
+	private void CreateTerrainObject(Sprite texture, Vector2 position)
     {
-        GameObject newGameObject = new GameObject("TerrainGameObject");
-        // add texture
-        // set position
-        // set layer
-        this.gameObjectsInGame.Add(newGameObject);
+		this.CreateGameObject("Terrain", texture, position, true, SortingLayer.Terrain);
     }
 
-    private void CreateNonCollidableGameObject(Texture texture, Vector2 position)
-    {
-        GameObject newGameObject = new GameObject("NonCollidableGameObject");
-        // add texture
-        // set position
-        // set layer
-        this.gameObjectsInGame.Add(newGameObject);
-    }
+	private void CreateSkyObject(Sprite texture, Vector2 position)
+	{
+		this.CreateGameObject("Sky", texture, position, false, SortingLayer.Sky);
+	}
 
-    private void CreateCollidableGameObject(Texture texture, Vector2 position)
-    {
-        GameObject newGameObject = new GameObject("CollidableGameObject");
-        // add texture
-        // set position
-        // set layer
-        this.gameObjectsInGame.Add(newGameObject);
-    }
+	private void CreateBasicObject(Sprite texture, Vector2 position, bool isCollidable, bool isInFront)
+	{
+		string objectName = isCollidable ? "Collidable GameObject" : "Non collidable GameObject";
+		SortingLayer sortingLayer = isInFront ? SortingLayer.FrontObjects : SortingLayer.BackObjects;
 
-    private static T GetRandomItem<T>(T[] array)
+		this.CreateGameObject(objectName, texture, position, isCollidable, sortingLayer);
+	}
+
+	private void CreateGameObject(string objectName, Sprite texture, Vector2 position, bool isCollidable, SortingLayer sortingLayer)
     {
-        return array[Random.Range(0, array.Length)];
+		GameObject newGameObject = new GameObject(objectName);
+		newGameObject.transform.SetParent(this.transform);
+		newGameObject.transform.position = position;
+
+		SpriteRenderer spriteRenderer = newGameObject.AddComponent<SpriteRenderer>();
+		spriteRenderer.sprite = texture;
+		spriteRenderer.sortingLayerID = (int) sortingLayer;
+
+		if (isCollidable)
+		{
+			BoxCollider boxCollider = newGameObject.AddComponent<BoxCollider>();
+			boxCollider.size = texture.bounds.size; // velkost collideru = velkost textury
+		}
+
+		this.gameObjectsInGame.Add(newGameObject.GetComponent<RectTransform>());
     }
 }
