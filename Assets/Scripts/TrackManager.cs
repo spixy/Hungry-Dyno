@@ -19,9 +19,9 @@ public class TrackManager : MonoBehaviour
 	private Sprite[] collidableObjects;
 
 	[SerializeField]
-	private RectTransform cameraTransform;
+	private Camera mainCamera;
 
-	private List<RectTransform> gameObjectsInGame = new List<RectTransform>();
+	private List<GameObject> gameObjectsInGame = new List<GameObject>();
 
 	public enum SortingLayer
 	{
@@ -35,27 +35,33 @@ public class TrackManager : MonoBehaviour
 
 	void Update ()
     {
-		this.DestroyOldObjects();
+		this.DestroyNotVisibleObjects();
 		this.GenerateRandomTerrain();
     }
 
-    private void DestroyOldObjects()
-    {
-	    float cameraLeftPos = this.cameraTransform.rect.xMin;
 
-		foreach (RectTransform gameObjectTransform in this.gameObjectsInGame)
-        {
+    private void DestroyNotVisibleObjects()
+    {
+	    for (int i = this.gameObjectsInGame.Count - 1; i >= 0; i--)
+	    {
+			GameObject objectInGame = this.gameObjectsInGame[i];
+
 			// ked je objekt uz za kamerou
-            if (gameObjectTransform.rect.xMax < cameraLeftPos)
-            {
+			if (!objectInGame.GetComponent<Renderer>().isVisible)
+			{
+				Debug.Log("Removing " + objectInGame.name);
+
 				// vymazem ho
-                Destroy(gameObjectTransform);
-            }
-        }
+				Destroy(objectInGame);
+				this.gameObjectsInGame.RemoveAt(i);
+			}
+	    }
     }
 
-    private void GenerateRandomTerrain()
-    {
+	private void GenerateRandomTerrain()
+	{
+		return; // zatial
+
         // vytvori teren
 		this.CreateTerrainObject(this.terrainObjects.GetRandomItem(), new Vector2(0, 0));
 
@@ -69,17 +75,18 @@ public class TrackManager : MonoBehaviour
 		this.CreateBasicObject(this.collidableObjects.GetRandomItem(), new Vector2(0, 0), true, isInFront);
     }
 
-	private void CreateTerrainObject(Sprite texture, Vector2 position)
+
+	public void CreateTerrainObject(Sprite texture, Vector2 position)
     {
 		this.CreateGameObject("Terrain", texture, position, true, SortingLayer.Terrain);
     }
 
-	private void CreateSkyObject(Sprite texture, Vector2 position)
+	public void CreateSkyObject(Sprite texture, Vector2 position)
 	{
 		this.CreateGameObject("Sky", texture, position, false, SortingLayer.Sky);
 	}
 
-	private void CreateBasicObject(Sprite texture, Vector2 position, bool isCollidable, bool isInFront)
+	public void CreateBasicObject(Sprite texture, Vector2 position, bool isCollidable, bool isInFront)
 	{
 		string objectName = isCollidable ? "Collidable GameObject" : "Non collidable GameObject";
 		SortingLayer sortingLayer = isInFront ? SortingLayer.FrontObjects : SortingLayer.BackObjects;
@@ -87,8 +94,11 @@ public class TrackManager : MonoBehaviour
 		this.CreateGameObject(objectName, texture, position, isCollidable, sortingLayer);
 	}
 
+
 	private void CreateGameObject(string objectName, Sprite texture, Vector2 position, bool isCollidable, SortingLayer sortingLayer)
-    {
+	{
+		Debug.Log("Creating " + objectName + " at " + position);
+
 		GameObject newGameObject = new GameObject(objectName);
 		newGameObject.transform.SetParent(this.transform);
 		newGameObject.transform.position = position;
@@ -103,6 +113,6 @@ public class TrackManager : MonoBehaviour
 			boxCollider.size = texture.bounds.size; // velkost collideru = velkost textury
 		}
 
-		this.gameObjectsInGame.Add(newGameObject.GetComponent<RectTransform>());
+		this.gameObjectsInGame.Add(newGameObject);
     }
 }
