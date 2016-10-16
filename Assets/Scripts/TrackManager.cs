@@ -20,11 +20,8 @@ public class TrackManager : MonoBehaviour
     [SerializeField]
 	private Sprite[] collidableObjects;
 
-	[SerializeField]
-	private Camera mainCamera;
-
 	private List<GameObject> gameObjectsInGame = new List<GameObject>();
-	private int counter = 0;
+	private int frameCounter = 0;
 
 	private GameObject lastGeneratedGameObject = null;
 	private GameObject lastGeneratedSkyObject = null;
@@ -42,7 +39,7 @@ public class TrackManager : MonoBehaviour
 	void Update()
 	{
 		// staci to robit kazdy 5. frame
-		if (counter++%5 == 0)
+		if (frameCounter++ % 5 == 0)
 		{
 			this.DestroyNotVisibleObjects();
 			this.GenerateRandomTerrain();
@@ -70,7 +67,7 @@ public class TrackManager : MonoBehaviour
 
 	private void GenerateRandomTerrain()
 	{
-		//return; // zatial
+		return; // zatial
 
 		// vytvori teren
 		this.CreateTerrainObject();
@@ -166,7 +163,7 @@ public class TrackManager : MonoBehaviour
 
 		if (isCollidable)
 		{
-			BoxCollider boxCollider = newGameObject.AddComponent<BoxCollider>();
+			BoxCollider2D boxCollider = newGameObject.AddComponent<BoxCollider2D>();
 			boxCollider.size = texture.bounds.size; // velkost collideru = velkost textury
 		}
 
