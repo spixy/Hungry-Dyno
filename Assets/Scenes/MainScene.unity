@@ -158,7 +158,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &360041401
@@ -200,7 +205,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000012476830844, guid: 2bb452cf51682084697f153b260847ee, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2bb452cf51682084697f153b260847ee, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &462141329 stripped
@@ -230,7 +236,6 @@ GameObject:
   - 33: {fileID: 998741075}
   - 61: {fileID: 998741074}
   - 50: {fileID: 998741073}
-  - 23: {fileID: 998741072}
   - 114: {fileID: 998741071}
   m_Layer: 8
   m_Name: DestroyerFlat
@@ -264,35 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef554cc8e6f284446a7a1e5a130f04df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!23 &998741072
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 998741069}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!50 &998741073
 Rigidbody2D:
   serializedVersion: 2
@@ -498,7 +474,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000014208136238, guid: 7cfd5cfb92b47bc448496ccaa6b879cf, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: -6.85
       objectReference: {fileID: 0}
     - target: {fileID: 4000014208136238, guid: 7cfd5cfb92b47bc448496ccaa6b879cf, type: 2}
       propertyPath: m_LocalPosition.y
@@ -527,18 +503,6 @@ Prefab:
     - target: {fileID: 4000014208136238, guid: 7cfd5cfb92b47bc448496ccaa6b879cf, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000012053908582, guid: 7cfd5cfb92b47bc448496ccaa6b879cf, type: 2}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011658219098, guid: 7cfd5cfb92b47bc448496ccaa6b879cf, type: 2}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000010531479136, guid: 7cfd5cfb92b47bc448496ccaa6b879cf, type: 2}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cfd5cfb92b47bc448496ccaa6b879cf, type: 2}

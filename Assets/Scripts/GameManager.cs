@@ -5,16 +5,9 @@
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private Dyno dyno;
-
-    [SerializeField]
-    private TrackManager trackManager;
-
     private static GameManager instance;
-
     /// <summary>
-    /// Vrati instanciu na game manager singleton (http://wiki.unity3d.com/index.php/Singleton)
+    /// Vrati instanciu na game manager singleton
     /// </summary>
     public static GameManager Instance
     {
@@ -30,18 +23,13 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Nejake ziskane body
+    /// Ziskane body
     /// </summary>
     public int Score { get; set; }
-
-    // Use this for initialization
+    
     void Start()
     {
         this.Score = 0;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    
 }
