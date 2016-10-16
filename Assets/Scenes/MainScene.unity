@@ -377,16 +377,6 @@ Prefab:
       propertyPath: m_Name
       value: GroundScenery
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011267530410, guid: 49c055eb752e3f54ab405dc76cd80c21,
-        type: 2}
-      propertyPath: spawnMax
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011267530410, guid: 49c055eb752e3f54ab405dc76cd80c21,
-        type: 2}
-      propertyPath: spawnMin
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 49c055eb752e3f54ab405dc76cd80c21, type: 2}
   m_IsPrefabParent: 0
