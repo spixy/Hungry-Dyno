@@ -9,18 +9,15 @@ public class Dyno : MonoBehaviour
     private Animator anim;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        float deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * 10f;
+    void Update() {
+        float deltaX = 1 * Time.deltaTime * 10f;  // infinite run
         float deltaY = Input.GetAxis("Vertical") * Time.deltaTime * 10f;
 
         this.anim.SetFloat("VerticalInput", deltaX);
-        this.anim.SetFloat("HorizontalInput", deltaY);
 
         // pohyb
         this.transform.Translate(deltaX, deltaY, 0f);
