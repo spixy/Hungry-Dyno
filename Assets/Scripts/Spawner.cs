@@ -1,20 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spawner : MonoBehaviour {
-
+public class Spawner : MonoBehaviour
+{
+    public Transform environment;
     public GameObject[] obj;
     public float spawnMin = 1f;
     public float spawnMax = 2f;
-
-    // Use this for initialization
-    void Start() {
-        Spawn();
+    
+    void Start()
+    {
+        StartCoroutine(this.SpawningCoroutine());
     }
 
-    void Spawn() {
-        Vector3 pos = new Vector3(transform.position.x, transform.position.y - Random.Range(0f, 1f), 0);
-        Instantiate(obj[Random.Range(0, obj.Length)], pos, Quaternion.identity);
-        Invoke("Spawn", Random.Range(spawnMin, spawnMax));
+    private IEnumerator SpawningCoroutine()
+    {
+        GameManager gameManager = GameManager.Instance;
+
+        while (true)
+        {
+            if (gameManager.InGame)
+            {
+                Vector3 pos = new Vector3(transform.position.x, transform.position.y - Random.Range(0f, 1f), 0);
+
+                GameObject newObject = Instantiate(obj.GetRandomItem(), pos, Quaternion.identity) as GameObject;
+                newObject.transform.SetParent(environment);
+            }
+
+            yield return new WaitForSeconds(Random.Range(spawnMin, spawnMax));
+        }
     }
 }

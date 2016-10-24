@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class CameraRunner : MonoBehaviour {
-
-    public Transform player;
-
-    // Update is called once per frame
-    void Update() {
+public class CameraRunner : MonoBehaviour
+{
+    [SerializeField]
+    private Transform player;
+    
+    void Update()
+    {
         transform.position = new Vector3(player.position.x + 8, 0, -1);
     }
 }
