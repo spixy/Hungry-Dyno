@@ -3,31 +3,27 @@ using System.Collections;
 
 public class Spawner : MonoBehaviour
 {
-    public Transform environment;
-    public GameObject[] obj;
-    public float spawnMin = 1f;
-    public float spawnMax = 2f;
-    
-    void Start()
+    [SerializeField]
+    private Transform parent;
+
+    [SerializeField]
+    private GameObject[] obj;
+
+    [SerializeField]
+    private float minY = 1f;
+
+    [SerializeField]
+    private float maxY = 2f; 
+
+    public void Spawn(float x)
     {
-        StartCoroutine(this.SpawningCoroutine());
+        Vector3 pos = new Vector3(x, Random.Range(this.minY, this.maxY), 0f);
+        this.SpawnObject(this.obj.GetRandomItem(), pos);
     }
 
-    private IEnumerator SpawningCoroutine()
+    private void SpawnObject(GameObject go, Vector3 pos)
     {
-        GameManager gameManager = GameManager.Instance;
-
-        while (true)
-        {
-            if (gameManager.InGame)
-            {
-                Vector3 pos = new Vector3(transform.position.x, transform.position.y - Random.Range(0f, 1f), 0);
-
-                GameObject newObject = Instantiate(obj.GetRandomItem(), pos, Quaternion.identity) as GameObject;
-                newObject.transform.SetParent(environment);
-            }
-
-            yield return new WaitForSeconds(Random.Range(spawnMin, spawnMax));
-        }
+        GameObject newGO = Instantiate(go, pos, Quaternion.identity) as GameObject;
+        newGO.transform.SetParent(this.parent, true);
     }
 }

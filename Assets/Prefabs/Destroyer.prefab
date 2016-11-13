@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012832675022}
-  - 33: {fileID: 33000010342418644}
   - 61: {fileID: 61000013523301386}
   - 50: {fileID: 50000012295414990}
   - 114: {fileID: 114000010748879088}
@@ -43,13 +42,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!33 &33000010342418644
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013093729388}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!50 &50000012295414990
 Rigidbody2D:
   serializedVersion: 2

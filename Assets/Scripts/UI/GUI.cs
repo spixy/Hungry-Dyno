@@ -8,7 +8,15 @@ public class GUI : MonoBehaviour
 
     public void ButtonStartClick()
     {
-        mainMenu.SetActive(false);
+        this.mainMenu.SetActive(false);
         GameManager.Instance.StartGame();
+    }
+
+    private void Update()
+    {
+        if (Input.anyKey)
+        {
+            this.ButtonStartClick();
+        }
     }
 }

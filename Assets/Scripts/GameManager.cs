@@ -1,5 +1,13 @@
 ﻿using UnityEngine;
 
+public enum State
+{
+    MainMenu,
+    InGame,
+    Paused,
+    DeadMenu
+}
+
 /// <summary>
 /// Hlavny manazer hry (singleton)
 /// </summary>
@@ -15,9 +23,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static GameManager Instance { get; private set; }
 
-    private void Awake()
+    /// <summary>
+    /// Pozicia dyna
+    /// </summary>
+    public Vector3 dynoPosition
     {
-        Instance = this;
+        get { return this.dyno.transform.position; }
     }
 
     /// <summary>
@@ -28,12 +39,18 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Som v hre (nie som mrtvy, neni pauznuta hra, atd)
     /// </summary>
-    public bool InGame { get; set; }
+    public State State { get; set; }
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
         this.Score = 0;
-        this.InGame = true;
+        this.State = State.MainMenu;
 
         this.dynoStartingPosition = this.dyno.transform.position;
 
@@ -42,21 +59,32 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        this.dyno.Activate();
+        this.State = State.InGame;
         this.UnpauseGame();
     }
 
     public void RestartGame()
     {
         this.dyno.transform.position = this.dynoStartingPosition;
+        this.StartGame();
+    }
+
+    public void ExitGame()
+    {
+        this.State = State.MainMenu;
+        Time.timeScale = 0f;
     }
 
     public void PauseGame()
     {
+        this.State = State.Paused;
         Time.timeScale = 0f;
     }
 
     public void UnpauseGame()
     {
+        this.State = State.InGame;
         Time.timeScale = 1f;
     }
 }
