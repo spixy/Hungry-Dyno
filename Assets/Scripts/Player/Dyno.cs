@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityStandardAssets._2D;
 
 /// <summary>
 /// Pohyb dyna

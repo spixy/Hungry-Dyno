@@ -16,6 +16,6 @@ public class CameraRunner : MonoBehaviour
     {
         this.cam.orthographicSize = 10f / Screen.width * Screen.height;
 
-        transform.position = new Vector3(player.position.x + 8.5f, 0f, -1f);
+        this.transform.position = new Vector3(this.player.position.x + 8.5f, 0f, -1f);
     }
 }

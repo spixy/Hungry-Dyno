@@ -9,43 +9,43 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000011685668182}
+  m_RootGameObject: {fileID: 1000013762198024}
   m_IsPrefabParent: 1
---- !u!1 &1000011685668182
+--- !u!1 &1000013762198024
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000013256288252}
-  - 114: {fileID: 114000011267530410}
+  - 4: {fileID: 4000012740949052}
+  - 114: {fileID: 114000012669523698}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000013256288252
+--- !u!4 &4000012740949052
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011685668182}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: -1.5, z: 0}
+  m_GameObject: {fileID: 1000013762198024}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15, y: -2.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000011267530410
+--- !u!114 &114000012669523698
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011685668182}
+  m_GameObject: {fileID: 1000013762198024}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7a8a2ed243212a489be8512a440375d, type: 3}
@@ -57,5 +57,5 @@ MonoBehaviour:
   - {fileID: 1000013938499072, guid: cc95872c4764e0a4fa96894ba1929c87, type: 2}
   - {fileID: 1000013132761196, guid: a7fd851b641597e42bab9b3bbddf7881, type: 2}
   - {fileID: 1000013756785360, guid: 98e9b189fc636f74c81dcef8d5e65728, type: 2}
-  spawnMin: 0.3
-  spawnMax: 2
+  minY: -4.9
+  maxY: -4.4

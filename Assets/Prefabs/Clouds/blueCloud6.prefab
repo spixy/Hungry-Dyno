@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 475082}
   - 212: {fileID: 21271148}
+  - 114: {fileID: 114000013752000890}
   m_Layer: 0
   m_Name: blueCloud6
   m_TagString: Untagged
@@ -23,8 +24,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.391507, y: -6.9863763, z: -18.19452}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,7 +57,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1729879185
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b68d3da48b0f6fe4da4ae9b5005d73b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -73,3 +74,16 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 162808}
   m_IsPrefabParent: 1
+--- !u!114 &114000013752000890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adce14dadea91b248a69fbb229468361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -1
+  maxX: 2

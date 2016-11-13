@@ -25,6 +25,9 @@ public class PlatformSpawner : MonoBehaviour
     [SerializeField]
     private int lengthMax = 5;
 
+    [SerializeField]
+    private float minDistanceFromBorder = 0.3f;
+
     private float lastPlatformX = 0f;
 
     private void Start()
@@ -33,6 +36,7 @@ public class PlatformSpawner : MonoBehaviour
 
         Vector3 pos = this.transform.position;
         pos.x = 0f;
+        pos.z = 0f;
 
         int length = Random.Range(2, this.lengthMax);
 
@@ -50,6 +54,7 @@ public class PlatformSpawner : MonoBehaviour
 
         Vector3 pos = this.transform.position;
         pos.x = this.lastPlatformX + Random.Range(this.gapMin, this.gapMax);
+        pos.z = 0f;
 
         int length = Random.Range(this.lengthMin, this.lengthMax);
 
@@ -86,7 +91,8 @@ public class PlatformSpawner : MonoBehaviour
         GameObject newGO = Instantiate(go, pos, Quaternion.identity) as GameObject;
         newGO.transform.SetParent(parent, true);
 
-        float x = Random.Range(0.2f, width - 0.2f);
+        width /= 2f;
+        float x = Random.Range(-width + this.minDistanceFromBorder, width - this.minDistanceFromBorder);
         this.objectSpawner.Spawn(pos.x + x);
     }
 }

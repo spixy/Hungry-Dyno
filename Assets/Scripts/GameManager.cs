@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Dyno dyno;
 
+    [SerializeField]
+    private AutoSpawner cloudSpawner;
+
     private Vector3 dynoStartingPosition;
 
     /// <summary>
@@ -37,7 +40,7 @@ public class GameManager : MonoBehaviour
     public int Score { get; set; }
 
     /// <summary>
-    /// Som v hre (nie som mrtvy, neni pauznuta hra, atd)
+    /// Stav hry
     /// </summary>
     public State State { get; set; }
 
@@ -74,17 +77,20 @@ public class GameManager : MonoBehaviour
     {
         this.State = State.MainMenu;
         Time.timeScale = 0f;
+        this.cloudSpawner.StopSpawning();
     }
 
     public void PauseGame()
     {
         this.State = State.Paused;
         Time.timeScale = 0f;
+        this.cloudSpawner.StopSpawning();
     }
 
     public void UnpauseGame()
     {
         this.State = State.InGame;
         Time.timeScale = 1f;
+        this.cloudSpawner.StartSpawning();
     }
 }
