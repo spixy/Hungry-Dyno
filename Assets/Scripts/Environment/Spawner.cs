@@ -7,6 +7,9 @@ public class Spawner : MonoBehaviour
     public GameObject[] obj;
     public float spawnMin = 1f;
     public float spawnMax = 2f;
+
+    [SerializeField]
+    private float verticality = 1f;
     
     void Start()
     {
@@ -21,7 +24,7 @@ public class Spawner : MonoBehaviour
         {
             if (gameManager.InGame)
             {
-                Vector3 pos = new Vector3(transform.position.x, transform.position.y - Random.Range(0f, 1f), 0);
+                Vector3 pos = new Vector3(transform.position.x, transform.position.y - Random.Range(0f, verticality), 0);
 
                 GameObject newObject = Instantiate(obj.GetRandomItem(), pos, Quaternion.identity) as GameObject;
                 newObject.transform.SetParent(environment);

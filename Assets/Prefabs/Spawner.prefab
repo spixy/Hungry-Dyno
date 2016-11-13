@@ -35,7 +35,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011685668182}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 15, y: -1.5, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,9 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environment: {fileID: 0}
   obj:
-  - {fileID: 1000013409858010, guid: bf7726944a884a648b2bf2d436e3296b, type: 2}
-  - {fileID: 1000013938499072, guid: cc95872c4764e0a4fa96894ba1929c87, type: 2}
-  - {fileID: 1000013132761196, guid: a7fd851b641597e42bab9b3bbddf7881, type: 2}
-  - {fileID: 1000013756785360, guid: 98e9b189fc636f74c81dcef8d5e65728, type: 2}
+  - {fileID: 1000010454361986, guid: ef03e56e81bb6034a993139d0ef47bc2, type: 2}
   spawnMin: 0.3
   spawnMax: 2
+  verticality: 0
