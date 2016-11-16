@@ -3,13 +3,13 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
     [SerializeField]
+    private int hpRestore = 20;
+
+    [SerializeField]
     private int damage = 20;
 
     [SerializeField]
     private float damageChance = 0.2f;
-
-    [SerializeField]
-    private int hpRestore = 20;
 
     [SerializeField]
     private bool givesGodmode = false;
@@ -27,7 +27,9 @@ public class Enemy : MonoBehaviour {
     }
 
     public void Eat() {
+        // Gives as much score as he restores hp
         GameManager.Instance.UpdateHP(hpRestore);
+        GameManager.Instance.Score += hpRestore;
 
         if (givesGodmode) {
             GameManager.Instance.EnableGodmode();

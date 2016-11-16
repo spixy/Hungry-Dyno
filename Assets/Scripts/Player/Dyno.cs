@@ -23,12 +23,6 @@ public class Dyno : MonoBehaviour
 
     void Update()
     {
-        if (this.transform.position.y < -8f)
-        {
-            this.Die();
-            return;
-        }
-
         if (godmode) {
             godmodeDur -= Time.deltaTime;
         }
@@ -51,7 +45,11 @@ public class Dyno : MonoBehaviour
         }
 
         // 1 meter = 1 bod ?
-        GameManager.Instance.Score = (int) this.transform.position.x;
+        GameManager.Instance.Score = (int) transform.position.x;
+
+        if (transform.position.y < -8f) {
+            Die();
+        }
     }
 
     public void Activate() {
@@ -62,10 +60,6 @@ public class Dyno : MonoBehaviour
         Debug.Log("Dead!");
         this.gameObject.SetActive(false);
         GameManager.Instance.ExitGame();
-    }
-
-    private void UpdateHP(int diff) {
-        GameManager.Instance.UpdateHP(diff);
     }
 
     public void Berserk() {
