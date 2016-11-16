@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
-    public int damage = 20;
+    [SerializeField]
+    private int damage = 20;
 
     [SerializeField]
     private float damageChance = 0.2f;
