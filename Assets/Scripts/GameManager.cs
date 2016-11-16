@@ -14,6 +14,7 @@ public enum State
 public class GameManager : MonoBehaviour {
     [SerializeField]
     private Dyno dyno;
+    private bool alive = true;
 
     [SerializeField]
     private AutoSpawner cloudSpawner;
@@ -66,11 +67,14 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        if (Hp < 0) {
-            dyno.Die();
-        }
+        if (alive) {
+            if (Hp < 0) {
+                dyno.Die();
+                alive = false;
+            }
 
-        Hp -= Time.deltaTime * hpDecay;
+            Hp -= Time.deltaTime * hpDecay;
+        }
     }
 
     public void UpdateHP(int diff) {
