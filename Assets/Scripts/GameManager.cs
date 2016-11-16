@@ -11,13 +11,17 @@ public enum State
 /// <summary>
 /// Hlavny manazer hry (singleton)
 /// </summary>
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     [SerializeField]
     private Dyno dyno;
 
     [SerializeField]
     private AutoSpawner cloudSpawner;
+
+    [SerializeField]
+    private float hpDecay = 20f;
+ 
+    public float Hp { get; private set; }
 
     private Vector3 dynoStartingPosition;
 
@@ -52,12 +56,35 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        this.Score = 0;
-        this.State = State.MainMenu;
+        Score = 0;
+        Hp = 100;
+        State = State.MainMenu;
 
-        this.dynoStartingPosition = this.dyno.transform.position;
+        dynoStartingPosition = dyno.transform.position;
 
-        this.PauseGame();
+        PauseGame();
+    }
+
+    void Update() {
+        if (Hp < 0) {
+            dyno.Die();
+        }
+
+        Hp -= Time.deltaTime * hpDecay;
+    }
+
+    public void UpdateHP(int diff) {
+        Hp += diff;
+    }
+
+    public void EnableGodmode() {
+        Debug.Log("GODMODE!!!");
+        dyno.Godmode();
+    }
+
+    public void EnableBerserk() {
+        Debug.Log("BERSERK!!!");
+        dyno.Berserk();
     }
 
     public void StartGame()

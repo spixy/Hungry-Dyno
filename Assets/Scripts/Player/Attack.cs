@@ -11,9 +11,22 @@ public class Attack : MonoBehaviour {
     public Collider2D attackTrigger;
 
     [SerializeField]
-    private float attackDur = 0.2f;
-    // Can be modified with power ups
-    public float attackCd = 1f;
+    private const float attackDur = 0.2f;
+    [SerializeField]
+    private const float baseCd = 1f;
+    [SerializeField]
+    private const float berserkRatio = 2f;
+
+    // Can be modified with berserk
+    public float attackCd = baseCd;
+
+    public void SetBerserk(bool berserk) {
+        if (berserk) {
+            attackCd /= berserkRatio;
+        } else {
+            attackCd = baseCd;
+        }
+    }
 
     void Awake() {
         anim = gameObject.GetComponent<Animator>();

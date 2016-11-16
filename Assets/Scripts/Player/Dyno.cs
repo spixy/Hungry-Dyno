@@ -8,12 +8,18 @@ public class Dyno : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
-    private Bonus activeBonus;
+    [SerializeField]
+    private const float baseDur = 10f;
+    [SerializeField]
+    private float godmodeDur = baseDur;
+    [SerializeField]
+    private float berserkDur = baseDur;
 
-    void Start()
-    {
-        this.activeBonus = Bonus.None;
-    }
+    public bool godmode = false;
+    public bool berserk = false;
+
+    [SerializeField]
+    private Attack attack;
 
     void Update()
     {
@@ -23,33 +29,51 @@ public class Dyno : MonoBehaviour
             return;
         }
 
+        if (godmode) {
+            godmodeDur -= Time.deltaTime;
+        }
+
+        if (berserk) {
+            berserkDur -= Time.deltaTime;
+        }
+
+        if (godmodeDur < 0) {
+            godmode = false;
+            godmodeDur = baseDur;
+            Debug.Log("Godmode off.");
+        }
+
+        if (berserkDur < 0) {
+            berserk = false;
+            attack.SetBerserk(false);
+            berserkDur = baseDur;
+            Debug.Log("Berserk off.");
+        }
+
         // 1 meter = 1 bod ?
         GameManager.Instance.Score = (int) this.transform.position.x;
     }
 
-    public void Activate()
-    {
+    public void Activate() {
         this.gameObject.SetActive(true);
     }
 
-    public void Die()
-    {
+    public void Die() {
+        Debug.Log("Dead!");
         this.gameObject.SetActive(false);
         GameManager.Instance.ExitGame();
     }
 
-    private void OnBonusStarted(Bonus bonus)
-    {
-        this.activeBonus = bonus;
-
-        // bla bla
+    private void UpdateHP(int diff) {
+        GameManager.Instance.UpdateHP(diff);
     }
 
-    private void OnBonusEnded()
-    {
-        this.activeBonus = Bonus.None;
-
-        // bla bla
+    public void Berserk() {
+        attack.SetBerserk(true);
+        berserk = true;
     }
 
+    public void Godmode() {
+        godmode = true;
+    }
 }

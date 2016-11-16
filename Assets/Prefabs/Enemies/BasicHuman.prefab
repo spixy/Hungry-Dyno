@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000011517002490}
   - 61: {fileID: 61000012157152034}
   - 114: {fileID: 114000013333403170}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BasicHuman
   m_TagString: Enemy
   m_Icon: {fileID: 0}
