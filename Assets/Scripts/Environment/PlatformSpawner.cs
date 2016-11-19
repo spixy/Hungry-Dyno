@@ -9,7 +9,10 @@ public class PlatformSpawner : MonoBehaviour, ISpawner
     private Transform parent;
 
     [SerializeField]
-    private Spawner objectSpawner;
+	private Spawner objectSpawner;
+
+	[SerializeField]
+	private Spawner enemySpawner;
 
     [SerializeField]
     private Platform[] platforms;
@@ -58,7 +61,7 @@ public class PlatformSpawner : MonoBehaviour, ISpawner
 	public void Reset()
 	{
 		foreach (GameObject go in this.platformsInScene)
-			Destroy (go);
+			GameManager.Instance.poolManager.Add (go); //Destroy (go);
 
 		this.platformsInScene.Clear ();
 
@@ -108,14 +111,20 @@ public class PlatformSpawner : MonoBehaviour, ISpawner
 
 	private void SpawnPlatform(GameObject go, Vector3 pos, float width, bool generateOtherObjects)
     {
-        GameObject newGO = Instantiate(go, pos, Quaternion.identity) as GameObject;
+		GameObject newGO = GameManager.Instance.poolManager.Get (go); //Instantiate(go, pos, Quaternion.identity) as GameObject;
+		newGO.transform.position = pos;
         newGO.transform.SetParent(parent, true);
 		this.platformsInScene.Add (newGO);
 
-		if (generateOtherObjects) {
+		if (generateOtherObjects)
+		{
 			width /= 2f;
-			float x = Random.Range (-width + this.minDistanceFromBorder, width - this.minDistanceFromBorder);
-			this.objectSpawner.Spawn (pos.x + x);
+			float x = pos.x + Random.Range(-width + this.minDistanceFromBorder, width - this.minDistanceFromBorder);
+
+			if (Random.value < 0.5f)
+				this.objectSpawner.Spawn (x);
+			else
+				this.enemySpawner.Spawn (x);
 		}
     }
 }

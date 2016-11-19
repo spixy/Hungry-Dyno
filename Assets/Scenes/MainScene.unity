@@ -269,6 +269,47 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 5591402}
+--- !u!1 &14371065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 14371066}
+  - 114: {fileID: 14371067}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &14371066
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 14371065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+--- !u!114 &14371067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 14371065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd9f71331f31114b8f1073c960edd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  size: 0
 --- !u!1 &16325464
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +432,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 16325464}
+--- !u!114 &69703576 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000013366789966, guid: 35d3f26963f63514faea3454ea9b0942,
+    type: 2}
+  m_PrefabInternal: {fileID: 1027860613}
+  m_Script: {fileID: 11500000, guid: a7a8a2ed243212a489be8512a440375d, type: 3}
 --- !u!1 &71434772
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,8 +948,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003e9a624cd282b4b9ccc9968b4f89dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
+  parent: {fileID: 14371066}
   objectSpawner: {fileID: 1284045270}
+  enemySpawner: {fileID: 69703576}
   platforms:
   - small: {fileID: 1000012846073622, guid: 15d10d7be1b46864b9837cb060dd985a, type: 2}
     start: {fileID: 1000011340803276, guid: 2265dc7b05c14294686035a95427d26e, type: 2}
@@ -1018,6 +1066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dyno: {fileID: 2035204014}
   cloudSpawner: {fileID: 2092042684}
+  poolManager: {fileID: 14371067}
   hpDecay: 8
   gui: {fileID: 1251423142}
 --- !u!4 &781369723
@@ -1247,6 +1296,21 @@ Prefab:
       value: 
       objectReference: {fileID: 1000010454361986, guid: ef03e56e81bb6034a993139d0ef47bc2,
         type: 2}
+    - target: {fileID: 114000013366789966, guid: 35d3f26963f63514faea3454ea9b0942,
+        type: 2}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 14371066}
+    - target: {fileID: 114000013366789966, guid: 35d3f26963f63514faea3454ea9b0942,
+        type: 2}
+      propertyPath: minY
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013366789966, guid: 35d3f26963f63514faea3454ea9b0942,
+        type: 2}
+      propertyPath: maxY
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35d3f26963f63514faea3454ea9b0942, type: 2}
   m_IsPrefabParent: 0
@@ -2370,7 +2434,7 @@ Prefab:
         type: 2}
       propertyPath: parent
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 14371066}
     - target: {fileID: 1000013762198024, guid: 313154613a4be9f4aa77a957b97466ff, type: 2}
       propertyPath: m_Name
       value: Environment
@@ -2446,7 +2510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84df0fbdf264547498882bea64073af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
+  parent: {fileID: 14371066}
   obj:
   - {fileID: 104586, guid: 10f76ea0f0eaed64a82e728b49e8f62f, type: 2}
   - {fileID: 183586, guid: 709a72f00661ab342af3fe0b9d8763f5, type: 2}

@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private AutoSpawner cloudSpawner;
 
+	[SerializeField]
+	public PoolManager poolManager;
+
     [SerializeField]
     private float hpDecay = 20f;
 

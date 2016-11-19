@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour, ISpawner
 	public void Reset()
 	{
 		foreach (GameObject go in this.objectsInScene)
-			Destroy (go);
+			GameManager.Instance.poolManager.Add (go); //Destroy (go);
 
 		this.objectsInScene.Clear ();
 	}
@@ -38,7 +38,8 @@ public class Spawner : MonoBehaviour, ISpawner
 
     private void SpawnObject(GameObject go, Vector3 pos)
     {
-        GameObject newGO = Instantiate(go, pos, Quaternion.identity) as GameObject;
+		GameObject newGO = GameManager.Instance.poolManager.Get (go); //Instantiate(go, pos, Quaternion.identity) as GameObject;
+		newGO.transform.position = pos;
         newGO.transform.SetParent(this.parent, true);
 		this.objectsInScene.Add (newGO);
     }
