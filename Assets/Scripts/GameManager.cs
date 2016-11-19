@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public enum State
 {
@@ -21,10 +22,15 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     private float hpDecay = 20f;
+
+	[SerializeField]
+	private GUI gui;
  
     public float Hp { get; private set; }
 
     private Vector3 dynoStartingPosition;
+
+	private List<ISpawner> spawners = new List<ISpawner>();
 
     /// <summary>
     /// Vrati instanciu na game manager singleton
@@ -39,10 +45,28 @@ public class GameManager : MonoBehaviour {
         get { return this.dyno.transform.position; }
     }
 
+
+	private int _Score;
     /// <summary>
     /// Ziskane body
     /// </summary>
-    public int Score { get; set; }
+    public int Score
+	{
+		get {
+			return _Score;
+		}
+		set {
+			_Score = value;
+
+			if (MaxScore < value)
+				MaxScore = value;
+		}
+	}
+
+	/// <summary>
+	/// Najvyssie skore
+	/// </summary>
+	public int MaxScore { get; private set; }
 
     /// <summary>
     /// Stav hry
@@ -77,6 +101,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+	public void RegisterSpawner(ISpawner spawner)
+	{
+		this.spawners.Add (spawner);
+	}
+
     public void UpdateHP(int diff) {
         Hp += diff;
     }
@@ -100,7 +129,6 @@ public class GameManager : MonoBehaviour {
 
     public void RestartGame()
     {
-        this.dyno.transform.position = this.dynoStartingPosition;
         this.StartGame();
     }
 
@@ -109,6 +137,13 @@ public class GameManager : MonoBehaviour {
         this.State = State.MainMenu;
         Time.timeScale = 0f;
         this.cloudSpawner.StopSpawning();
+
+		this.dyno.transform.position = this.dynoStartingPosition;
+
+		foreach (ISpawner spawner in this.spawners)
+			spawner.Reset ();
+
+		this.gui.ShowMenu();
     }
 
     public void PauseGame()

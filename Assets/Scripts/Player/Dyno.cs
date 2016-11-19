@@ -53,12 +53,10 @@ public class Dyno : MonoBehaviour
     }
 
     public void Activate() {
-        this.gameObject.SetActive(true);
     }
 
     public void Die() {
         Debug.Log("Dead!");
-        this.gameObject.SetActive(false);
         GameManager.Instance.ExitGame();
     }
 

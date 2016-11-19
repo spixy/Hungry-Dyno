@@ -1,8 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using System.Collections.Generic;
 
-public class PlatformSpawner : MonoBehaviour
+public class PlatformSpawner : MonoBehaviour, ISpawner
 {
     [SerializeField]
     private Transform parent;
@@ -30,20 +31,39 @@ public class PlatformSpawner : MonoBehaviour
 
     private float lastPlatformX = 0f;
 
+	private List<GameObject> platformsInScene = new List<GameObject> ();
+
     private void Start()
     {
-        Platform platform = this.platforms.GetRandomItem();
+		GameManager.Instance.RegisterSpawner (this);
 
-        Vector3 pos = this.transform.position;
-        pos.x = 0f;
-        pos.z = 0f;
-
-        int length = Random.Range(2, this.lengthMax);
-
-        this.SpawnPlatform(platform, pos, length);
+		this.GenerateStartingPlatform ();
 
         this.enabled = true;
     }
+
+	private void GenerateStartingPlatform()
+	{
+		Platform platform = this.platforms.GetRandomItem();
+
+		Vector3 pos = this.transform.position;
+		pos.x = 0f;
+		pos.z = 0f;
+
+		int length = Random.Range(2, this.lengthMax);
+
+		this.SpawnPlatform(platform, pos, length, false);
+	}
+		
+	public void Reset()
+	{
+		foreach (GameObject go in this.platformsInScene)
+			Destroy (go);
+
+		this.platformsInScene.Clear ();
+
+		this.GenerateStartingPlatform ();
+	}
 
     private void Update()
     {
@@ -61,39 +81,42 @@ public class PlatformSpawner : MonoBehaviour
         this.SpawnPlatform(platform, pos, length);
     }
 
-    private void SpawnPlatform(Platform platform, Vector3 pos, int length)
+	private void SpawnPlatform(Platform platform, Vector3 pos, int length, bool generateOtherObjects = true)
     {
         if (length == 1)
         {
-            this.SpawnPlatform(platform.small, pos, platform.width);
+			this.SpawnPlatform(platform.small, pos, platform.width, generateOtherObjects);
         }
         else
         {
-            this.SpawnPlatform(platform.start, pos, platform.width);
+			this.SpawnPlatform(platform.start, pos, platform.width, generateOtherObjects);
 
             pos.x += platform.width;
 
             for (int i = 2; i < length; i++)
             {
-                this.SpawnPlatform(platform.mid, pos, platform.width);
+				this.SpawnPlatform(platform.mid, pos, platform.width, generateOtherObjects);
 
                 pos.x += platform.width;
             }
 
-            this.SpawnPlatform(platform.end, pos, platform.width);
+			this.SpawnPlatform(platform.end, pos, platform.width, generateOtherObjects);
         }
 
         this.lastPlatformX = pos.x + platform.width / 2f;
     }
 
-    private void SpawnPlatform(GameObject go, Vector3 pos, float width)
+	private void SpawnPlatform(GameObject go, Vector3 pos, float width, bool generateOtherObjects)
     {
         GameObject newGO = Instantiate(go, pos, Quaternion.identity) as GameObject;
         newGO.transform.SetParent(parent, true);
+		this.platformsInScene.Add (newGO);
 
-        width /= 2f;
-        float x = Random.Range(-width + this.minDistanceFromBorder, width - this.minDistanceFromBorder);
-        this.objectSpawner.Spawn(pos.x + x);
+		if (generateOtherObjects) {
+			width /= 2f;
+			float x = Random.Range (-width + this.minDistanceFromBorder, width - this.minDistanceFromBorder);
+			this.objectSpawner.Spawn (pos.x + x);
+		}
     }
 }
 
