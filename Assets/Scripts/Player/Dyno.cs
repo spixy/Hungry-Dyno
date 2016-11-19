@@ -44,8 +44,8 @@ public class Dyno : MonoBehaviour
             Debug.Log("Berserk off.");
         }
 
-        // 1 meter = 1 bod ?
-        GameManager.Instance.Score = (int) transform.position.x;
+        // 1 meter = 0.2 boda
+		GameManager.Instance.Score = (int) (transform.position.x * 0.2f);
 
         if (transform.position.y < -8f) {
             Die();

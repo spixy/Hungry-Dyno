@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour {
     private AutoSpawner cloudSpawner;
 
 	[SerializeField]
+	private GUI gui;
+
+	[SerializeField]
 	public PoolManager poolManager;
 
     [SerializeField]
     private float hpDecay = 20f;
-
-	[SerializeField]
-	private GUI gui;
  
     public float Hp { get; private set; }
 

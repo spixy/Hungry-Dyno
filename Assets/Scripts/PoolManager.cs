@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class PoolManager : MonoBehaviour
 {
-	[SerializeField]
-	private int size;
-
 	private Dictionary<string, Queue<GameObject>> pool = new Dictionary<string, Queue<GameObject>>();
 
 	public void Add(GameObject go)

@@ -309,7 +309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd9f71331f31114b8f1073c960edd4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 0
 --- !u!1 &16325464
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +930,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 513856231}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: -4.5, z: 0}
+  m_LocalPosition: {x: 15, y: -4.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1066,9 +1065,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dyno: {fileID: 2035204014}
   cloudSpawner: {fileID: 2092042684}
+  gui: {fileID: 1251423142}
   poolManager: {fileID: 14371067}
   hpDecay: 8
-  gui: {fileID: 1251423142}
 --- !u!4 &781369723
 Transform:
   m_ObjectHideFlags: 0
@@ -1151,83 +1150,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 818355272}
---- !u!1 &998741069
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1000011202953344, guid: 65a4919a856a08443a15f4c035b0c530,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 998741070}
-  - 61: {fileID: 998741074}
-  - 50: {fileID: 998741073}
-  - 114: {fileID: 998741071}
-  m_Layer: 8
-  m_Name: DestroyerFlat
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &998741070
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4000013324131356, guid: 65a4919a856a08443a15f4c035b0c530,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 998741069}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5, y: -8.33, z: 1}
-  m_LocalScale: {x: 50, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1279820914}
-  m_RootOrder: 1
---- !u!114 &998741071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 998741069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef554cc8e6f284446a7a1e5a130f04df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!50 &998741073
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 50000012397963646, guid: 65a4919a856a08443a15f4c035b0c530,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 998741069}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &998741074
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 61000011175215066, guid: 65a4919a856a08443a15f4c035b0c530,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 998741069}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
 --- !u!1001 &1027860613
 Prefab:
   m_ObjectHideFlags: 0
@@ -1595,7 +1517,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 767776397}
-  - {fileID: 998741070}
+  - {fileID: 1990985536}
   - {fileID: 71434773}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2385,6 +2307,65 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!1001 &1990985535
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1279820914}
+    m_Modifications:
+    - target: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -8.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013093729388, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_Name
+      value: DestroyerFlat
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 18baa01cbe188d047a8c8a4d9d387ee8, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1990985536 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1990985535}
 --- !u!114 &2035204014 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114000010574091348, guid: 7cfd5cfb92b47bc448496ccaa6b879cf,
