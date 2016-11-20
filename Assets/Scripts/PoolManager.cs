@@ -2,13 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Pooling docasne vypnuty az do bugfixu
+/// </summary>
 public class PoolManager : MonoBehaviour
 {
-	private Dictionary<string, Queue<GameObject>> pool = new Dictionary<string, Queue<GameObject>>();
+	//private Dictionary<string, Queue<GameObject>> pool = new Dictionary<string, Queue<GameObject>>();
 
 	public void Add(GameObject go)
 	{
-		Queue<GameObject> values;
+        Destroy(go);
+
+		/*Queue<GameObject> values;
 
 		if (!pool.TryGetValue(go.name, out values))
 		{
@@ -18,12 +23,14 @@ public class PoolManager : MonoBehaviour
 
 		values.Enqueue (go);
 		go.SetActive (false);
-		go.transform.SetParent (this.transform);
+		go.transform.SetParent (this.transform);*/
 	}
 
 	public GameObject Get(GameObject prefab)
-	{
-		Queue<GameObject> values;
+    {
+        return Instantiate(prefab);
+
+        /*Queue<GameObject> values;
 
 		if (!pool.TryGetValue(prefab.name, out values))
 		{
@@ -42,6 +49,6 @@ public class PoolManager : MonoBehaviour
 			GameObject go = values.Dequeue ();
 			go.SetActive (true);
 			return go;
-		}
-	}
+		}*/
+    }
 }

@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour {
             GameManager.Instance.EnableBerserk();
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        GameManager.Instance.poolManager.Add(gameObject);
     }
 }
