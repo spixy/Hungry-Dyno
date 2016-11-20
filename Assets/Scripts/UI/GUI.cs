@@ -20,7 +20,7 @@ public class GUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKey)
+        if (GameManager.Instance.State == State.MainMenu && Input.anyKey)
         {
 			this.HideMenu();
         }

@@ -142,6 +142,8 @@ public class GameManager : MonoBehaviour {
 
     public void StartGame()
     {
+        Score = 0;
+        Hp = 100;
         this.dyno.Activate();
         this.State = State.InGame;
         this.UnpauseGame();
