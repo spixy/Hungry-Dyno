@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     private float hpDecay = 20f;
+
+    private bool attacking = false;
  
     public float Hp { get; private set; }
 
@@ -48,8 +50,16 @@ public class GameManager : MonoBehaviour {
         get { return this.dyno.transform.position; }
     }
 
+    public void SetAttacking(bool a) {
+        attacking = a;
+    }
 
-	private int _Score;
+    public bool IsAttacking() {
+        return attacking;
+    }
+
+
+    private int _Score;
     /// <summary>
     /// Ziskane body
     /// </summary>
@@ -110,16 +120,23 @@ public class GameManager : MonoBehaviour {
 	}
 
     public void UpdateHP(int diff) {
-        Hp += diff;
+        float newhp = Hp + diff;
+        if (newhp > 100) {
+            Hp = 100f;
+        } else {
+            Hp = newhp;
+        }
+    }
+
+    public bool HasGodmode() {
+        return dyno.HasGodmode();
     }
 
     public void EnableGodmode() {
-        Debug.Log("GODMODE!!!");
         dyno.Godmode();
     }
 
     public void EnableBerserk() {
-        Debug.Log("BERSERK!!!");
         dyno.Berserk();
     }
 

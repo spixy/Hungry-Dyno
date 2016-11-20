@@ -15,8 +15,8 @@ public class Dyno : MonoBehaviour
     [SerializeField]
     private float berserkDur = baseDur;
 
-    public bool godmode = false;
-    public bool berserk = false;
+    private bool godmode = false;
+    private bool berserk = false;
 
     [SerializeField]
     private Attack attack;
@@ -34,6 +34,7 @@ public class Dyno : MonoBehaviour
         if (godmodeDur < 0) {
             godmode = false;
             godmodeDur = baseDur;
+            anim.SetBool("Godmode", false);
             Debug.Log("Godmode off.");
         }
 
@@ -41,18 +42,22 @@ public class Dyno : MonoBehaviour
             berserk = false;
             attack.SetBerserk(false);
             berserkDur = baseDur;
+            anim.SetBool("Berserk", false);
             Debug.Log("Berserk off.");
         }
 
-        // 1 meter = 0.2 boda
-		GameManager.Instance.Score = (int) (transform.position.x * 0.2f);
+        // 1 meter = 0.5 boda
+		GameManager.Instance.Score = (int) (transform.position.x * 0.5f);
 
         if (transform.position.y < -8f) {
             Die();
         }
     }
 
-    public void Activate() {
+    public void Activate() { }
+
+    public bool HasGodmode() {
+        return godmode;
     }
 
     public void Die() {
@@ -61,11 +66,21 @@ public class Dyno : MonoBehaviour
     }
 
     public void Berserk() {
-        attack.SetBerserk(true);
-        berserk = true;
+        if (!godmode) {
+            Debug.Log("BERSERK!!!");
+            anim.SetBool("Berserk", true);
+            attack.SetBerserk(true);
+            berserkDur = baseDur;
+            berserk = true;
+        }
     }
 
     public void Godmode() {
-        godmode = true;
+        if (!berserk) {
+            Debug.Log("GODMODE!!!");
+            anim.SetBool("Godmode", true);
+            godmodeDur = baseDur;
+            godmode = true;
+        }
     }
 }

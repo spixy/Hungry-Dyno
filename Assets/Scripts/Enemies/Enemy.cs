@@ -18,8 +18,8 @@ public class Enemy : MonoBehaviour {
     private bool givesBerserk = false;
 
     void OnTriggerEnter2D(Collider2D c) {
-        if (c.gameObject.CompareTag("Player")) {
-            if (Random.Range(0f, 1f) < damageChance) {
+        if (!GameManager.Instance.IsAttacking() && c.gameObject.CompareTag("Player")) {
+            if (!GameManager.Instance.HasGodmode() && Random.Range(0f, 1f) < damageChance) {
                 Debug.Log("OUCH! Damaged.");
                 GameManager.Instance.UpdateHP(-damage);
             }

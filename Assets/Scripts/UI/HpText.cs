@@ -7,6 +7,7 @@ public class HpText : MonoBehaviour {
     private Text textComponent;
 
     void Update() {
-        textComponent.text = GameManager.Instance.Hp.ToString();
+        int hp = (int) GameManager.Instance.Hp;
+        textComponent.text = "HP: " + hp.ToString();
     }
 }

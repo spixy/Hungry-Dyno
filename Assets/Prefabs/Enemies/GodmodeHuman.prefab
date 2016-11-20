@@ -9,32 +9,32 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000010454361986}
+  m_RootGameObject: {fileID: 1000011231447890}
   m_IsPrefabParent: 1
---- !u!1 &1000010454361986
+--- !u!1 &1000011231447890
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000013084054838}
-  - 212: {fileID: 212000011517002490}
-  - 61: {fileID: 61000012157152034}
-  - 114: {fileID: 114000013333403170}
+  - 4: {fileID: 4000010862744422}
+  - 212: {fileID: 212000012347748730}
+  - 61: {fileID: 61000013029674584}
+  - 114: {fileID: 114000011740830306}
   m_Layer: 12
-  m_Name: BasicHuman
+  m_Name: GodmodeHuman
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000013084054838
+--- !u!4 &4000010862744422
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010454361986}
+  m_GameObject: {fileID: 1000011231447890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
@@ -42,42 +42,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &61000012157152034
+--- !u!61 &61000013029674584
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010454361986}
+  m_GameObject: {fileID: 1000011231447890}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.18617916, y: -0.20447922}
+  m_Offset: {x: 0.018290639, y: -0.2726364}
   serializedVersion: 2
-  m_Size: {x: 2.34239, y: 6.162468}
---- !u!114 &114000013333403170
+  m_Size: {x: 3.296582, y: 6.0261536}
+--- !u!114 &114000011740830306
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010454361986}
+  m_GameObject: {fileID: 1000011231447890}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d2d70bd01ff46f4eb7f5902086d1858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpRestore: 15
-  damage: 20
-  damageChance: 0.2
-  givesGodmode: 0
+  hpRestore: 30
+  damage: 35
+  damageChance: 0.65
+  givesGodmode: 1
   givesBerserk: 0
---- !u!212 &212000011517002490
+--- !u!212 &212000012347748730
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010454361986}
+  m_GameObject: {fileID: 1000011231447890}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -101,7 +101,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 318542261
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b165561402974a4780238c065af1174, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c8f7cca8b0cd474e9d76a4ce220d19f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

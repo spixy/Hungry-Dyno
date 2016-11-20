@@ -30,6 +30,9 @@ public class PlatformSpawner : MonoBehaviour, ISpawner
     private int lengthMax = 5;
 
     [SerializeField]
+    private float objToEnemyRatio = 0.7f;
+
+    [SerializeField]
     private float minDistanceFromBorder = 0.3f;
 
     private float lastPlatformX = 0f;
@@ -121,7 +124,7 @@ public class PlatformSpawner : MonoBehaviour, ISpawner
 			width /= 2f;
 			float x = pos.x + Random.Range(-width + this.minDistanceFromBorder, width - this.minDistanceFromBorder);
 
-			if (Random.value < 0.5f)
+			if (Random.value < objToEnemyRatio)
 				this.objectSpawner.Spawn (x);
 			else
 				this.enemySpawner.Spawn (x);

@@ -128,7 +128,7 @@ Transform:
   m_GameObject: {fileID: 1000012053908582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012710515426}
@@ -210,6 +210,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 95000011357498830}
+  godmodeDur: 10
+  berserkDur: 10
+  godmode: 0
+  berserk: 0
+  attack: {fileID: 114000011431165040}
 --- !u!114 &114000011431165040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,7 +227,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTrigger: {fileID: 61000013266670188}
-  attackDur: 0.2
   attackCd: 1
 --- !u!114 &114000012621657628
 MonoBehaviour:
@@ -263,7 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae953a2ce037ac944ae864e2a34031a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 1
   attackTrigger: {fileID: 61000013266670188}
 --- !u!212 &212000013960691174
 SpriteRenderer:
