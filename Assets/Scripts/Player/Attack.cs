@@ -38,7 +38,7 @@ public class Attack : MonoBehaviour {
             attacking = true;
             canAttack = false;
             attackTrigger.enabled = true;
-            GameManager.Instance.SetAttacking(true);
+            GameManager.Instance.dyno.Attacking = true;
 
             attackTimer = attackDur;
             cdTimer = attackCd;
@@ -58,7 +58,7 @@ public class Attack : MonoBehaviour {
             } else {
                 attacking = false;
                 attackTrigger.enabled = false;
-                GameManager.Instance.SetAttacking(false);
+                GameManager.Instance.dyno.Attacking = false;
             }
         }
 

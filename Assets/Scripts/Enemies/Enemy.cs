@@ -18,25 +18,26 @@ public class Enemy : MonoBehaviour {
     private bool givesBerserk = false;
 
     void OnTriggerEnter2D(Collider2D c) {
-        if (!GameManager.Instance.IsAttacking() && c.gameObject.CompareTag("Player")) {
-            if (!GameManager.Instance.HasGodmode() && Random.Range(0f, 1f) < damageChance) {
+        if (!GameManager.Instance.dyno.Attacking && c.gameObject.CompareTag("Player")) {
+            if (!GameManager.Instance.dyno.Godmode && Random.value < damageChance) {
                 Debug.Log("OUCH! Damaged.");
-                GameManager.Instance.UpdateHP(-damage);
+                GameManager.Instance.dyno.UpdateHP(-damage);
             }
         }
     }
 
-    public void Eat() {
+    public void Eat()
+    {
         // Gives as much score as he restores hp
-        GameManager.Instance.UpdateHP(hpRestore);
+        GameManager.Instance.dyno.UpdateHP(hpRestore);
         GameManager.Instance.Score += hpRestore;
 
         if (givesGodmode) {
-            GameManager.Instance.EnableGodmode();
+            GameManager.Instance.dyno.EnableGodmode();
         }
 
         if (givesBerserk) {
-            GameManager.Instance.EnableBerserk();
+            GameManager.Instance.dyno.EnableBerserk();
         }
 
         //Destroy(gameObject);

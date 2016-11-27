@@ -14,8 +14,7 @@ public enum State
 /// </summary>
 public class GameManager : MonoBehaviour {
     [SerializeField]
-    private Dyno dyno;
-    private bool alive = true;
+    public Dyno dyno;
 
     [SerializeField]
     private AutoSpawner cloudSpawner;
@@ -25,14 +24,7 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField]
 	public PoolManager poolManager;
-
-    [SerializeField]
-    private float hpDecay = 20f;
-
-    private bool attacking = false;
  
-    public float Hp { get; private set; }
-
     private Vector3 dynoStartingPosition;
 
 	private List<ISpawner> spawners = new List<ISpawner>();
@@ -48,14 +40,6 @@ public class GameManager : MonoBehaviour {
     public Vector3 dynoPosition
     {
         get { return this.dyno.transform.position; }
-    }
-
-    public void SetAttacking(bool a) {
-        attacking = a;
-    }
-
-    public bool IsAttacking() {
-        return attacking;
     }
 
 
@@ -95,7 +79,6 @@ public class GameManager : MonoBehaviour {
     void Start()
     {
         Score = 0;
-        Hp = 100;
         State = State.MainMenu;
 
         dynoStartingPosition = dyno.transform.position;
@@ -103,48 +86,15 @@ public class GameManager : MonoBehaviour {
         PauseGame();
     }
 
-    void Update() {
-        if (alive) {
-            if (Hp < 0) {
-                dyno.Die();
-                alive = false;
-            }
-
-            Hp -= Time.deltaTime * hpDecay;
-        }
-    }
-
 	public void RegisterSpawner(ISpawner spawner)
 	{
 		this.spawners.Add (spawner);
 	}
 
-    public void UpdateHP(int diff) {
-        float newhp = Hp + diff;
-        if (newhp > 100) {
-            Hp = 100f;
-        } else {
-            Hp = newhp;
-        }
-    }
-
-    public bool HasGodmode() {
-        return dyno.HasGodmode();
-    }
-
-    public void EnableGodmode() {
-        dyno.Godmode();
-    }
-
-    public void EnableBerserk() {
-        dyno.Berserk();
-    }
-
     public void StartGame()
     {
         Score = 0;
-        Hp = 100;
-        this.dyno.Activate();
+        this.dyno.StartGame();
         this.State = State.InGame;
         this.UnpauseGame();
     }

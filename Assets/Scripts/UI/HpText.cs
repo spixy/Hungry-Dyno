@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class HpText : MonoBehaviour {
     [SerializeField]
     private Text textComponent;
 
+    private Dyno dyno;
+
+    void Start()
+    {
+        this.dyno = GameManager.Instance.dyno;
+    }
+
     void Update() {
-        int hp = (int) GameManager.Instance.Hp;
-        textComponent.text = "HP: " + hp.ToString();
+        textComponent.text = "HP: " + (int)dyno.Hp;
     }
 }
