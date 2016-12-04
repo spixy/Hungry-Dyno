@@ -9,53 +9,61 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000013762198024}
+  m_RootGameObject: {fileID: 1000013071104048}
   m_IsPrefabParent: 1
---- !u!1 &1000013762198024
+--- !u!1 &1000013071104048
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000012740949052}
-  - 114: {fileID: 114000012669523698}
+  - 4: {fileID: 4000011777101114}
+  - 114: {fileID: 114000011534701720}
   m_Layer: 0
-  m_Name: Environment
+  m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000012740949052
+--- !u!4 &4000011777101114
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013762198024}
+  m_GameObject: {fileID: 1000013071104048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: -2.4, z: 0}
+  m_LocalPosition: {x: 15, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000012669523698
+--- !u!114 &114000011534701720
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013762198024}
+  m_GameObject: {fileID: 1000013071104048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a8a2ed243212a489be8512a440375d, type: 3}
+  m_Script: {fileID: 11500000, guid: 003e9a624cd282b4b9ccc9968b4f89dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj:
-  - {fileID: 1000013409858010, guid: bf7726944a884a648b2bf2d436e3296b, type: 2}
-  - {fileID: 1000013938499072, guid: cc95872c4764e0a4fa96894ba1929c87, type: 2}
-  - {fileID: 1000013132761196, guid: a7fd851b641597e42bab9b3bbddf7881, type: 2}
-  - {fileID: 1000013756785360, guid: 98e9b189fc636f74c81dcef8d5e65728, type: 2}
-  minY: -0.5
-  maxY: -1
-  minDistanceFromBorder: 1
+  parent: {fileID: 0}
+  objectSpawner: {fileID: 0}
+  enemySpawner: {fileID: 0}
+  platforms:
+  - small: {fileID: 1000012846073622, guid: 15d10d7be1b46864b9837cb060dd985a, type: 2}
+    start: {fileID: 1000011340803276, guid: 2265dc7b05c14294686035a95427d26e, type: 2}
+    mid: {fileID: 1000013036309706, guid: 98c281d5697092742a2776664c9e4502, type: 2}
+    end: {fileID: 1000014023160990, guid: 009bc6c4d10c4864f9616b3acef36875, type: 2}
+    width: 4.81
+  gapMin: 4
+  gapMax: 8
+  lengthMin: 1
+  lengthMax: 5
+  minDeltaY: -0.5
+  maxDeltaY: 0
+  objToEnemyRatio: 0.7

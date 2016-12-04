@@ -12,7 +12,8 @@ public enum State
 /// <summary>
 /// Hlavny manazer hry (singleton)
 /// </summary>
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     [SerializeField]
     public Dyno dyno;
 
@@ -24,10 +25,14 @@ public class GameManager : MonoBehaviour {
 
 	[SerializeField]
 	public PoolManager poolManager;
- 
-    private Vector3 dynoStartingPosition;
 
-	private List<ISpawner> spawners = new List<ISpawner>();
+    [SerializeField]
+    public TouchController touchController;
+
+    [SerializeField]
+    private PlatformSpawner platformSpawner;
+
+    private Vector3 dynoStartingPosition;
 
     /// <summary>
     /// Vrati instanciu na game manager singleton
@@ -86,11 +91,6 @@ public class GameManager : MonoBehaviour {
         PauseGame();
     }
 
-	public void RegisterSpawner(ISpawner spawner)
-	{
-		this.spawners.Add (spawner);
-	}
-
     public void StartGame()
     {
         Score = 0;
@@ -112,10 +112,11 @@ public class GameManager : MonoBehaviour {
 
 		this.dyno.transform.position = this.dynoStartingPosition;
 
-		foreach (ISpawner spawner in this.spawners)
-			spawner.Reset ();
+        this.poolManager.Reset();
 
-		this.gui.ShowMenu();
+        this.platformSpawner.Reset();
+
+        this.gui.ShowMenu();
     }
 
     public void PauseGame()

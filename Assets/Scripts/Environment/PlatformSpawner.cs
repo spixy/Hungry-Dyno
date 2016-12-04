@@ -3,7 +3,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Collections.Generic;
 
-public class PlatformSpawner : MonoBehaviour, ISpawner
+public class PlatformSpawner : MonoBehaviour
 {
     [SerializeField]
     private Transform parent;
@@ -19,30 +19,27 @@ public class PlatformSpawner : MonoBehaviour, ISpawner
 
     [SerializeField]
     private float gapMin = 1f;
-
     [SerializeField]
     private float gapMax = 2f;
 
     [SerializeField]
     private int lengthMin = 1;
-
     [SerializeField]
     private int lengthMax = 5;
 
     [SerializeField]
-    private float objToEnemyRatio = 0.7f;
+    private float minDeltaY = 0f;
+    [SerializeField]
+    private float maxDeltaY = 1f;
 
     [SerializeField]
-    private float minDistanceFromBorder = 0.3f;
-
+    [Range(0f, 1f)]
+    private float objToEnemyRatio = 0.7f;
+    
     private float lastPlatformX = 0f;
-
-	private List<GameObject> platformsInScene = new List<GameObject> ();
 
     private void Start()
     {
-		GameManager.Instance.RegisterSpawner (this);
-
 		this.GenerateStartingPlatform ();
 
         this.enabled = true;
@@ -54,6 +51,7 @@ public class PlatformSpawner : MonoBehaviour, ISpawner
 
 		Vector3 pos = this.transform.position;
 		pos.x = 0f;
+	    pos.y += Random.Range(minDeltaY, maxDeltaY);
 		pos.z = 0f;
 
 		int length = Random.Range(2, this.lengthMax);
@@ -63,11 +61,6 @@ public class PlatformSpawner : MonoBehaviour, ISpawner
 		
 	public void Reset()
 	{
-		foreach (GameObject go in this.platformsInScene)
-			GameManager.Instance.poolManager.Add (go); //Destroy (go);
-
-		this.platformsInScene.Clear ();
-
 		this.GenerateStartingPlatform ();
 	}
 
@@ -78,8 +71,9 @@ public class PlatformSpawner : MonoBehaviour, ISpawner
 
         Platform platform = this.platforms.GetRandomItem();
 
-        Vector3 pos = this.transform.position;
-        pos.x = this.lastPlatformX + Random.Range(this.gapMin, this.gapMax);
+        Vector3 pos = transform.position;
+        pos.x = this.lastPlatformX + Random.Range(gapMin,gapMax);
+        pos.y += Random.Range(minDeltaY, maxDeltaY);
         pos.z = 0f;
 
         int length = Random.Range(this.lengthMin, this.lengthMax);
@@ -114,21 +108,24 @@ public class PlatformSpawner : MonoBehaviour, ISpawner
 
 	private void SpawnPlatform(GameObject go, Vector3 pos, float width, bool generateOtherObjects)
     {
-		GameObject newGO = GameManager.Instance.poolManager.Get (go); //Instantiate(go, pos, Quaternion.identity) as GameObject;
+		GameObject newGO = GameManager.Instance.poolManager.AddToScene (go); //Instantiate(go, pos, Quaternion.identity) as GameObject;
 		newGO.transform.position = pos;
         newGO.transform.SetParent(parent, true);
-		this.platformsInScene.Add (newGO);
 
 		if (generateOtherObjects)
 		{
-			width /= 2f;
-			float x = pos.x + Random.Range(-width + this.minDistanceFromBorder, width - this.minDistanceFromBorder);
-
-			if (Random.value < objToEnemyRatio)
-				this.objectSpawner.Spawn (x);
-			else
-				this.enemySpawner.Spawn (x);
+		    this.CreateObject(pos, width);
 		}
+    }
+
+    private void CreateObject(Vector3 pos, float width)
+    {
+        float platformWidthHalf = width / 2f;
+
+        if (Random.value < objToEnemyRatio)
+            objectSpawner.Spawn(pos.x - platformWidthHalf, pos.x + platformWidthHalf, pos.y);
+        else
+            enemySpawner.Spawn(pos.x - platformWidthHalf, pos.x + platformWidthHalf, pos.y);
     }
 }
 

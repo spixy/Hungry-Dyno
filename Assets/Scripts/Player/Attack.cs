@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Attack : MonoBehaviour {
     private bool attacking = false;
@@ -34,7 +35,7 @@ public class Attack : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetKeyDown("a") && canAttack) {
+        if (CrossPlatformInputManager.GetButtonDown("Fire1") && canAttack) {
             attacking = true;
             canAttack = false;
             attackTrigger.enabled = true;

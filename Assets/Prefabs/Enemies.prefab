@@ -51,15 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a8a2ed243212a489be8512a440375d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
   obj:
   - {fileID: 1000010454361986, guid: ef03e56e81bb6034a993139d0ef47bc2, type: 2}
-  - {fileID: 1000010454361986, guid: ef03e56e81bb6034a993139d0ef47bc2, type: 2}
-  - {fileID: 1000010454361986, guid: ef03e56e81bb6034a993139d0ef47bc2, type: 2}
-  - {fileID: 1000010454361986, guid: ef03e56e81bb6034a993139d0ef47bc2, type: 2}
-  - {fileID: 1000010454361986, guid: ef03e56e81bb6034a993139d0ef47bc2, type: 2}
-  - {fileID: 1000011231447890, guid: 3527aa2921c30404f9c861af636e1d24, type: 2}
-  - {fileID: 1000011231447890, guid: 3527aa2921c30404f9c861af636e1d24, type: 2}
   - {fileID: 1000011600085642, guid: 842981d021c966a449c7d75772f53e5b, type: 2}
-  minY: -2.8
-  maxY: -2.8
+  - {fileID: 1000011231447890, guid: 3527aa2921c30404f9c861af636e1d24, type: 2}
+  minY: -0.4
+  maxY: -0.25
+  minDistanceFromBorder: 1

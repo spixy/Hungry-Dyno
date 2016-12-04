@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
     [SerializeField]
     private int hpRestore = 20;
 
@@ -41,6 +41,6 @@ public class Enemy : MonoBehaviour {
         }
 
         //Destroy(gameObject);
-        GameManager.Instance.poolManager.Add(gameObject);
+        GameManager.Instance.poolManager.RemoveFrowScene(gameObject);
     }
 }

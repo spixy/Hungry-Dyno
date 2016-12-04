@@ -1,46 +1,39 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
-public class Spawner : MonoBehaviour, ISpawner
+public class Spawner : MonoBehaviour
 {
-    [SerializeField]
-    private Transform parent;
-
     [SerializeField]
     private GameObject[] obj;
 
     [SerializeField]
-    private float minY = 1f;
+    private float minY = 0f;
+    [SerializeField]
+    private float maxY = 0f;
 
     [SerializeField]
-    private float maxY = 2f; 
-
-	private List<GameObject> objectsInScene = new List<GameObject> ();
-
-	private void Start()
-	{
-		GameManager.Instance.RegisterSpawner (this);
-	}
-
-	public void Reset()
-	{
-		foreach (GameObject go in this.objectsInScene)
-			GameManager.Instance.poolManager.Add (go); //Destroy (go);
-
-		this.objectsInScene.Clear ();
-	}
+    private float minDistanceFromBorder = 1f;
 
     public void Spawn(float x)
     {
-        Vector3 pos = new Vector3(x, Random.Range(this.minY, this.maxY), 0f);
-        this.SpawnObject(this.obj.GetRandomItem(), pos);
+        GameObject go = this.SpawnObject(this.obj.GetRandomItem());
+        go.transform.position = new Vector3(x, Random.Range(this.minY, this.maxY), 0f);
     }
 
-    private void SpawnObject(GameObject go, Vector3 pos)
+    public void Spawn(float minX, float maxX, float topY)
     {
-		GameObject newGO = GameManager.Instance.poolManager.Get (go); //Instantiate(go, pos, Quaternion.identity) as GameObject;
-		newGO.transform.position = pos;
-        newGO.transform.SetParent(this.parent, true);
-		this.objectsInScene.Add (newGO);
+        GameObject newGo = this.SpawnObject(this.obj.GetRandomItem());
+
+        float minDistFromBorder = newGo.GetComponent<SpriteRenderer>().bounds.size.x / 2f + this.minDistanceFromBorder;
+
+        newGo.transform.position = new Vector3
+        {
+            x = Random.Range(minX + minDistFromBorder, maxX - minDistFromBorder),
+            y = Random.Range(topY + minY, topY + maxY)
+        };
+    }
+
+    private GameObject SpawnObject(GameObject go)
+    {
+		return GameManager.Instance.poolManager.AddToScene (go); //Instantiate(go, pos, Quaternion.identity) as GameObject;
     }
 }

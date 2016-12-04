@@ -1,54 +1,98 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
-/// Pooling docasne vypnuty az do bugfixu
+/// Pooling objektov
 /// </summary>
 public class PoolManager : MonoBehaviour
 {
-	//private Dictionary<string, Queue<GameObject>> pool = new Dictionary<string, Queue<GameObject>>();
+    private readonly Dictionary<string, List<GameObject>> livePool = new Dictionary<string, List<GameObject>>();
 
-	public void Add(GameObject go)
-	{
-        Destroy(go);
+    private readonly Dictionary<string, Queue<GameObject>> deadPool = new Dictionary<string, Queue<GameObject>>(); // :)
 
-		/*Queue<GameObject> values;
-
-		if (!pool.TryGetValue(go.name, out values))
-		{
-			values = new Queue<GameObject>();
-			pool.Add(go.name, values);
-		}
-
-		values.Enqueue (go);
-		go.SetActive (false);
-		go.transform.SetParent (this.transform);*/
-	}
-
-	public GameObject Get(GameObject prefab)
+    public void Reset()
     {
-        return Instantiate(prefab);
+        List<GameObject> toRemove = new List<GameObject>();
 
-        /*Queue<GameObject> values;
+        foreach (var kvp in livePool)
+        {
+            foreach (GameObject go in kvp.Value)
+            {
+                toRemove.Add(go);
+            }
+        }
 
-		if (!pool.TryGetValue(prefab.name, out values))
+        for (int i = 0; i < toRemove.Count; i++)
+        {
+            RemoveFrowScene(toRemove[i]);
+        }
+    }
+
+	public void RemoveFrowScene(GameObject go)
+    {
+        Queue<GameObject> queue;
+
+		if (!deadPool.TryGetValue(go.name, out queue))
 		{
-			values = new Queue<GameObject>();
-			pool.Add(prefab.name, values);
+			queue = new Queue<GameObject>();
+			deadPool.Add(go.name, queue);
 		}
 
-		if (values.Count == 0)
+        queue.Enqueue (go);
+		go.SetActive (false);
+
+	    List<GameObject> list;
+        if (!livePool.TryGetValue(go.name, out list))
+        {
+            list = new List<GameObject>();
+            livePool.Add(go.name, list);
+        }
+	    list.Remove(go);
+    }
+
+    public GameObject AddToScene(GameObject prefab)
+    {
+        Queue<GameObject> queue;
+
+		if (!deadPool.TryGetValue(prefab.name, out queue))
 		{
-			GameObject go = Instantiate (prefab);
-			go.name = prefab.name;
-			return go;
+			queue = new Queue<GameObject>();
+			deadPool.Add(prefab.name, queue);
+		}
+
+	    GameObject go;
+
+        if (queue.Count == 0)
+		{
+			go = Instantiate(prefab);
 		}
 		else
 		{
-			GameObject go = values.Dequeue ();
+			go = queue.Dequeue ();
+
+		    if (go.activeSelf)
+            {
+                go = Instantiate(prefab);
+            }
+
 			go.SetActive (true);
-			return go;
-		}*/
+		}
+
+        List<GameObject> list;
+        if (!livePool.TryGetValue(go.name, out list))
+        {
+            list = new List<GameObject>();
+            livePool.Add(go.name, list);
+        }
+        list.Add(go);
+
+	    return go;
+    }
+
+    private static GameObject Instantiate(GameObject prefab)
+    {
+        GameObject go = Object.Instantiate(prefab);
+        go.name = prefab.name;
+        return go;
     }
 }

@@ -8,11 +8,6 @@ public class AutoSpawner : Spawner
 
     private Coroutine coroutine = null;
 
-	private void Start()
-	{
-		GameManager.Instance.RegisterSpawner (this);
-	}
-
     public void StartSpawning()
     {
         if (this.coroutine != null)
