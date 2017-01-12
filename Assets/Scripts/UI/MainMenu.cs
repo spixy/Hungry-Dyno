@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
@@ -17,7 +16,7 @@ public class MainMenu : MonoBehaviour
 		this.text.text = "Click to start";
 
 		if (gm.MaxScore > 0) {
-			this.text.text += "\r\n\r\nMax score: " + gm.MaxScore;
+			this.text.text += "\r\n\r\nMax score: " + (int)gm.MaxScore;
 		}
 	}
 }

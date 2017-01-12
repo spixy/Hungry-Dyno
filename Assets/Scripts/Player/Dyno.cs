@@ -23,6 +23,8 @@ public class Dyno : MonoBehaviour
     [SerializeField]
     private float hpDecay = 20f;
 
+	private float lastPosX = 0f;
+
     public bool Alive { get; private set; }
 
     public float Hp { get; private set; }
@@ -45,7 +47,8 @@ public class Dyno : MonoBehaviour
         }
 
         Hp = 100;
-        Alive = true;
+	    lastPosX = 0f;
+		Alive = true;
         Attacking = false;
     }
 
@@ -72,10 +75,10 @@ public class Dyno : MonoBehaviour
             }
         }
 
-        // 1 meter = 0.5 boda
-		GameManager.Instance.Score = (int) (transform.position.x * 0.5f);
+		GameManager.Instance.Score += (transform.position.x - this.lastPosX) * 0.25f;
+	    this.lastPosX = transform.position.x;
 
-        Hp -= Time.deltaTime * hpDecay;
+		Hp -= Time.deltaTime * hpDecay;
 
         if (Hp <= 0 || transform.position.y < -8f)
         {

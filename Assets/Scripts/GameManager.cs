@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
 public enum State
 {
@@ -47,12 +46,23 @@ public class GameManager : MonoBehaviour
         get { return this.dyno.transform.position; }
     }
 
+	public bool IsTap
+	{
+		get
+		{
+#if UNITY_EDITOR
+			return Input.anyKeyDown;
+#elif UNITY_ANDROID
+			return touchController.isTap;
+#endif
+		}
+	}
 
-    private int _Score;
+    private float _Score;
     /// <summary>
     /// Ziskane body
     /// </summary>
-    public int Score
+    public float Score
 	{
 		get {
 			return _Score;
@@ -68,7 +78,7 @@ public class GameManager : MonoBehaviour
 	/// <summary>
 	/// Najvyssie skore
 	/// </summary>
-	public int MaxScore { get; private set; }
+	public float MaxScore { get; private set; }
 
     /// <summary>
     /// Stav hry
@@ -94,6 +104,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Score = 0;
+		touchController.Reset();
         this.dyno.StartGame();
         this.State = State.InGame;
         this.UnpauseGame();

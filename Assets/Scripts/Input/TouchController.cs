@@ -42,53 +42,46 @@ public class TouchController : MonoBehaviour
         return false;
     }
 
-    private void Update()
-    {
-        this.ProcessTouch();
-    }
+	/// <summary>
+	/// Handlovanie touch inputu
+	/// </summary>
+	private void Update()
+	{
+		this.isTap = false;
 
-    /// <summary>
-    /// Handlovanie touch inputu
-    /// </summary>
-    private void ProcessTouch()
-    {
-        if (this.isTap)
-            this.isTap = false;
+		int touchCount = Input.touchCount;
 
-        if (Input.touchCount > 0)
-        {
-            for (int i = 0; i < Input.touchCount; ++i)
-            {
-                Touch touch = Input.GetTouch(i);
+		for (int i = 0; i < touchCount; i++)
+		{
+			Touch touch = Input.GetTouch(i);
 
-                switch (touch.phase)
-                {
-                    // zaciatok dotyku
-                    case TouchPhase.Began:
-                        this.HandleBegin(ref touch);
-                        break;
+			switch (touch.phase)
+			{
+				// zaciatok dotyku
+				case TouchPhase.Began:
+					this.HandleBegin(ref touch);
+					break;
 
-                    // pohyb prstom
-                    case TouchPhase.Moved:
-                        this.HandleMoved(ref touch);
-                        break;
+				// pohyb prstom
+				case TouchPhase.Moved:
+					this.HandleMoved(ref touch);
+					break;
 
-                    // koniec dotyku
-                    case TouchPhase.Ended:
-                    case TouchPhase.Canceled:
-                        this.HandleEnd(ref touch);
-                        break;
+				// koniec dotyku
+				case TouchPhase.Ended:
+				case TouchPhase.Canceled:
+					this.HandleEnd(ref touch);
+					break;
 
-                    // drzanie dotyku na mieste
-                    case TouchPhase.Stationary:
-                        this.HandleStationary(ref touch);
-                        break;
-                }
-            }
-        }
-    }
+				// drzanie dotyku na mieste
+				case TouchPhase.Stationary:
+					this.HandleStationary(ref touch);
+					break;
+			}
+		}
+	}
 
-    private void HandleBegin(ref Touch touch)
+	private void HandleBegin(ref Touch touch)
     {
         if (this.IntersectsWithUI(touch.position))
             return;
@@ -160,4 +153,10 @@ public class TouchController : MonoBehaviour
         // odstranim touch z listu
         this.touchData.Remove(touch.fingerId);
     }
+
+	public void Reset()
+	{
+		isTap = false;
+		isHold = false;
+	}
 }
