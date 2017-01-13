@@ -32,9 +32,7 @@ public class GameManager : MonoBehaviour
 
     private Vector3 dynoStartingPosition;
 
-#if UNITY_ANDROID
-	public TouchController touchController;
-#endif
+	public readonly TouchController touchController = new TouchController();
 
 	/// <summary>
 	/// Vrati instanciu na game manager singleton
@@ -92,10 +90,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-#if UNITY_ANDROID
-		touchController = new TouchController();
-#endif
 	}
 
 	void Start()

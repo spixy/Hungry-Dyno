@@ -229,6 +229,7 @@ MonoBehaviour:
   berserkDur: 6
   attack: {fileID: 114000011431165040}
   hpDecay: 10
+  startPos: {x: 0.2, y: 0.2, z: 1}
 --- !u!114 &114000011431165040
 MonoBehaviour:
   m_ObjectHideFlags: 1

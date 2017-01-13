@@ -1,17 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 public class TouchController
 {
-    [SerializeField]
-    private RectTransform[] uiRectTransforms;
-
-    [SerializeField]
-    private float holdDelay = 1f;
-
-    [SerializeField]
-    private float minimumMovementPx = 1f;
+    public readonly List<RectTransform> uiRectTransforms = new List<RectTransform>();
 
     private readonly HashSet<int> touchData = new HashSet<int>();
 
