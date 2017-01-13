@@ -5,9 +5,20 @@ public class ScoreText : MonoBehaviour
 {
     [SerializeField]
     private Text textComponent;
-	
+
+	private int lastScore = 0;
+
 	void Update()
 	{
-	    this.textComponent.text = "Score: " + (int)GameManager.Instance.Score;
+		if (GameManager.Instance.State != State.InGame)
+			return;
+
+		int score = (int) GameManager.Instance.Score;
+
+		if (score != lastScore)
+		{
+			textComponent.text = "Score: " + score;
+			lastScore = score;
+		}
 	}
 }

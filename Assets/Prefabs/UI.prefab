@@ -93,13 +93,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 224000010535526310}
+  - 114: {fileID: 114000010645924256}
   m_Layer: 5
-  m_Name: Game
+  m_Name: GameMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000013904098586
 GameObject:
   m_ObjectHideFlags: 1
@@ -149,6 +150,17 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &114000010645924256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013543883810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 972c74b105670e14d97151bcd6fdf358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010711418026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,7 +207,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Score: 100'
+  m_Text: 'Score: 0'
 --- !u!114 &114000010911957182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,7 +340,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'HP: 100'
+  m_Text: 'HP: 0'
 --- !u!114 &114000013504620630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1000014023810974}
+  gameMenu: {fileID: 1000013543883810}
 --- !u!114 &114000013804297106
 MonoBehaviour:
   m_ObjectHideFlags: 1

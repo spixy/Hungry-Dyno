@@ -5,21 +5,15 @@ public class CameraRunner : MonoBehaviour
     [SerializeField]
     private Transform player;
 
-    private Camera cam;
+	private float xOffset;
 
-    void Awake()
+    void Start()
     {
-        this.cam = this.GetComponent<Camera>();
-
-		this.cam.orthographicSize = 10f / Screen.width * Screen.height;
-
-		this.transform.position = new Vector3(this.player.position.x + 8.5f, this.player.position.y + 3.5f, -1f);
+	    xOffset = this.transform.position.x - this.player.position.x;
     }
 
 	void LateUpdate()
 	{
-		this.cam.orthographicSize = 10f / Screen.width * Screen.height;
-
-		this.transform.position = new Vector3(this.player.position.x + 8.5f, this.transform.position.y, -1f);
+		this.transform.position = new Vector3(this.player.position.x + xOffset, this.transform.position.y, -1f);
 	}
 }

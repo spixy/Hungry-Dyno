@@ -14,7 +14,13 @@ public class PlatformSpawner : MonoBehaviour
 	[SerializeField]
 	private Spawner enemySpawner;
 
-    [SerializeField]
+	[SerializeField]
+	private Vector2 minOrthoPos;
+
+	[SerializeField]
+	private Vector2 maxOrthoPos;
+
+	[SerializeField]
     private Platform[] platforms;
 
     [SerializeField]
@@ -26,11 +32,6 @@ public class PlatformSpawner : MonoBehaviour
     private int lengthMin = 1;
     [SerializeField]
     private int lengthMax = 5;
-
-    [SerializeField]
-    private float minDeltaY = 0f;
-    [SerializeField]
-    private float maxDeltaY = 1f;
 
     [SerializeField]
     [Range(0f, 1f)]
@@ -45,23 +46,16 @@ public class PlatformSpawner : MonoBehaviour
         this.enabled = true;
     }
 
-	private void GenerateStartingPlatform()
+	public void GenerateStartingPlatform()
 	{
 		Platform platform = this.platforms.GetRandomItem();
 
-		Vector3 pos = this.transform.position;
-		pos.x = 0f;
-	    pos.y += Random.Range(minDeltaY, maxDeltaY);
-		pos.z = 0f;
+		Vector3 pos = new Vector3(0f, Random.Range(minOrthoPos.y, maxOrthoPos.y), 1f);
+		pos = Camera.main.ViewportToWorldPoint(pos); // orthographic -> perspective
 
 		int length = Random.Range(2, this.lengthMax);
 
 		this.SpawnPlatform(platform, pos, length, false);
-	}
-		
-	public void Reset()
-	{
-		this.GenerateStartingPlatform ();
 	}
 
     private void Update()
@@ -71,12 +65,11 @@ public class PlatformSpawner : MonoBehaviour
 
         Platform platform = this.platforms.GetRandomItem();
 
-        Vector3 pos = transform.position;
-        pos.x = this.lastPlatformX + Random.Range(gapMin,gapMax);
-        pos.y += Random.Range(minDeltaY, maxDeltaY);
-        pos.z = 0f;
+        Vector3 pos = new Vector3(0f, Random.Range(minOrthoPos.y, maxOrthoPos.y), 1f);
+		pos = Camera.main.ViewportToWorldPoint(pos); // orthographic -> perspective
+		pos.x = this.lastPlatformX + Random.Range(gapMin, gapMax);
 
-        int length = Random.Range(this.lengthMin, this.lengthMax);
+		int length = Random.Range(this.lengthMin, this.lengthMax);
 
         this.SpawnPlatform(platform, pos, length);
     }

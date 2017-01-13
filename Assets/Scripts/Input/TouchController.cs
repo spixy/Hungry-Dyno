@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class TouchController : MonoBehaviour
+public class TouchController
 {
     [SerializeField]
     private RectTransform[] uiRectTransforms;
@@ -13,20 +13,7 @@ public class TouchController : MonoBehaviour
     [SerializeField]
     private float minimumMovementPx = 1f;
 
-    private struct TouchInfo
-    {
-        public float startTime;
-        public bool hasMoved;
-        public Vector2 startPos;
-    }
-
-    private readonly Dictionary<int, TouchInfo> touchData = new Dictionary<int, TouchInfo>();
-
-    public bool isTap { get; private set; }
-
-    public bool isHold { get; private set; }
-
-    public Action<Vector2> onMove { get; set; }
+    private readonly HashSet<int> touchData = new HashSet<int>();
 
     /// <summary>
     /// Zisti, ci sa bod nachadza v nejakom UI objekte
@@ -42,14 +29,10 @@ public class TouchController : MonoBehaviour
         return false;
     }
 
-	/// <summary>
-	/// Handlovanie touch inputu
-	/// </summary>
-	private void Update()
+	public bool IsTap()
 	{
-		this.isTap = false;
-
 		int touchCount = Input.touchCount;
+		bool tap = false;
 
 		for (int i = 0; i < touchCount; i++)
 		{
@@ -59,12 +42,12 @@ public class TouchController : MonoBehaviour
 			{
 				// zaciatok dotyku
 				case TouchPhase.Began:
-					this.HandleBegin(ref touch);
+					tap = this.HandleBegin(ref touch);
 					break;
 
 				// pohyb prstom
 				case TouchPhase.Moved:
-					this.HandleMoved(ref touch);
+					tap = this.HandleMoved(ref touch);
 					break;
 
 				// koniec dotyku
@@ -75,88 +58,41 @@ public class TouchController : MonoBehaviour
 
 				// drzanie dotyku na mieste
 				case TouchPhase.Stationary:
-					this.HandleStationary(ref touch);
+					tap = this.HandleStationary(ref touch);
 					break;
 			}
 		}
+
+		return tap;
 	}
 
-	private void HandleBegin(ref Touch touch)
+	private bool HandleBegin(ref Touch touch)
     {
         if (this.IntersectsWithUI(touch.position))
-            return;
+            return false;
 
         // ulozim si cas dotyku
-        this.touchData[touch.fingerId] = new TouchInfo
-        {
-            startTime = Time.time,
-            startPos = touch.position
-        };
+		this.touchData.Add(touch.fingerId);
+
+		return true;
+	}
+
+    private bool HandleMoved(ref Touch touch)
+    {
+        return this.touchData.Contains(touch.fingerId);
     }
 
-    private void HandleMoved(ref Touch touch)
+    private bool HandleStationary(ref Touch touch)
     {
-        TouchInfo touchInfo;
-
-        if (!this.touchData.TryGetValue(touch.fingerId, out touchInfo))
-            return;
-
-        float delta = Time.deltaTime / touch.deltaTime;
-
-        Vector2 deltaPosition = touch.deltaPosition;
-        deltaPosition.x /= Screen.currentResolution.width * delta;
-        deltaPosition.y /= Screen.currentResolution.height * delta;
-
-        // ak je pohyb vecsi ako minimalny
-        if (!this.isHold && Vector2.Distance(touchInfo.startPos, touch.position) > this.minimumMovementPx)
-        {
-            touchInfo.hasMoved = true;
-            this.touchData[touch.fingerId] = touchInfo;
-
-            if (this.onMove != null)
-                this.onMove(deltaPosition);
-        }
-        else
-        {
-            this.HandleStationary(ref touch);
-        }
-    }
-
-    private void HandleStationary(ref Touch touch)
-    {
-        TouchInfo touchInfo;
-
-        if (this.isHold || !this.touchData.TryGetValue(touch.fingerId, out touchInfo))
-            return;
-
-        // ak presiel urcity cas, zaregistrujem drzanie
-        if (!touchInfo.hasMoved && Time.time - touchInfo.startTime > this.holdDelay)
-        {
-            this.isHold = true;
-        }
+        return this.touchData.Contains(touch.fingerId);
     }
 
     private void HandleEnd(ref Touch touch)
     {
-        TouchInfo touchInfo;
-
-        if (!this.touchData.TryGetValue(touch.fingerId, out touchInfo))
+        if (!this.touchData.Contains(touch.fingerId))
             return;
-
-        if (!this.isHold && !touchInfo.hasMoved)
-        {
-            this.isTap = true;
-        }
-
-        this.isHold = false;
 
         // odstranim touch z listu
         this.touchData.Remove(touch.fingerId);
     }
-
-	public void Reset()
-	{
-		isTap = false;
-		isHold = false;
-	}
 }

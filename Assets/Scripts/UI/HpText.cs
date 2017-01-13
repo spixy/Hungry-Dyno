@@ -12,7 +12,7 @@ public class HpText : MonoBehaviour
 	[SerializeField]
 	private float blickSpeed;
 
-	private int lastHP;
+	private int lastHP = 0;
 	private float timer;
 	private bool blicking = false;
 

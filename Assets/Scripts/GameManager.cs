@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public enum State
 {
@@ -25,18 +26,20 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	public PoolManager poolManager;
 
-    [SerializeField]
-    public TouchController touchController;
 
     [SerializeField]
     private PlatformSpawner platformSpawner;
 
     private Vector3 dynoStartingPosition;
 
-    /// <summary>
-    /// Vrati instanciu na game manager singleton
-    /// </summary>
-    public static GameManager Instance { get; private set; }
+#if UNITY_ANDROID
+	public TouchController touchController;
+#endif
+
+	/// <summary>
+	/// Vrati instanciu na game manager singleton
+	/// </summary>
+	public static GameManager Instance { get; private set; }
 
     /// <summary>
     /// Pozicia dyna
@@ -53,7 +56,7 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
 			return Input.anyKeyDown;
 #elif UNITY_ANDROID
-			return touchController.isTap;
+			return touchController.IsTap();
 #endif
 		}
 	}
@@ -89,9 +92,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-    }
 
-    void Start()
+#if UNITY_ANDROID
+		touchController = new TouchController();
+#endif
+	}
+
+	void Start()
     {
         Score = 0;
         State = State.MainMenu;
@@ -104,7 +111,6 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Score = 0;
-		touchController.Reset();
         this.dyno.StartGame();
         this.State = State.InGame;
         this.UnpauseGame();
@@ -121,16 +127,24 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         this.cloudSpawner.StopSpawning();
 
-		this.dyno.transform.position = this.dynoStartingPosition;
-
-        this.poolManager.Reset();
-
-        this.platformSpawner.Reset();
-
-        this.gui.ShowMenu();
+	    StartCoroutine(ResetCoroutine());
     }
 
-    public void PauseGame()
+	private IEnumerator ResetCoroutine()
+	{
+		this.dyno.transform.position = this.dynoStartingPosition;
+
+		this.poolManager.Reset();
+
+		// pockat 1 frame na repozicovanie kamery
+		yield return null;
+
+		this.platformSpawner.GenerateStartingPlatform();
+
+		this.gui.ShowMenu();
+	}
+
+	public void PauseGame()
     {
         this.State = State.Paused;
         Time.timeScale = 0f;

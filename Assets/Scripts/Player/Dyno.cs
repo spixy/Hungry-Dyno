@@ -5,7 +5,7 @@
 /// </summary>
 public class Dyno : MonoBehaviour
 {
-    [SerializeField]
+	[SerializeField]
     private Animator anim;
 
     [SerializeField]
@@ -23,6 +23,9 @@ public class Dyno : MonoBehaviour
     [SerializeField]
     private float hpDecay = 20f;
 
+	[SerializeField]
+	private Vector3 startPos;
+
 	private float lastPosX = 0f;
 
     public bool Alive { get; private set; }
@@ -35,7 +38,17 @@ public class Dyno : MonoBehaviour
 
     public bool Attacking { get; set; }
 
-    public void StartGame()
+	void Awake()
+	{
+		ResetStartingPosition();
+	}
+
+	private void ResetStartingPosition()
+	{
+		transform.position = Camera.main.ViewportToWorldPoint(startPos); // orthographic -> perspective
+	}
+
+	public void StartGame()
     {
         if (Godmode)
         {
@@ -46,7 +59,8 @@ public class Dyno : MonoBehaviour
             DisableBerserk();
         }
 
-        Hp = 100;
+		ResetStartingPosition();
+		Hp = 100;
 	    lastPosX = 0f;
 		Alive = true;
         Attacking = false;
