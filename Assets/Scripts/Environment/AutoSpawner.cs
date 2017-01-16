@@ -4,27 +4,27 @@ using System.Collections;
 public class AutoSpawner : Spawner
 {
     [SerializeField]
-    private float timer = 0f;
+    private float timer = 1f;
+
+    [SerializeField]
+    private float timerDelay = 0f;
 
     private Coroutine coroutine = null;
 
-    public void StartSpawning()
+    public void Start()
     {
-        if (this.coroutine != null)
-            return;
-
         this.coroutine = StartCoroutine(this.SpawningLoop());
     }
 
     private IEnumerator SpawningLoop()
     {
-        WaitForSeconds wfs = new WaitForSeconds(this.timer);
-
         while (true)
         {
-            yield return wfs;
+            yield return new WaitForSeconds(timer + Random.value * timerDelay); ;
 
-            base.Spawn(this.transform.position.x);
+            if (GameManager.Instance.State == State.InGame) {
+                base.Spawn(this.transform.position.x);
+            }
         }
     }
 

@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 		get
 		{
 #if UNITY_EDITOR
-			return Input.anyKeyDown;
+			return Input.GetKeyDown("space");
 #elif UNITY_ANDROID
 			return touchController.IsTap();
 #endif
@@ -119,7 +119,6 @@ public class GameManager : MonoBehaviour
     {
         this.State = State.MainMenu;
         Time.timeScale = 0f;
-        this.cloudSpawner.StopSpawning();
 
 	    StartCoroutine(ResetCoroutine());
     }
@@ -142,13 +141,11 @@ public class GameManager : MonoBehaviour
     {
         this.State = State.Paused;
         Time.timeScale = 0f;
-        this.cloudSpawner.StopSpawning();
     }
 
     public void UnpauseGame()
     {
         this.State = State.InGame;
         Time.timeScale = 1f;
-        this.cloudSpawner.StartSpawning();
     }
 }

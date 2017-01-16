@@ -6,7 +6,6 @@ public class AttackTrigger : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D col) {
         if (col.CompareTag("Enemy")) {
-            Debug.Log("HAM!");
             col.SendMessageUpwards("Eat");
             attackTrigger.enabled = false;
         }
