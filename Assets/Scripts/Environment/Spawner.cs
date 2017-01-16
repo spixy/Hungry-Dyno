@@ -10,9 +10,6 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private float maxY = 0f;
 
-    [SerializeField]
-    private float minDistanceFromBorder = 1f;
-
     public void Spawn(float x)
     {
         GameObject go = this.SpawnObject(this.obj.GetRandomItem());
@@ -23,7 +20,7 @@ public class Spawner : MonoBehaviour
     {
         GameObject newGo = this.SpawnObject(this.obj.GetRandomItem());
 
-        float minDistFromBorder = newGo.GetComponent<SpriteRenderer>().bounds.size.x / 2f + this.minDistanceFromBorder;
+        float minDistFromBorder = newGo.GetComponent<SpriteRenderer>().bounds.size.x / 2f;
 
         newGo.transform.position = new Vector3
         {
