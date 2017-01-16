@@ -61,7 +61,7 @@ public class Dyno : MonoBehaviour
 
 		ResetStartingPosition();
 		Hp = 100;
-	    lastPosX = 0f;
+	    lastPosX = transform.position.x;
 		Alive = true;
         Attacking = false;
     }
@@ -109,7 +109,7 @@ public class Dyno : MonoBehaviour
         Alive = false;
         Debug.Log("Dead!");
         GameManager.Instance.ExitGame();
-    }
+	}
 
     public void EnableBerserk()
     {

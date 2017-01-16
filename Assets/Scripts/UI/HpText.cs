@@ -7,14 +7,16 @@ public class HpText : MonoBehaviour
     private Text textComponent;
 
 	[SerializeField]
-	private int criticalHP;
+	private Slider sliderComponent;
 
 	[SerializeField]
-	private float blickSpeed;
+	private Image sliderBackground;
+
+	[SerializeField]
+	private int criticalHP;
 
 	private int lastHP = 0;
-	private float timer;
-	private bool blicking = false;
+	private bool lowHP = false;
 
 	private void Update()
 	{
@@ -25,34 +27,28 @@ public class HpText : MonoBehaviour
 
 	    if (hp != lastHP)
 	    {
-		    textComponent.text = "HP: " + hp;
-		    lastHP = hp;
+		    textComponent.text = hp.ToString();
+		    sliderComponent.value = hp;
+			lastHP = hp;
 	    }
 
-		// blikanie biela - cervena
+		// zmena farby
 		if (hp <= criticalHP)
 		{
-			blicking = true;
-			timer -= Time.deltaTime;
-
-			if (timer <= 0)
-			{
-				Color c = textComponent.color;
-				c.g = 1f - c.g;
-				c.b = 1f - c.b;
-				textComponent.color = c;
-
-				timer = blickSpeed;
-			}
+			lowHP = true;
+			
+			sliderBackground.color = Color.red;
+			textComponent.color = Color.red;
 		}
 		else
 		{
-			// zresetovat farbu na bielu
-			if (blicking)
+			// zresetovat farbu
+			if (lowHP)
 			{
-				blicking = false;
+				lowHP = false;
+
+				sliderBackground.color = Color.green;
 				textComponent.color = Color.white;
-				timer = blickSpeed;
 			}
 		}
     }
