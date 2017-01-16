@@ -26,10 +26,6 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	public PoolManager poolManager;
 
-
-    [SerializeField]
-    private PlatformSpawner platformSpawner;
-
     private Vector3 dynoStartingPosition;
 
 	public readonly TouchController touchController = new TouchController();
@@ -132,7 +128,7 @@ public class GameManager : MonoBehaviour
 		// pockat 1 frame na repozicovanie kamery
 		yield return null;
 
-		this.platformSpawner.GenerateStartingPlatform();
+		//this.platformSpawner.GenerateStartingPlatform();
 
 		this.gui.ShowMenu();
 	}
