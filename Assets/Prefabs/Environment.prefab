@@ -56,6 +56,11 @@ MonoBehaviour:
   - {fileID: 1000013938499072, guid: cc95872c4764e0a4fa96894ba1929c87, type: 2}
   - {fileID: 1000013756785360, guid: 98e9b189fc636f74c81dcef8d5e65728, type: 2}
   - {fileID: 1000013132761196, guid: a7fd851b641597e42bab9b3bbddf7881, type: 2}
+  - {fileID: 1000013132761196, guid: a7fd851b641597e42bab9b3bbddf7881, type: 2}
+  - {fileID: 1000013409858010, guid: bf7726944a884a648b2bf2d436e3296b, type: 2}
+  - {fileID: 1000013938499072, guid: cc95872c4764e0a4fa96894ba1929c87, type: 2}
+  - {fileID: 1000013132761196, guid: a7fd851b641597e42bab9b3bbddf7881, type: 2}
+  - {fileID: 1000012908310092, guid: 9375281ee0a1c9145bd5abfeb638dc31, type: 2}
   minY: -3.5
   maxY: -4
   minDistanceFromBorder: 1

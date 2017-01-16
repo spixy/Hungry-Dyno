@@ -19,7 +19,7 @@ TagManager:
   - Scenery
   - Player
   - Enemy
-  - 
+  - Platforms
   - 
   - 
   - 
@@ -50,6 +50,9 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 3014886647
+    locked: 0
+  - name: Platforms
+    uniqueID: 2389012777
     locked: 0
   - name: Player
     uniqueID: 1718156543
