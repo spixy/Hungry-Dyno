@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000010971686338
 Transform:
   m_ObjectHideFlags: 1
@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012455932242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: 2, z: 0}
+  m_LocalPosition: {x: 20, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84df0fbdf264547498882bea64073af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
   obj:
   - {fileID: 104586, guid: 10f76ea0f0eaed64a82e728b49e8f62f, type: 2}
   - {fileID: 183586, guid: 709a72f00661ab342af3fe0b9d8763f5, type: 2}
@@ -81,5 +80,5 @@ MonoBehaviour:
   - {fileID: 130602, guid: 1743fdff9269964468ba6f7ce42d0ab9, type: 2}
   minY: 3
   maxY: 4.5
-  minDistanceFromBorder: 1
   timer: 1
+  timerDelay: 0

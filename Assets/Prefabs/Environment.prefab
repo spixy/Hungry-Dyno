@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013762198024}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: -2.4, z: 0}
+  m_LocalPosition: {x: 20, y: -2.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -63,6 +63,5 @@ MonoBehaviour:
   - {fileID: 1000012908310092, guid: 9375281ee0a1c9145bd5abfeb638dc31, type: 2}
   minY: -3.5
   maxY: -4
-  minDistanceFromBorder: 1
   timer: 0.75
   timerDelay: 1.5

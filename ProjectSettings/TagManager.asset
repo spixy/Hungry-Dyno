@@ -54,6 +54,9 @@ TagManager:
   - name: MidObjects
     uniqueID: 2389012777
     locked: 0
+  - name: Platforms
+    uniqueID: 2039842513
+    locked: 0
   - name: Player
     uniqueID: 1718156543
     locked: 0
