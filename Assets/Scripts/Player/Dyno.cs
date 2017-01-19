@@ -102,12 +102,12 @@ public class Dyno : MonoBehaviour
 		GameManager.Instance.Score += (transform.position.x - this.lastPosX) * 0.25f;
 	    this.lastPosX = transform.position.x;
 
-	    UpdateHP((int)(Time.deltaTime * -hpDecay));
+	    UpdateHP(Time.deltaTime * -hpDecay);
     }
 
-    public void UpdateHP(int diff)
+    public void UpdateHP(float diff)
     {
-        Hp = Mathf.Clamp(Hp + diff, 0, 100);
+        Hp = Mathf.Clamp(Hp + diff, 0f, 100f);
 
 		if (!Alive)
 		{
