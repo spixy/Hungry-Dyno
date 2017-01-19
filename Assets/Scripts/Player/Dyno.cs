@@ -44,6 +44,7 @@ public class Dyno : MonoBehaviour
 	}
 
 	public bool Attacking { get; set; }
+    public int AttackCd { get; set; }
 
 	private DynoState _state;
 
