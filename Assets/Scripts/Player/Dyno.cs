@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets._2D;
 
 public enum DynoState
 {
@@ -102,14 +103,16 @@ public class Dyno : MonoBehaviour
 				break;
 		}
 
-        float factor = transform.position.x / 500;
+        float factor = transform.position.x / 500;  // 500 is a magic constant
+        
+        // make sure factor is between 1 and FACTOR_CAP
         if (factor < 1f) factor = 1f;
         else if (factor > FACTOR_CAP) factor = FACTOR_CAP;
 
         GameManager.Instance.Score += (transform.position.x - this.lastPosX) * 0.25f * factor;
 	    this.lastPosX = transform.position.x;
 
-	    UpdateHP(Time.deltaTime * factor * -hpDecay);
+        UpdateHP(Time.deltaTime * factor * -hpDecay);
     }
 
     public void UpdateHP(float diff)
