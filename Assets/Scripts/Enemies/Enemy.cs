@@ -17,11 +17,23 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private bool givesBerserk = false;
 
-    void OnTriggerEnter2D(Collider2D c) {
-        if (!GameManager.Instance.dyno.Attacking && c.gameObject.CompareTag("Player")) {
-            if (!GameManager.Instance.dyno.Godmode && Random.value < damageChance) {
-                Debug.Log("OUCH! Damaged.");
-                GameManager.Instance.dyno.UpdateHP(-damage);
+	private Dyno dyno;
+
+	private void Start()
+	{
+		dyno = GameManager.Instance.dyno;
+	}
+
+    void OnTriggerEnter2D(Collider2D c)
+	{
+        if (!dyno.Attacking && c.gameObject.CompareTag("Player"))
+		{
+            if (dyno.State != DynoState.Godmode && Random.value < damageChance)
+			{
+				if (Debug.isDebugBuild)
+					Debug.Log("OUCH! Damaged.");
+
+                dyno.UpdateHP(-damage);
             }
         }
     }
@@ -29,15 +41,15 @@ public class Enemy : MonoBehaviour
     public void Eat()
     {
         // Gives as much score as he restores hp
-        GameManager.Instance.dyno.UpdateHP(hpRestore);
+        dyno.UpdateHP(hpRestore);
         GameManager.Instance.Score += hpRestore;
 
         if (givesGodmode) {
-            GameManager.Instance.dyno.EnableGodmode();
+            dyno.EnableGodmode();
         }
 
         if (givesBerserk) {
-            GameManager.Instance.dyno.EnableBerserk();
+            dyno.EnableBerserk();
         }
 
         //Destroy(gameObject);

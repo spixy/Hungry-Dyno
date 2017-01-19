@@ -3,19 +3,34 @@
 public class GUI : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mainMenu;
+    private MainMenu mainMenu;
 
 	[SerializeField]
-	private GameObject gameMenu;
+	private GameMenu gameMenu;
 
 	private const float freeze = 0.3f;
 
 	private float showTime = 0f;
 
+	public MainMenu MainMenu
+	{
+		get { return mainMenu; }
+	}
+
+	public GameMenu GameMenu
+	{
+		get { return gameMenu; }
+	}
+
+	private void OnEnable()
+	{
+		ShowMenu();
+	}
+
 	public void ShowMenu()
 	{
-		this.mainMenu.SetActive(true);
-		this.gameMenu.SetActive(false);
+		this.mainMenu.gameObject.SetActive(true);
+		this.gameMenu.gameObject.SetActive(false);
 		showTime = Time.unscaledTime;
 	}
 
@@ -24,14 +39,14 @@ public class GUI : MonoBehaviour
 	    if (Time.unscaledTime - showTime < freeze)
 		    return;
 
-        this.mainMenu.SetActive(false);
-		this.gameMenu.SetActive(true);
+        this.mainMenu.gameObject.SetActive(false);
+		this.gameMenu.gameObject.SetActive(true);
 		GameManager.Instance.StartGame();
     }
 
     private void Update()
     {
-        if (GameManager.Instance.State == State.MainMenu && Input.anyKey && this.mainMenu.activeInHierarchy)
+        if (GameManager.Instance.State == State.MainMenu && Input.anyKey && this.mainMenu.gameObject.activeInHierarchy)
         {
 			this.HideMenu();
         }

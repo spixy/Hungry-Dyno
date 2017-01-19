@@ -51,7 +51,7 @@ TagManager:
   - name: Terrain
     uniqueID: 3014886647
     locked: 0
-  - name: Platforms
+  - name: MidObjects
     uniqueID: 2389012777
     locked: 0
   - name: Player

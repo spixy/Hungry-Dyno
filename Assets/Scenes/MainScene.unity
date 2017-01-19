@@ -363,7 +363,6 @@ MonoBehaviour:
   - {fileID: 1000011626509598, guid: 00334e5686687e44c94a77eaaffa27ed, type: 2}
   minY: -2.25
   maxY: -2.25
-  minDistanceFromBorder: 1
   timer: 3
   timerDelay: 2
 --- !u!1 &742955293
@@ -375,7 +374,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 742955294}
   - 212: {fileID: 742955295}
-  - 61: {fileID: 742955296}
+  - 68: {fileID: 742955297}
   m_Layer: 9
   m_Name: Sand
   m_TagString: Untagged
@@ -423,14 +422,14 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1280080649
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dab83386a4e34b54aabe9460a75e8b52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!61 &742955296
-BoxCollider2D:
+--- !u!68 &742955297
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -440,9 +439,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.12040137, y: -5.0265512}
-  serializedVersion: 2
-  m_Size: {x: 47.857906, y: 2.6925662}
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -24, y: -3.5}
+  - {x: 24, y: -3.5}
 --- !u!4 &767776397 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012832675022, guid: 18baa01cbe188d047a8c8a4d9d387ee8,
@@ -861,6 +861,10 @@ Prefab:
     - target: {fileID: 114000012084326598, guid: 940f3356eeefc094abc2a97092eb9ae0,
         type: 2}
       propertyPath: automatic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012455932242, guid: 940f3356eeefc094abc2a97092eb9ae0, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

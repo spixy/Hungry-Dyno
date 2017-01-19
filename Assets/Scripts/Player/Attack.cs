@@ -34,16 +34,26 @@ public class Attack : MonoBehaviour {
         attackTrigger.enabled = false;
     }
 
-    void Update() {
-        if (CrossPlatformInputManager.GetButtonDown("Fire1") && canAttack) {
-            attacking = true;
-            canAttack = false;
-            attackTrigger.enabled = true;
-            GameManager.Instance.dyno.Attacking = true;
+	private void Eat()
+	{
+		if (Debug.isDebugBuild)
+			Debug.Log("Eat");
 
-            attackTimer = attackDur;
-            cdTimer = attackCd;
-        }
+		attacking = true;
+		canAttack = false;
+		attackTrigger.enabled = true;
+		GameManager.Instance.dyno.Attacking = true;
+
+		attackTimer = attackDur;
+		cdTimer = attackCd;
+	}
+
+    void Update()
+    {
+	    if (canAttack && CrossPlatformInputManager.GetButtonDown("Fire1"))
+	    {
+		    Eat();
+	    }
 
         if (!canAttack) {
             if (cdTimer > 0) {

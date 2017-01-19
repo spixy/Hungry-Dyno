@@ -21,14 +21,12 @@ public class GameManager : MonoBehaviour
     private AutoSpawner cloudSpawner;
 
 	[SerializeField]
-	private GUI gui;
+	public GUI gui;
 
 	[SerializeField]
 	public PoolManager poolManager;
 
     private Vector3 dynoStartingPosition;
-
-	public readonly TouchController touchController = new TouchController();
 
 	/// <summary>
 	/// Vrati instanciu na game manager singleton
@@ -42,18 +40,6 @@ public class GameManager : MonoBehaviour
     {
         get { return this.dyno.transform.position; }
     }
-
-	public bool IsTap
-	{
-		get
-		{
-#if UNITY_EDITOR
-			return Input.GetKeyDown("space");
-#elif UNITY_ANDROID
-			return touchController.IsTap();
-#endif
-		}
-	}
 
     private float _Score;
     /// <summary>

@@ -1,5 +1,13 @@
 ﻿using UnityEngine;
 
+public enum DynoState
+{
+	Death,
+	Normal,
+	Godmode,
+	Berserk
+}
+
 /// <summary>
 /// Pohyb dyna
 /// </summary>
@@ -28,19 +36,30 @@ public class Dyno : MonoBehaviour
 
 	private float lastPosX = 0f;
 
-    public bool Alive { get; private set; }
-
     public float Hp { get; private set; }
 
-    public bool Godmode { get; set; }
+	public bool Alive
+	{
+		get { return Hp > 0; }
+	}
 
-    public bool Berserk { get; set; }
+	public bool Attacking { get; set; }
 
-    public bool Attacking { get; set; }
+	private DynoState _state;
+
+	public DynoState State
+	{
+		get { return _state; }
+		set
+		{
+			_state = value;
+			GameManager.Instance.gui.GameMenu.SetIcon(value);
+		}
+	}
 
 	void Awake()
 	{
-		ResetStartingPosition();
+		//ResetStartingPosition();
 	}
 
 	private void ResetStartingPosition()
@@ -50,104 +69,123 @@ public class Dyno : MonoBehaviour
 
 	public void StartGame()
     {
-        if (Godmode)
-        {
-            DisableGodmode();
-        }
-        if (Berserk)
-        {
-            DisableBerserk();
-        }
-
 		ResetStartingPosition();
 		Hp = 100;
 	    lastPosX = transform.position.x;
-		Alive = true;
-        Attacking = false;
-    }
+		State = DynoState.Normal;
+	}
 
     void Update()
     {
-        if (!Alive)
-            return;
+		switch (State)
+		{
+			case DynoState.Death:
+				return;
 
-        if (Godmode) {
-            godmodeDur -= Time.deltaTime;
+			case DynoState.Godmode:
+				godmodeDur -= Time.deltaTime;	
+				if (godmodeDur < 0)
+				{
+					DisableGodmode();
+				}
+				break;
 
-            if (godmodeDur < 0)
-            {
-                DisableGodmode();
-            }
-        }
-
-        if (Berserk) {
-            berserkDur -= Time.deltaTime;
-
-            if (berserkDur < 0)
-            {
-                DisableBerserk();
-            }
-        }
+			case DynoState.Berserk:
+				berserkDur -= Time.deltaTime;
+				if (berserkDur < 0)
+				{
+					DisableBerserk();
+				}
+				break;
+		}
 
 		GameManager.Instance.Score += (transform.position.x - this.lastPosX) * 0.25f;
 	    this.lastPosX = transform.position.x;
 
-		Hp -= Time.deltaTime * hpDecay;
-
-        if (Hp <= 0 || transform.position.y < -8f)
-        {
-            Die();
-        }
+	    UpdateHP((int)(Time.deltaTime * -hpDecay));
     }
 
     public void UpdateHP(int diff)
     {
-        Hp = Mathf.Clamp(Hp + diff, 0f, 100f);
-    }
+        Hp = Mathf.Clamp(Hp + diff, 0, 100);
 
-    public void Die() {
-        Alive = false;
-        Debug.Log("Dead!");
-        GameManager.Instance.ExitGame();
+		if (!Alive)
+		{
+			Die();
+		}
+	}
+
+    public void Die()
+	{
+		if (Debug.isDebugBuild)
+			Debug.Log("Dead!");
+
+		switch (State)
+		{
+			case DynoState.Godmode:
+				DisableGodmode();
+				break;
+
+			case DynoState.Berserk:
+				DisableBerserk();
+				break;
+		}
+
+		State = DynoState.Death;
+		Attacking = false;
+
+		GameManager.Instance.ExitGame();
 	}
 
     public void EnableBerserk()
     {
-        if (!Godmode)
+        if (State == DynoState.Normal)
         {
-            Debug.Log("BERSERK!!!");
+			if (Debug.isDebugBuild)
+				Debug.Log("BERSERK!!!");
+
             anim.SetBool("Berserk", true);
             attack.SetBerserk(true);
             berserkDur = baseDur;
-            Berserk = true;
-        }
+
+			State = DynoState.Berserk;
+		}
     }
 
     public void EnableGodmode()
     {
-        if (!Berserk)
+        if (State == DynoState.Normal)
         {
-            Debug.Log("GODMODE!!!");
+			if (Debug.isDebugBuild)
+				Debug.Log("GODMODE!!!");
+
             anim.SetBool("Godmode", true);
             godmodeDur = baseDur;
-            Godmode = true;
+
+			State = DynoState.Godmode;
         }
     }
 
     private void DisableBerserk()
-    {
-        Berserk = false;
-        attack.SetBerserk(false);
+	{
+		State = Alive ? DynoState.Normal : DynoState.Death;
+
+		attack.SetBerserk(false);
         berserkDur = baseDur;
         anim.SetBool("Berserk", false);
-        Debug.Log("Berserk off.");
+
+		if (Debug.isDebugBuild)
+			Debug.Log("Berserk off.");
     }
 
     private void DisableGodmode()
     {
-        Godmode = false;
+	    State = Alive ? DynoState.Normal : DynoState.Death;
+
         godmodeDur = baseDur;
         anim.SetBool("Godmode", false);
-        Debug.Log("Godmode off.");
+
+		if (Debug.isDebugBuild)
+			Debug.Log("Godmode off.");
     }
 }

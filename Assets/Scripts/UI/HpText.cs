@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class HpText : MonoBehaviour
 {
     [SerializeField]
     private Text textComponent;
-
+	
 	[SerializeField]
 	private Slider sliderComponent;
 
@@ -23,20 +24,20 @@ public class HpText : MonoBehaviour
 		if (GameManager.Instance.State != State.InGame)
 			return;
 
-	    int hp = (int) GameManager.Instance.dyno.Hp;
+		int hp = (int) GameManager.Instance.dyno.Hp;
 
-	    if (hp != lastHP)
-	    {
-		    textComponent.text = hp.ToString();
-		    sliderComponent.value = hp;
+		if (hp != lastHP)
+		{
+			textComponent.text = hp.ToString();
+			sliderComponent.value = hp;
 			lastHP = hp;
-	    }
+		}
 
 		// zmena farby
 		if (hp <= criticalHP)
 		{
 			lowHP = true;
-			
+
 			sliderBackground.color = Color.red;
 			textComponent.color = Color.red;
 		}
@@ -51,5 +52,5 @@ public class HpText : MonoBehaviour
 				textComponent.color = Color.white;
 			}
 		}
-    }
+	}
 }

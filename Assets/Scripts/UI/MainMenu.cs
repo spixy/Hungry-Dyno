@@ -6,10 +6,11 @@ public class MainMenu : MonoBehaviour
 	[SerializeField]
 	private Text text;
 
-	private void Start()
-	{
-		GameManager.Instance.touchController.uiRectTransforms.Add(this.transform as RectTransform);
-	}
+	[SerializeField]
+	private RectTransform up;
+
+	[SerializeField]
+	private RectTransform down;
 
 	private void OnEnable()
 	{

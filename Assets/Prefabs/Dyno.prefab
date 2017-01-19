@@ -228,7 +228,7 @@ MonoBehaviour:
   godmodeDur: 6
   berserkDur: 6
   attack: {fileID: 114000011431165040}
-  hpDecay: 10
+  hpDecay: 7
   startPos: {x: 0.2, y: 0.2, z: 1}
 --- !u!114 &114000011431165040
 MonoBehaviour:

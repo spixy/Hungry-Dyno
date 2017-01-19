@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets._2D;
 
 [RequireComponent(typeof(PlatformerCharacter2D))]
@@ -14,16 +14,18 @@ public class Platformer2DUserControl : MonoBehaviour
 		m_Character = GetComponent<PlatformerCharacter2D>();
 	}
 
-
 	private void Update()
 	{
 		if (!m_Jump)
 		{
-			// Read the jump input in Update so button presses aren't missed.
-			m_Jump = GameManager.Instance.IsTap;
+			m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+
+			if (Debug.isDebugBuild && m_Jump)
+			{
+				Debug.Log("Jump");
+			}
 		}
 	}
-
 
 	private void FixedUpdate()
 	{
