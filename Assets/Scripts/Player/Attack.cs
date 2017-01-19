@@ -42,9 +42,9 @@ public class Attack : MonoBehaviour {
 		attacking = true;
 		canAttack = false;
 		attackTrigger.enabled = true;
-		GameManager.Instance.dyno.Attacking = true;
+        GameManager.Instance.dyno.Attacking = true;
 
-		attackTimer = attackDur;
+        attackTimer = attackDur;
 		cdTimer = attackCd;
 	}
 
@@ -74,5 +74,6 @@ public class Attack : MonoBehaviour {
         }
 
         anim.SetBool("Attacking", attacking);
-	}
+        GameManager.Instance.dyno.AttackCd = (int)(((attackCd - cdTimer) / attackCd) * 100f);
+    }
 }
