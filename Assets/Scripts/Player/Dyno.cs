@@ -59,7 +59,7 @@ public class Dyno : MonoBehaviour
 
 	void Awake()
 	{
-		//ResetStartingPosition();
+		ResetStartingPosition();
 	}
 
 	private void ResetStartingPosition()
