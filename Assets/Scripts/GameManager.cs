@@ -134,6 +134,6 @@ public class GameManager : MonoBehaviour
     {
         this.State = State.InGame;
         Time.timeScale = 1f;
-        soundtrack.volume = 1f;
+        soundtrack.volume = 0.75f;
     }
 }

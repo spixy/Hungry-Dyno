@@ -17,7 +17,13 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private bool givesBerserk = false;
 
-	private Dyno dyno;
+    [SerializeField]
+    private AudioSource splatter;
+
+    [SerializeField]
+    private AudioSource slap;
+
+    private Dyno dyno;
 
 	private void Start()
 	{
@@ -34,6 +40,10 @@ public class Enemy : MonoBehaviour
 					Debug.Log("OUCH! Damaged.");
 
                 dyno.UpdateHP(-damage);
+
+                if (slap != null) {
+                    slap.Play();
+                }
             }
         }
     }
@@ -53,6 +63,7 @@ public class Enemy : MonoBehaviour
         }
 
         //Destroy(gameObject);
-        GameManager.Instance.poolManager.RemoveFrowScene(gameObject);
+        splatter.Play();
+        // GameManager.Instance.poolManager.RemoveFrowScene(gameObject);  // TODO: set animation state to 'Splatter' and play blood
     }
 }
