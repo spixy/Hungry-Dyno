@@ -1560,16 +1560,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114000012621657628, guid: 7cfd5cfb92b47bc448496ccaa6b879cf,
-        type: 2}
-      propertyPath: m_MaxSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012621657628, guid: 7cfd5cfb92b47bc448496ccaa6b879cf,
-        type: 2}
-      propertyPath: m_AirControl
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cfd5cfb92b47bc448496ccaa6b879cf, type: 2}
   m_IsPrefabParent: 0

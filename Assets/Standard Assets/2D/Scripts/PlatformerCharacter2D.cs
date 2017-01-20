@@ -14,6 +14,7 @@ namespace UnityStandardAssets._2D
         private bool m_Grounded;            // Whether or not the player is grounded.
         private Animator m_Anim;            // Reference to the player's animator component.
         private Rigidbody2D m_Rigidbody2D;
+	    private float actualSpeeed;
 
         private void Awake()
         {
@@ -21,8 +22,14 @@ namespace UnityStandardAssets._2D
             m_GroundCheck = transform.Find("GroundCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+
+			SetFactor(1f);
         }
 
+	    public void SetFactor(float factor)
+	    {
+			actualSpeeed = m_MaxSpeed * factor;
+	    }
 
         private void FixedUpdate()
         {
@@ -54,7 +61,7 @@ namespace UnityStandardAssets._2D
                 m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
                 // Move the character
-                m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                m_Rigidbody2D.velocity = new Vector2(move * actualSpeeed, m_Rigidbody2D.velocity.y);
             }
             // If the player should jump...
             if (m_Grounded && jump && m_Anim.GetBool("Ground"))

@@ -35,6 +35,8 @@ public class Dyno : MonoBehaviour
 	[SerializeField]
 	private Vector3 startPos;
 
+	private PlatformerCharacter2D platformerCharacter2d;
+
 	private float lastPosX = 0f;
 
     private const float FACTOR_CAP = 3f;
@@ -64,6 +66,7 @@ public class Dyno : MonoBehaviour
 	void Awake()
 	{
 		ResetStartingPosition();
+		platformerCharacter2d = gameObject.GetComponent<PlatformerCharacter2D>();
 	}
 
 	private void ResetStartingPosition()
@@ -77,6 +80,7 @@ public class Dyno : MonoBehaviour
 		Hp = 100;
 	    lastPosX = transform.position.x;
 		State = DynoState.Normal;
+		platformerCharacter2d.SetFactor(1f);
 	}
 
     void Update()
@@ -106,14 +110,15 @@ public class Dyno : MonoBehaviour
         float factor = transform.position.x / 500;  // 500 is a magic constant
         
         // make sure factor is between 1 and FACTOR_CAP
-        if (factor < 1f) factor = 1f;
-        else if (factor > FACTOR_CAP) factor = FACTOR_CAP;
+        factor = Mathf.Clamp(factor, 1f, FACTOR_CAP);
 
         GameManager.Instance.Score += (transform.position.x - this.lastPosX) * 0.25f * factor;
 	    this.lastPosX = transform.position.x;
 
         UpdateHP(Time.deltaTime * factor * -hpDecay);
-    }
+
+		platformerCharacter2d.SetFactor(factor);
+	}
 
     public void UpdateHP(float diff)
     {

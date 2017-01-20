@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000010971686338
 Transform:
   m_ObjectHideFlags: 1
@@ -52,33 +52,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
-  - {fileID: 104586, guid: 10f76ea0f0eaed64a82e728b49e8f62f, type: 2}
-  - {fileID: 183586, guid: 709a72f00661ab342af3fe0b9d8763f5, type: 2}
-  - {fileID: 148084, guid: 6c8b5cf09189d824597f792fd34232f4, type: 2}
-  - {fileID: 126584, guid: 65166611445b4ff4ca97d6de5918c00b, type: 2}
-  - {fileID: 158028, guid: fca06f818833a74448dd7129d17b8e0b, type: 2}
-  - {fileID: 103684, guid: d4085f8325228ae4f8ad336b2744beb1, type: 2}
-  - {fileID: 109190, guid: 8265c804b77eacf439afd869eef92bf6, type: 2}
-  - {fileID: 162978, guid: dc130cb4f2213fc4a94974648ebede64, type: 2}
-  - {fileID: 115320, guid: 308e0cd5543b19a4ab09b77650b51abe, type: 2}
-  - {fileID: 165674, guid: 004933361ac9b5540b4885cd7394b471, type: 2}
-  - {fileID: 197716, guid: fc52b6669f27ab148bda273b96fa210a, type: 2}
-  - {fileID: 156672, guid: 5c3066760669cd04d8f606cbcdc717bd, type: 2}
-  - {fileID: 103050, guid: 1cb259a664b513845a67be1a88c507a0, type: 2}
-  - {fileID: 142936, guid: 019649b8d5732d24ab153148e8b1db93, type: 2}
-  - {fileID: 157748, guid: 3ae122c8c0e6a75419fd72f45f15612d, type: 2}
-  - {fileID: 140474, guid: e3c8e2a97d94f16428e5698b175910ac, type: 2}
-  - {fileID: 107406, guid: 102b294a01859f842bd7fab145ad3ad1, type: 2}
-  - {fileID: 100482, guid: ba6d51fb8f71dd744b8fa4a8cdcded48, type: 2}
-  - {fileID: 135856, guid: b31de25cd75de824fb1e37c018f00cf8, type: 2}
-  - {fileID: 153800, guid: 9166140eec4f3184eae14ed6ce652ae5, type: 2}
-  - {fileID: 162808, guid: c81ab48e64f3a1a48ae4586ecf9b1190, type: 2}
-  - {fileID: 124020, guid: 3d844ebe2442a4748a07271c413716ed, type: 2}
-  - {fileID: 126190, guid: 587e721f37f324c45ae2a0d4bdc9bcd1, type: 2}
-  - {fileID: 179202, guid: bff13c2f751215d4f922d9e50b79c1bf, type: 2}
-  - {fileID: 105280, guid: ce81c0ff8f1244540a28ab768774791f, type: 2}
-  - {fileID: 130602, guid: 1743fdff9269964468ba6f7ce42d0ab9, type: 2}
+  - {fileID: 1000011082278392, guid: 52f7918cb9db9ce4fa97aa3161e1a502, type: 2}
+  - {fileID: 1000013784227840, guid: 74f402e7518e73f4e8234ed36c8981dd, type: 2}
+  - {fileID: 1000013660657412, guid: bcf8ba646b538fc49b9403cd1b259529, type: 2}
+  - {fileID: 1000014226449900, guid: 5df7d18b68f6a3448b0d87049ca99a31, type: 2}
   minY: 3
   maxY: 4.5
   timer: 1
-  timerDelay: 0
+  timerDelay: 1
