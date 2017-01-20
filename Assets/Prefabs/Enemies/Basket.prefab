@@ -72,6 +72,7 @@ MonoBehaviour:
   damageChance: 0
   givesGodmode: 0
   givesBerserk: 0
+  isPickup: 1
 --- !u!212 &212000010885520242
 SpriteRenderer:
   m_ObjectHideFlags: 1

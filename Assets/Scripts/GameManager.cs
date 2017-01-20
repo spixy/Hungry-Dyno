@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public AudioSource soundtrack;
 
+    [SerializeField]
+    public Sfx sfx;
+
     private Vector3 dynoStartingPosition;
 
 	/// <summary>

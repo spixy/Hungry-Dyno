@@ -18,17 +18,15 @@ public class Enemy : MonoBehaviour
     private bool givesBerserk = false;
 
     [SerializeField]
-    private AudioSource splatter;
-
-    [SerializeField]
-    private AudioSource slap;
+    private bool isPickup = false;
 
     private Dyno dyno;
+    private Sfx sfx;
 
-	private void Start()
-	{
-		dyno = GameManager.Instance.dyno;
-	}
+	private void Start() {
+        dyno = GameManager.Instance.dyno;
+        sfx = GameManager.Instance.sfx;
+    }
 
     void OnTriggerEnter2D(Collider2D c)
 	{
@@ -41,9 +39,7 @@ public class Enemy : MonoBehaviour
 
                 dyno.UpdateHP(-damage);
 
-                if (slap != null) {
-                    slap.Play();
-                }
+                sfx.Slap();
             }
         }
     }
@@ -63,7 +59,12 @@ public class Enemy : MonoBehaviour
         }
 
         //Destroy(gameObject);
-        splatter.Play();
-        // GameManager.Instance.poolManager.RemoveFrowScene(gameObject);  // TODO: set animation state to 'Splatter' and play blood
+        if (isPickup) {
+            sfx.Pickup();
+            GameManager.Instance.poolManager.RemoveFrowScene(gameObject);
+        } else {
+            sfx.Splatter();
+            // TODO: set animation state to 'Splatter' and play blood
+        }
     }
 }
