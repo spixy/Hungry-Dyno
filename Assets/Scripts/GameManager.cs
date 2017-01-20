@@ -23,8 +23,11 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	public GUI gui;
 
-	[SerializeField]
-	public PoolManager poolManager;
+    [SerializeField]
+    public PoolManager poolManager;
+
+    [SerializeField]
+    public AudioSource soundtrack;
 
     private Vector3 dynoStartingPosition;
 
@@ -78,6 +81,7 @@ public class GameManager : MonoBehaviour
     {
         Score = 0;
         State = State.MainMenu;
+        soundtrack.Play();
 
         dynoStartingPosition = dyno.transform.position;
 
@@ -123,11 +127,13 @@ public class GameManager : MonoBehaviour
     {
         this.State = State.Paused;
         Time.timeScale = 0f;
+        soundtrack.volume = 0.3f;
     }
 
     public void UnpauseGame()
     {
         this.State = State.InGame;
         Time.timeScale = 1f;
+        soundtrack.volume = 1f;
     }
 }
