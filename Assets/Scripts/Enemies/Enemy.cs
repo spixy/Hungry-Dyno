@@ -23,17 +23,16 @@ public class Enemy : MonoBehaviour
     private Dyno dyno;
     private Sfx sfx;
 
+    private bool dead = false;
+
 	private void Start() {
         dyno = GameManager.Instance.dyno;
         sfx = GameManager.Instance.sfx;
     }
 
-    void OnTriggerEnter2D(Collider2D c)
-	{
-        if (!dyno.Attacking && c.gameObject.CompareTag("Player"))
-		{
-            if (dyno.State != DynoState.Godmode && Random.value < damageChance)
-			{
+    void OnTriggerEnter2D(Collider2D c) {
+        if (!dead && !dyno.Attacking && c.gameObject.CompareTag("Player")) {
+            if (dyno.State != DynoState.Godmode && Random.value < damageChance) {
 				if (Debug.isDebugBuild)
 					Debug.Log("OUCH! Damaged.");
 
@@ -59,6 +58,7 @@ public class Enemy : MonoBehaviour
         }
 
         //Destroy(gameObject);
+        dead = true;
         if (isPickup) {
             sfx.Pickup();
             GameManager.Instance.poolManager.RemoveFrowScene(gameObject);
