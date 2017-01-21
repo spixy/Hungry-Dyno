@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     private Animator animator;
 
     [SerializeField]
+    private SpriteRenderer renderer;
+
+    [SerializeField]
     private bool givesBerserk = false;
 
     [SerializeField]
@@ -67,6 +70,9 @@ public class Enemy : MonoBehaviour
             GameManager.Instance.poolManager.RemoveFrowScene(gameObject);
         } else {
             sfx.Splatter();
+            if (renderer != null) {
+                renderer.sortingLayerName = "Blood";
+            }
             if (animator != null) {
                 animator.SetBool("Dead", true);
             }

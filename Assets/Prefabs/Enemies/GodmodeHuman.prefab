@@ -90,6 +90,7 @@ MonoBehaviour:
   damageChance: 0.65
   givesGodmode: 1
   animator: {fileID: 95000012650865770}
+  renderer: {fileID: 212000012347748730}
   givesBerserk: 0
   isPickup: 0
 --- !u!212 &212000012347748730
