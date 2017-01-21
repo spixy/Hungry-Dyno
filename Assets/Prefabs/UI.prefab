@@ -1407,7 +1407,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114000012525841830}
-        m_MethodName: HideMenuAnimation
+        m_MethodName: StartMenuAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Stav hry
     /// </summary>
-    public State State { get; set; }
+    public State State { get; private set; }
 
     private void Awake()
     {

@@ -32,14 +32,6 @@ public class MainMenu : MonoBehaviour
 		down.CloseAnim();
 	}
 
-	private void Update()
-	{
-		if (!animActive && Input.anyKey)
-		{
-			StartMenuAnimation();
-		}
-	}
-
 	public void OnCompleteAnimation()
 	{
 		if (animActive)
