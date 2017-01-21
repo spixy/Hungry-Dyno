@@ -28,7 +28,7 @@ namespace UnityStandardAssets._2D
 
 	    public void SetFactor(float factor)
 	    {
-			actualSpeeed = m_MaxSpeed * factor;
+			actualSpeeed = m_MaxSpeed + m_MaxSpeed * ((factor - 1f) / 5);
 	    }
 
         private void FixedUpdate()
