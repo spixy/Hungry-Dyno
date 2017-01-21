@@ -15,6 +15,9 @@ public class Enemy : MonoBehaviour
     private bool givesGodmode = false;
 
     [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
     private bool givesBerserk = false;
 
     [SerializeField]
@@ -64,7 +67,9 @@ public class Enemy : MonoBehaviour
             GameManager.Instance.poolManager.RemoveFrowScene(gameObject);
         } else {
             sfx.Splatter();
-            // TODO: set animation state to 'Splatter' and play blood
+            if (animator != null) {
+                animator.SetBool("Dead", true);
+            }
         }
     }
 }

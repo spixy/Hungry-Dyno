@@ -22,6 +22,7 @@ GameObject:
   - 212: {fileID: 212000012347748730}
   - 61: {fileID: 61000013029674584}
   - 114: {fileID: 114000011740830306}
+  - 95: {fileID: 95000012650865770}
   m_Layer: 12
   m_Name: GodmodeHuman
   m_TagString: Enemy
@@ -56,6 +57,23 @@ BoxCollider2D:
   m_Offset: {x: 0.01829062, y: 3.4967449}
   serializedVersion: 2
   m_Size: {x: 3.296582, y: 6.7020364}
+--- !u!95 &95000012650865770
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011231447890}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a261526b5f8452243b177e12d7a6cd3b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000011740830306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,7 +89,9 @@ MonoBehaviour:
   damage: 35
   damageChance: 0.65
   givesGodmode: 1
+  animator: {fileID: 95000012650865770}
   givesBerserk: 0
+  isPickup: 0
 --- !u!212 &212000012347748730
 SpriteRenderer:
   m_ObjectHideFlags: 1
