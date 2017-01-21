@@ -17,7 +17,10 @@ public class Dyno : MonoBehaviour
 	[SerializeField]
     private Animator anim;
 
-    [SerializeField]
+	[SerializeField]
+	private SpriteRenderer spriteRenderer;
+
+	[SerializeField]
     private const float baseDur = 10f;
 
     [SerializeField]
@@ -81,7 +84,8 @@ public class Dyno : MonoBehaviour
 	    lastPosX = transform.position.x;
 		State = DynoState.Normal;
 		platformerCharacter2d.SetFactor(1f);
-	}
+		spriteRenderer.enabled = true;
+    }
 
     void Update()
     {
@@ -148,6 +152,7 @@ public class Dyno : MonoBehaviour
 
 		State = DynoState.Death;
 		Attacking = false;
+		spriteRenderer.enabled = false;
 
 		GameManager.Instance.ExitGame();
 	}

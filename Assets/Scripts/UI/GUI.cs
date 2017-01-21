@@ -43,12 +43,4 @@ public class GUI : MonoBehaviour
 		this.gameMenu.gameObject.SetActive(true);
 		GameManager.Instance.StartGame();
     }
-
-    private void Update()
-    {
-        if (GameManager.Instance.State == State.MainMenu && Input.anyKey && this.mainMenu.gameObject.activeInHierarchy)
-        {
-			this.HideMenu();
-        }
-    }
 }
