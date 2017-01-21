@@ -66,3 +66,4 @@ MonoBehaviour:
   maxY: -2.25
   timer: 3
   timerDelay: 2
+  force: 1

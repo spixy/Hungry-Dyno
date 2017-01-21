@@ -10,9 +10,13 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private float maxY = 0f;
 
-    public void Spawn(float x)
-    {
+    public void Spawn(float x) {
         GameObject go = this.SpawnObject(this.obj.GetRandomItem());
+        go.transform.position = new Vector3(x, Random.Range(this.minY, this.maxY), 0f);
+    }
+
+    public void ForceSpawn(float x) {
+        GameObject go = PoolManager.Instantiate(this.obj.GetRandomItem());
         go.transform.position = new Vector3(x, Random.Range(this.minY, this.maxY), 0f);
     }
 

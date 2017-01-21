@@ -9,6 +9,9 @@ public class AutoSpawner : Spawner
     [SerializeField]
     private float timerDelay = 0f;
 
+    [SerializeField]
+    private bool force = false;
+
     private Coroutine coroutine = null;
 
     public void Start()
@@ -23,7 +26,11 @@ public class AutoSpawner : Spawner
             yield return new WaitForSeconds(timer + Random.value * timerDelay); ;
 
             if (GameManager.Instance.State == State.InGame) {
-                base.Spawn(this.transform.position.x);
+                if (force) {
+                    base.ForceSpawn(this.transform.position.x);
+                } else {
+                    base.Spawn(this.transform.position.x);
+                }
             }
         }
     }

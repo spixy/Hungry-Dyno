@@ -57,6 +57,9 @@ TagManager:
   - name: Platforms
     uniqueID: 2039842513
     locked: 0
+  - name: Blood
+    uniqueID: 3689129273
+    locked: 0
   - name: Player
     uniqueID: 1718156543
     locked: 0
