@@ -53,39 +53,47 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public float Score
 	{
-		get {
+		get
+		{
 			return _Score;
 		}
-		set {
+		set
+		{
 			_Score = value;
 
-			if (MaxScore < value)
-				MaxScore = value;
+			int scoreInt = (int) value;
+
+			if (MaxScore < scoreInt)
+			{
+				MaxScore = scoreInt;
+				PlayerPrefs.SetInt("MaxScore", scoreInt);
+			}
 		}
 	}
 
 	/// <summary>
 	/// Najvyssie skore
 	/// </summary>
-	public float MaxScore { get; private set; }
+	public int MaxScore { get; private set; }
 
     /// <summary>
     /// Stav hry
     /// </summary>
     public State State { get; set; }
 
-
     private void Awake()
     {
         Instance = this;
+
+		Score = 0;
+		State = State.MainMenu;
+		MaxScore = PlayerPrefs.GetInt("MaxScore");
+
+		soundtrack.Play();
 	}
 
 	void Start()
-    {
-        Score = 0;
-        State = State.MainMenu;
-        soundtrack.Play();
-
+    {      
         dynoStartingPosition = dyno.transform.position;
 
         PauseGame();
@@ -108,8 +116,9 @@ public class GameManager : MonoBehaviour
     {
         this.State = State.MainMenu;
         Time.timeScale = 0f;
+		PlayerPrefs.Save();
 
-	    StartCoroutine(ResetCoroutine());
+		StartCoroutine(ResetCoroutine());
     }
 
 	private IEnumerator ResetCoroutine()

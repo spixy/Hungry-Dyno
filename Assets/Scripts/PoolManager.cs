@@ -18,7 +18,8 @@ public class PoolManager : MonoBehaviour
         {
             foreach (GameObject go in kvp.Value)
             {
-                toRemove.Add(go);
+				if (go)
+					toRemove.Add(go);
             }
         }
 

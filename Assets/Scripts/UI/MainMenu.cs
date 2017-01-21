@@ -17,17 +17,19 @@ public class MainMenu : MonoBehaviour
 	private void OnEnable()
 	{
 		GameManager gm = GameManager.Instance;
-
-		this.text.text = "Click to start";
-
-		if (gm.MaxScore > 0)
+		if (gm == null || gm.MaxScore == 0)
 		{
-			this.text.text += "\r\n\r\nMax score: " + (int)gm.MaxScore;
+			this.text.text = "Click to start";
+		}
+		else
+		{
+			this.text.text = "Max score: " + (int)gm.MaxScore;
 		}
 
 		animActive = false;
-		up.Animator.ResetTrigger("Play");
-		down.Animator.ResetTrigger("Play");
+
+		up.CloseAnim();
+		down.CloseAnim();
 	}
 
 	private void Update()
@@ -54,7 +56,7 @@ public class MainMenu : MonoBehaviour
 
 		animActive = true;
 
-		up.Animator.SetTrigger("Play");
-		down.Animator.SetTrigger("Play");
+		up.OpenAnim();
+		down.OpenAnim();
 	}
 }
