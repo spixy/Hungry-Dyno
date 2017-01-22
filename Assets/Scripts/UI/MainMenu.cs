@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
@@ -28,6 +29,8 @@ public class MainMenu : MonoBehaviour
 		animActive = false;
 		clickText.enabled = true;
 
+		StartCoroutine(Loop());
+
 		up.CloseAnim();
 		down.CloseAnim();
 	}
@@ -51,5 +54,14 @@ public class MainMenu : MonoBehaviour
 
 		up.OpenAnim();
 		down.OpenAnim();
+	}
+
+	private IEnumerator Loop()
+	{
+		while (clickText.enabled)
+		{
+			(clickText.transform as RectTransform).anchoredPosition = new Vector2(Random.Range(-450, 450), Random.Range(-300,300));
+			yield return new WaitForSecondsRealtime(3f);
+		}
 	}
 }
