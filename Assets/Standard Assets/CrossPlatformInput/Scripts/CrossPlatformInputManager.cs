@@ -266,10 +266,6 @@ namespace UnityStandardAssets.CrossPlatformInput
 			// A controller gameobject should call this function when the button is pressed down
 			public void Pressed()
 			{
-				if (m_Pressed)
-				{
-					return;
-				}
 				m_Pressed = true;
 				m_LastPressedFrame = Time.frameCount;
 			}
