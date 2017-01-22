@@ -24,8 +24,9 @@ public class Enemy : MonoBehaviour
     private Sfx sfx;
 
     private bool dead = false;
+    private bool hit = false;
 
-	private void Start() {
+    private void Start() {
         dyno = GameManager.Instance.dyno;
         sfx = GameManager.Instance.sfx;
 	}
@@ -36,12 +37,13 @@ public class Enemy : MonoBehaviour
 	}
 
     void OnTriggerEnter2D(Collider2D c) {
-        if (!dead && !dyno.Attacking && c.gameObject.CompareTag("Player")) {
+        if (!dead && !hit && !dyno.Attacking && c.gameObject.CompareTag("Player")) {
             if (dyno.State != DynoState.Godmode && Random.value < damageChance) {
 				if (Debug.isDebugBuild)
 					Debug.Log("OUCH! Damaged.");
 
                 dyno.UpdateHP(-damage);
+                hit = true;
 
                 sfx.Slap();
             }
