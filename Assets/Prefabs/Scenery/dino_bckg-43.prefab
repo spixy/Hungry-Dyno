@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011153642822}
   - 212: {fileID: 212000011452316730}
+  - 114: {fileID: 114000012208952008}
   m_Layer: 10
   m_Name: dino_bckg-43
   m_TagString: Untagged
@@ -35,11 +36,23 @@ Transform:
   m_GameObject: {fileID: 1000012384862476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &114000012208952008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012384862476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe41177e51f73546810f5be498d4e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
 --- !u!212 &212000011452316730
 SpriteRenderer:
   m_ObjectHideFlags: 1

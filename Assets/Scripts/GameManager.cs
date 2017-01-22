@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
 
     private Vector3 dynoStartingPosition;
 
+	[SerializeField]
+	public CameraRunner cameraRunner;
+
 	/// <summary>
 	/// Vrati instanciu na game manager singleton
 	/// </summary>

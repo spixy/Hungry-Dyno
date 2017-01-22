@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 98856db5171933c4287dd177a43a80bc
-timeCreated: 1485112077
+timeCreated: 1485116433
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,10 +57,10 @@ TextureImporter:
       name: dino_bckg-43_0
       rect:
         serializedVersion: 2
-        x: 144
-        y: 252
-        width: 1197
-        height: 1456
+        x: 133
+        y: 277
+        width: 1208
+        height: 1445
       alignment: 9
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

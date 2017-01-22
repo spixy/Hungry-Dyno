@@ -23,7 +23,7 @@ public class AutoSpawner : Spawner
             yield return new WaitForSeconds(timer + Random.value * timerDelay); ;
 
             if (GameManager.Instance.State == State.InGame)
-				base.Spawn(this.transform.position.x);
+				this.Spawn(this.transform.position.x);
 		}
     }
 

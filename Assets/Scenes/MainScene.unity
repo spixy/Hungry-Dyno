@@ -386,6 +386,7 @@ MonoBehaviour:
   poolManager: {fileID: 14371067}
   soundtrack: {fileID: 781369724}
   sfx: {fileID: 781369725}
+  cameraRunner: {fileID: 1279820915}
 --- !u!4 &781369723
 Transform:
   m_ObjectHideFlags: 0

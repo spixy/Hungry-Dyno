@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011703140662}
-  - 114: {fileID: 114000011808376350}
+  - 114: {fileID: 114000013496181610}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000011808376350
+--- !u!114 &114000013496181610
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,16 +48,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011494840706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84df0fbdf264547498882bea64073af2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2629b8873efab4d428993f0d633af180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
-  - {fileID: 1000014169980098, guid: c79def65958d2d14ab800f1ca1e44f81, type: 2}
-  - {fileID: 1000010420852620, guid: 7e2811d1056a657478e50605905d996d, type: 2}
-  - {fileID: 1000012817534898, guid: e7739a0e607438e46b1b663e924d92dd, type: 2}
-  - {fileID: 1000011775413350, guid: e516bec289083e448bef37073506ae0e, type: 2}
   - {fileID: 1000011201784840, guid: 17d8f0235d8fc1c4f8688c40e170510e, type: 2}
+  - {fileID: 1000011775413350, guid: e516bec289083e448bef37073506ae0e, type: 2}
+  - {fileID: 1000014169980098, guid: c79def65958d2d14ab800f1ca1e44f81, type: 2}
   minY: -2.5
   maxY: -2.5
   timer: 0.5
-  timerDelay: 2
+  timerDelay: 0.5
+  vulcano: {fileID: 1000012817534898, guid: e7739a0e607438e46b1b663e924d92dd, type: 2}
+  nature:
+  - {fileID: 1000012384862476, guid: 27a4993e67c0a0749b9f1cfb1d46169b, type: 2}
+  - {fileID: 1000010420852620, guid: 7e2811d1056a657478e50605905d996d, type: 2}

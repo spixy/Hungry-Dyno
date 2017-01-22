@@ -3,14 +3,14 @@
 public class Spawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] obj;
+    protected GameObject[] obj;
 
     [SerializeField]
-    private float minY = 0f;
+	protected float minY = 0f;
     [SerializeField]
-    private float maxY = 0f;
+	protected float maxY = 0f;
 
-    public void Spawn(float x) {
+    public virtual void Spawn(float x) {
         GameObject go = this.SpawnObject(this.obj.GetRandomItem());
         go.transform.position = new Vector3(x, Random.Range(this.minY, this.maxY), 0f);
     }
@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
         };
     }
 
-    private GameObject SpawnObject(GameObject go)
+    protected GameObject SpawnObject(GameObject go)
     {
 		return GameManager.Instance.poolManager.AddToScene (go);
     }
