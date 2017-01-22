@@ -24,6 +24,7 @@ public class Attack : MonoBehaviour {
     public void SetBerserk(bool berserk) {
         if (berserk) {
             attackCd /= berserkRatio;
+            cdTimer = 0;  // Berserk resets eat cooldown
         } else {
             attackCd = baseCd;
         }
