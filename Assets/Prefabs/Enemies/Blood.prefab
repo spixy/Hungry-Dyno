@@ -20,11 +20,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010862744422}
   - 212: {fileID: 212000012347748730}
-  - 61: {fileID: 61000013029674584}
-  - 114: {fileID: 114000011740830306}
-  m_Layer: 12
-  m_Name: GodmodeHuman
-  m_TagString: Enemy
+  - 95: {fileID: 95000012650865770}
+  - 114: {fileID: 114000011188431948}
+  - 61: {fileID: 61000013850971924}
+  m_Layer: 14
+  m_Name: Blood
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +43,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!61 &61000013029674584
+--- !u!61 &61000013850971924
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -53,10 +54,27 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.01829062, y: 3.4967449}
+  m_Offset: {x: 0, y: 5}
   serializedVersion: 2
-  m_Size: {x: 3.296582, y: 6.7020364}
---- !u!114 &114000011740830306
+  m_Size: {x: 10, y: 10}
+--- !u!95 &95000012650865770
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011231447890}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a261526b5f8452243b177e12d7a6cd3b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000011188431948
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -64,15 +82,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011231447890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2d70bd01ff46f4eb7f5902086d1858, type: 3}
+  m_Script: {fileID: 11500000, guid: 9da510a629017414fa5375ad3f1028d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpRestore: 30
-  damage: 35
-  damageChance: 0.65
-  givesGodmode: 1
-  givesBerserk: 0
-  isPickup: 0
+  animator: {fileID: 95000012650865770}
 --- !u!212 &212000012347748730
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -100,9 +113,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 318542261
+  m_SortingLayerID: -605838023
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5dd7ea71dbc52bc43842dff2c1864a38, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e9748cac42b49d644a58a1870681ba00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

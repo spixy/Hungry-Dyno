@@ -14,13 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private bool givesGodmode = false;
 
-    [SerializeField]
-    private Animator animator;
-
-    [SerializeField]
-    private SpriteRenderer renderer;
-
-    [SerializeField]
+	[SerializeField]
     private bool givesBerserk = false;
 
     [SerializeField]
@@ -34,7 +28,12 @@ public class Enemy : MonoBehaviour
 	private void Start() {
         dyno = GameManager.Instance.dyno;
         sfx = GameManager.Instance.sfx;
-    }
+	}
+
+	private void OnEnable()
+	{
+		dead = false;
+	}
 
     void OnTriggerEnter2D(Collider2D c) {
         if (!dead && !dyno.Attacking && c.gameObject.CompareTag("Player")) {
@@ -63,19 +62,14 @@ public class Enemy : MonoBehaviour
             dyno.EnableBerserk();
         }
 
-        //Destroy(gameObject);
         dead = true;
         if (isPickup) {
             sfx.Pickup();
-            GameManager.Instance.poolManager.RemoveFrowScene(gameObject);
         } else {
             sfx.Splatter();
-            if (renderer != null) {
-                renderer.sortingLayerName = "Blood";
-            }
-            if (animator != null) {
-                animator.SetBool("Dead", true);
-            }
-        }
-    }
+			GameManager.Instance.poolManager.SpawnBlood(this.transform);
+		}
+
+		GameManager.Instance.poolManager.RemoveFrowScene(gameObject);
+	}
 }

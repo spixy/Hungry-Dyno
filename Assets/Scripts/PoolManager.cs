@@ -6,6 +6,9 @@ using System.Collections.Generic;
 /// </summary>
 public class PoolManager : MonoBehaviour
 {
+	[SerializeField]
+	private GameObject blood;
+
     private readonly Dictionary<string, List<GameObject>> livePool = new Dictionary<string, List<GameObject>>();
 
     private readonly Dictionary<string, Queue<GameObject>> deadPool = new Dictionary<string, Queue<GameObject>>(); // :)
@@ -28,6 +31,14 @@ public class PoolManager : MonoBehaviour
             RemoveFrowScene(toRemove[i]);
         }
     }
+
+	public GameObject SpawnBlood(Transform source)
+	{
+		GameObject newBlood = this.AddToScene(blood);
+		newBlood.transform.position = source.position;
+
+		return newBlood;
+	}
 
 	public void RemoveFrowScene(GameObject go)
     {

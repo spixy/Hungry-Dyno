@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     }
 
     public void ForceSpawn(float x) {
-        GameObject go = PoolManager.Instantiate(this.obj.GetRandomItem());
+        GameObject go = GameManager.Instance.poolManager.AddToScene(this.obj.GetRandomItem());
         go.transform.position = new Vector3(x, Random.Range(this.minY, this.maxY), 0f);
     }
 

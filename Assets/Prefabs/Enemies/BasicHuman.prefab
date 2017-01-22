@@ -22,7 +22,6 @@ GameObject:
   - 212: {fileID: 212000011517002490}
   - 61: {fileID: 61000012157152034}
   - 114: {fileID: 114000013333403170}
-  - 95: {fileID: 95000013575055784}
   m_Layer: 12
   m_Name: BasicHuman
   m_TagString: Enemy
@@ -57,23 +56,6 @@ BoxCollider2D:
   m_Offset: {x: -0.18617901, y: 3.3226788}
   serializedVersion: 2
   m_Size: {x: 2.34239, y: 6.369948}
---- !u!95 &95000013575055784
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010454361986}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a261526b5f8452243b177e12d7a6cd3b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000013333403170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,8 +71,6 @@ MonoBehaviour:
   damage: 20
   damageChance: 0.2
   givesGodmode: 0
-  animator: {fileID: 95000013575055784}
-  renderer: {fileID: 212000011517002490}
   givesBerserk: 0
   isPickup: 0
 --- !u!212 &212000011517002490

@@ -22,7 +22,6 @@ GameObject:
   - 212: {fileID: 212000012438230960}
   - 61: {fileID: 61000013373357474}
   - 114: {fileID: 114000011240586796}
-  - 95: {fileID: 95000013775505410}
   m_Layer: 12
   m_Name: BerserkHuman
   m_TagString: Enemy
@@ -57,23 +56,6 @@ BoxCollider2D:
   m_Offset: {x: -0.049865413, y: 3.61689}
   serializedVersion: 2
   m_Size: {x: 4.5233955, y: 7.2149687}
---- !u!95 &95000013775505410
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011600085642}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a261526b5f8452243b177e12d7a6cd3b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000011240586796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,8 +71,6 @@ MonoBehaviour:
   damage: 50
   damageChance: 1
   givesGodmode: 0
-  animator: {fileID: 95000013775505410}
-  renderer: {fileID: 212000012438230960}
   givesBerserk: 1
   isPickup: 0
 --- !u!212 &212000012438230960
