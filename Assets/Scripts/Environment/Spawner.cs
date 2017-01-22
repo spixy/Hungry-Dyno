@@ -35,6 +35,6 @@ public class Spawner : MonoBehaviour
 
     private GameObject SpawnObject(GameObject go)
     {
-		return GameManager.Instance.poolManager.AddToScene (go); //Instantiate(go, pos, Quaternion.identity) as GameObject;
+		return GameManager.Instance.poolManager.AddToScene (go);
     }
 }

@@ -4,8 +4,14 @@ using UnityEngine;
 namespace UnityStandardAssets.CrossPlatformInput.PlatformSpecific
 {
     public class StandaloneInput : VirtualInput
-    {
-        public override float GetAxis(string name, bool raw)
+	{
+		private void AddButton(string name)
+		{
+			// we have not registered this button yet so add it, happens in the constructor
+			CrossPlatformInputManager.RegisterVirtualButton(new CrossPlatformInputManager.VirtualButton(name));
+		}
+
+		public override float GetAxis(string name, bool raw)
         {
             return raw ? Input.GetAxisRaw(name) : Input.GetAxis(name);
         }
@@ -18,8 +24,19 @@ namespace UnityStandardAssets.CrossPlatformInput.PlatformSpecific
 
 
         public override bool GetButtonDown(string name)
-        {
-            return Input.GetButtonDown(name);
+		{
+			if (Input.GetButtonDown(name))
+			{
+				return true;
+			}
+
+			if (!m_VirtualButtons.ContainsKey(name))
+			{
+				AddButton(name);
+			}
+			
+			return m_VirtualButtons[name].GetButtonDown;
+
         }
 
 
@@ -31,8 +48,14 @@ namespace UnityStandardAssets.CrossPlatformInput.PlatformSpecific
 
         public override void SetButtonDown(string name)
         {
-            throw new Exception(
-                " This is not possible to be called for standalone input. Please check your platform and code where this is called");
+			if (!m_VirtualButtons.ContainsKey(name))
+			{
+				AddButton(name);
+			}
+			m_VirtualButtons[name].Pressed();
+
+			/*throw new Exception(
+                " This is not possible to be called for standalone input. Please check your platform and code where this is called");*/
         }
 
 

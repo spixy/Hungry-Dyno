@@ -12,21 +12,21 @@ public class MainMenu : MonoBehaviour
 	[SerializeField]
 	private Teeth down;
 
+	[SerializeField]
+	private Text clickText;
+
 	private bool animActive;
 
 	private void OnEnable()
 	{
 		GameManager gm = GameManager.Instance;
-		if (gm == null || gm.MaxScore == 0)
-		{
-			this.text.text = "Click to start";
-		}
-		else
+		if (gm != null || gm.MaxScore > 0)
 		{
 			this.text.text = "Max score: " + (int)gm.MaxScore;
 		}
 
 		animActive = false;
+		clickText.enabled = true;
 
 		up.CloseAnim();
 		down.CloseAnim();
@@ -47,6 +47,7 @@ public class MainMenu : MonoBehaviour
 			return;
 
 		animActive = true;
+		clickText.enabled = false;
 
 		up.OpenAnim();
 		down.OpenAnim();

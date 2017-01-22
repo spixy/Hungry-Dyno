@@ -72,6 +72,6 @@ public class Enemy : MonoBehaviour
 			GameManager.Instance.poolManager.SpawnBlood(this.transform);
 		}
 
-		GameManager.Instance.poolManager.RemoveFrowScene(gameObject);
+		GameManager.Instance.poolManager.RemoveFromScene(gameObject);
 	}
 }

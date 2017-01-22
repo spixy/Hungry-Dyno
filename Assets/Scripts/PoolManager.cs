@@ -19,16 +19,12 @@ public class PoolManager : MonoBehaviour
 
         foreach (var kvp in livePool)
         {
-            foreach (GameObject go in kvp.Value)
-            {
-				if (go)
-					toRemove.Add(go);
-            }
+			toRemove.AddRange(kvp.Value);
         }
 
         for (int i = 0; i < toRemove.Count; i++)
         {
-            RemoveFrowScene(toRemove[i]);
+            RemoveFromScene(toRemove[i]);
         }
     }
 
@@ -40,7 +36,7 @@ public class PoolManager : MonoBehaviour
 		return newBlood;
 	}
 
-	public void RemoveFrowScene(GameObject go)
+	public void RemoveFromScene(GameObject go)
     {
         Queue<GameObject> queue;
 
@@ -76,7 +72,7 @@ public class PoolManager : MonoBehaviour
 
         if (queue.Count == 0)
 		{
-			go = Instantiate(prefab);
+			go = this.Instantiate(prefab);
 		}
 		else
 		{
@@ -84,7 +80,7 @@ public class PoolManager : MonoBehaviour
 
 		    if (go.activeSelf)
             {
-                go = Instantiate(prefab);
+                go = this.Instantiate(prefab);
             }
 
 			go.SetActive (true);
@@ -101,9 +97,9 @@ public class PoolManager : MonoBehaviour
 	    return go;
     }
 
-    private static GameObject Instantiate(GameObject prefab)
+    private GameObject Instantiate(GameObject prefab)
     {
-        GameObject go = Object.Instantiate(prefab);
+        GameObject go = Object.Instantiate(prefab, transform) as GameObject;
         go.name = prefab.name;
         return go;
     }
