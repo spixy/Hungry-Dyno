@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 		GameManager gm = GameManager.Instance;
 		if (gm != null || gm.MaxScore > 0)
 		{
-			this.text.text = "Max score: " + (int)gm.MaxScore;
+			this.text.text = "Max score: " + gm.MaxScore;
 		}
 
 		animActive = false;

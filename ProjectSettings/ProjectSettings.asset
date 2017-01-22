@@ -26,11 +26,11 @@ PlayerSettings:
   m_ActiveColorSpace: 0
   m_MTRendering: 1
   m_MobileMTRendering: 0
-  m_StackTraceTypes: 020000000100000001000000010000000200000001000000
+  m_StackTraceTypes: 010000000100000001000000010000000100000001000000
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
   iosAppInBackgroundBehavior: 0
-  displayResolutionDialog: 1
+  displayResolutionDialog: 2
   iosAllowHTTPDownload: 1
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
@@ -48,8 +48,8 @@ PlayerSettings:
   submitAnalytics: 1
   usePlayerLog: 0
   bakeCollisionMeshes: 0
-  forceSingleInstance: 0
-  resizableWindow: 0
+  forceSingleInstance: 1
+  resizableWindow: 1
   useMacAppStoreValidation: 0
   gpuSkinning: 1
   graphicsJobs: 0

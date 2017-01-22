@@ -9,54 +9,55 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000012455932242}
+  m_RootGameObject: {fileID: 1000011494840706}
   m_IsPrefabParent: 1
---- !u!1 &1000012455932242
+--- !u!1 &1000011494840706
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000010971686338}
-  - 114: {fileID: 114000012084326598}
+  - 4: {fileID: 4000011703140662}
+  - 114: {fileID: 114000011808376350}
   m_Layer: 0
-  m_Name: Clouds
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000010971686338
+--- !u!4 &4000011703140662
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012455932242}
+  m_GameObject: {fileID: 1000011494840706}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 3, z: 0}
+  m_LocalPosition: {x: 20, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000012084326598
+--- !u!114 &114000011808376350
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012455932242}
+  m_GameObject: {fileID: 1000011494840706}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84df0fbdf264547498882bea64073af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obj:
-  - {fileID: 1000011082278392, guid: 52f7918cb9db9ce4fa97aa3161e1a502, type: 2}
-  - {fileID: 1000013784227840, guid: 74f402e7518e73f4e8234ed36c8981dd, type: 2}
-  - {fileID: 1000013660657412, guid: bcf8ba646b538fc49b9403cd1b259529, type: 2}
-  - {fileID: 1000014226449900, guid: 5df7d18b68f6a3448b0d87049ca99a31, type: 2}
-  minY: 3
-  maxY: 4.5
-  timer: 1
-  timerDelay: 1
+  - {fileID: 1000014169980098, guid: c79def65958d2d14ab800f1ca1e44f81, type: 2}
+  - {fileID: 1000010420852620, guid: 7e2811d1056a657478e50605905d996d, type: 2}
+  - {fileID: 1000012817534898, guid: e7739a0e607438e46b1b663e924d92dd, type: 2}
+  - {fileID: 1000011775413350, guid: e516bec289083e448bef37073506ae0e, type: 2}
+  - {fileID: 1000011201784840, guid: 17d8f0235d8fc1c4f8688c40e170510e, type: 2}
+  minY: -2.5
+  maxY: -2.5
+  timer: 0.5
+  timerDelay: 2
