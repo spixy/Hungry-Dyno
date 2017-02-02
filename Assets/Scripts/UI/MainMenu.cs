@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class MainMenu : MonoBehaviour
 {
@@ -16,20 +18,36 @@ public class MainMenu : MonoBehaviour
 	[SerializeField]
 	private Text clickText;
 
+	[SerializeField]
+	private GameObject enterNamePanel;
+
 	private bool animActive;
+	private bool firstStart = true;
 
 	private void OnEnable()
 	{
-		GameManager gm = GameManager.Instance;
-		if (gm != null || gm.MaxScore > 0)
+		if (firstStart)
 		{
-			this.text.text = "Max score: " + gm.MaxScore;
+			StartCloseAnimation();
+			firstStart = false;
+		}
+		else
+		{
+			enterNamePanel.SetActive(true);
+		}
+	}
+
+	public void StartCloseAnimation()
+	{
+		if (!firstStart)
+		{
+			this.text.text = "Score: " + (int)GameManager.Instance.Score + "\r\nMax score: " + GameManager.Instance.MaxScore;
 		}
 
 		animActive = false;
 		clickText.enabled = true;
 
-		StartCoroutine(Loop());
+		StartCoroutine(PositionChangeLoop());
 
 		up.CloseAnim();
 		down.CloseAnim();
@@ -40,11 +58,11 @@ public class MainMenu : MonoBehaviour
 		if (animActive)
 		{
 			animActive = false;
-			GameManager.Instance.gui.HideMenu();
+			GameManager.Instance.Gui.HideMenu();
 		}
 	}
 
-	public void StartMenuAnimation()
+	public void StartOpenAnimation()
 	{
 		if (animActive)
 			return;
@@ -56,7 +74,7 @@ public class MainMenu : MonoBehaviour
 		down.OpenAnim();
 	}
 
-	private IEnumerator Loop()
+	private IEnumerator PositionChangeLoop()
 	{
 		while (clickText.enabled)
 		{

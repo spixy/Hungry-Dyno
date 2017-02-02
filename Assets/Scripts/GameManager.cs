@@ -15,69 +15,90 @@ public enum State
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    public Dyno dyno;
+    private Dyno dyno;
 
     [SerializeField]
     private AutoSpawner cloudSpawner;
 
 	[SerializeField]
-	public GUI gui;
+	private GUI gui;
 
     [SerializeField]
-    public PoolManager poolManager;
+    private PoolManager poolManager;
 
     [SerializeField]
-    public AudioSource soundtrack;
+    private AudioSource soundtrack;
 
     [SerializeField]
     public Sfx sfx;
-
-    private Vector3 dynoStartingPosition;
-
+	
 	[SerializeField]
 	public CameraRunner cameraRunner;
+
+	private Vector3 dynoStartingPosition;
+
+	public ScoreStorage scoreStorage { get; private set; }
 
 	/// <summary>
 	/// Vrati instanciu na game manager singleton
 	/// </summary>
 	public static GameManager Instance { get; private set; }
 
-    /// <summary>
-    /// Pozicia dyna
-    /// </summary>
-    public Vector3 dynoPosition
+	public GUI Gui
+	{
+		get { return this.gui; }
+	}
+
+	public Dyno Dyno
+	{
+		get { return this.dyno; }
+	}
+
+	public PoolManager PoolManager
+	{
+		get { return this.poolManager; }
+	}
+
+	/// <summary>
+	/// Pozicia dyna
+	/// </summary>
+	public Vector3 dynoPosition
     {
-        get { return this.dyno.transform.position; }
+        get { return this.Dyno.transform.position; }
     }
 
-    private float _Score;
-    /// <summary>
+	/// <summary>
+	/// Meno hraca
+	/// </summary>
+	public string PlayerName { get; set; }
+
+	/// <summary>
     /// Ziskane body
     /// </summary>
-    public float Score
-	{
-		get
-		{
-			return _Score;
-		}
-		set
-		{
-			_Score = value;
-
-			int scoreInt = (int) value;
-
-			if (MaxScore < scoreInt)
-			{
-				MaxScore = scoreInt;
-				PlayerPrefs.SetInt("MaxScore", scoreInt);
-			}
-		}
-	}
+    public float Score { get; set; }
 
 	/// <summary>
 	/// Najvyssie skore
 	/// </summary>
-	public int MaxScore { get; private set; }
+	public int MaxScore
+	{
+		get
+		{
+			int value = scoreStorage.GetScore(PlayerName);
+
+			if (Score > value)
+			{
+				value = (int)Score;
+				MaxScore = value;
+			}
+
+			return value;
+		}
+		private set
+		{
+			scoreStorage.SetScore(PlayerName, value, true);
+		}
+	}
 
     /// <summary>
     /// Stav hry
@@ -90,14 +111,14 @@ public class GameManager : MonoBehaviour
 
 		Score = 0;
 		State = State.MainMenu;
-		MaxScore = PlayerPrefs.GetInt("MaxScore");
+		scoreStorage = new ScoreStorage();
 
 		soundtrack.Play();
 	}
 
 	void Start()
     {      
-        dynoStartingPosition = dyno.transform.position;
+        dynoStartingPosition = Dyno.transform.position;
 
         PauseGame();
     }
@@ -105,7 +126,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Score = 0;
-        this.dyno.StartGame();
+        this.Dyno.StartGame();
         this.State = State.InGame;
         this.UnpauseGame();
     }
@@ -126,16 +147,16 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator ResetCoroutine()
 	{
-		this.dyno.transform.position = this.dynoStartingPosition;
+		this.Dyno.transform.position = this.dynoStartingPosition;
 
-		this.poolManager.Reset();
+		this.PoolManager.Reset();
 
 		// pockat 1 frame na repozicovanie kamery
 		yield return null;
 
 		//this.platformSpawner.GenerateStartingPlatform();
 
-		this.gui.ShowMenu();
+		this.Gui.ShowMenu();
 	}
 
 	public void PauseGame()

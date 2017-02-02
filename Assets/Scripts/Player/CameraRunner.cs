@@ -1,35 +1,30 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraRunner : MonoBehaviour
 {
     [SerializeField]
     private Transform player;
 
+	[SerializeField]
+	private float speedRatio;
+
 	private float xOffset;
-
-	public List<Transform> paralaxObjects { get; set; }
-
 	private float lastX;
 
     void Start()
     {
 	    xOffset = this.transform.position.x - this.player.position.x;
-		paralaxObjects = new List<Transform>();
-	}
+	    lastX = player.position.x;
+    }
 
 	void LateUpdate()
 	{
+		if (this.player.position.x <= lastX)
+			return;
+
 		this.transform.position = new Vector3(this.player.position.x + xOffset, this.transform.position.y, -1f);
 
-		int paralaxObjectsCount = paralaxObjects.Count;
-		for (int i = 0; i < paralaxObjectsCount; i++)
-		{
-			Vector3 pos = paralaxObjects[i].position;
-			pos.x += (this.transform.position.x - lastX) * 0.2f;
-			paralaxObjects[i].position = pos;
-		}
-
-		lastX = this.transform.position.x;
+		xOffset += (speedRatio * Time.deltaTime);
+		lastX = this.player.position.x;
 	}
 }

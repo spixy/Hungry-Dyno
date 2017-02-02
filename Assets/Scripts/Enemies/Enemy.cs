@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     private bool hit = false;
 
     private void Start() {
-        dyno = GameManager.Instance.dyno;
+        dyno = GameManager.Instance.Dyno;
         sfx = GameManager.Instance.sfx;
 	}
 
@@ -69,9 +69,9 @@ public class Enemy : MonoBehaviour
             sfx.Pickup();
         } else {
             sfx.Splatter();
-			GameManager.Instance.poolManager.SpawnBlood(this.transform);
+			GameManager.Instance.PoolManager.SpawnBlood(this.transform);
 		}
 
-		GameManager.Instance.poolManager.RemoveFromScene(gameObject);
+		GameManager.Instance.PoolManager.RemoveFromScene(gameObject);
 	}
 }

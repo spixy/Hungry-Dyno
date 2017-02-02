@@ -57,9 +57,10 @@ MonoBehaviour:
   - {fileID: 1000014169980098, guid: c79def65958d2d14ab800f1ca1e44f81, type: 2}
   minY: -2.5
   maxY: -2.5
-  timer: 0.5
+  timer: 3
   timerDelay: 0.5
   vulcano: {fileID: 1000012817534898, guid: e7739a0e607438e46b1b663e924d92dd, type: 2}
   nature:
   - {fileID: 1000012384862476, guid: 27a4993e67c0a0749b9f1cfb1d46169b, type: 2}
   - {fileID: 1000010420852620, guid: 7e2811d1056a657478e50605905d996d, type: 2}
+  parent: {fileID: 0}

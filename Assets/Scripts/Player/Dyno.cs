@@ -62,7 +62,7 @@ public class Dyno : MonoBehaviour
 		set
 		{
 			_state = value;
-			GameManager.Instance.gui.GameMenu.SetIcon(value);
+			GameManager.Instance.Gui.GameMenu.SetIcon(value);
 		}
 	}
 

@@ -58,9 +58,12 @@ public class PoolManager : MonoBehaviour
 	    list.Remove(go);
     }
 
-    public GameObject AddToScene(GameObject prefab)
+    public GameObject AddToScene(GameObject prefab, Transform parent = null)
     {
-        Queue<GameObject> queue;
+	    if (parent == null)
+		    parent = this.transform;
+
+		Queue<GameObject> queue;
 
 		if (!deadPool.TryGetValue(prefab.name, out queue))
 		{
@@ -72,7 +75,7 @@ public class PoolManager : MonoBehaviour
 
         if (queue.Count == 0)
 		{
-			go = this.Instantiate(prefab);
+			go = this.Instantiate(prefab, parent);
 		}
 		else
 		{
@@ -80,7 +83,7 @@ public class PoolManager : MonoBehaviour
 
 		    if (go.activeSelf)
             {
-                go = this.Instantiate(prefab);
+                go = this.Instantiate(prefab, parent);
             }
 
 			go.SetActive (true);
@@ -97,9 +100,9 @@ public class PoolManager : MonoBehaviour
 	    return go;
     }
 
-    private GameObject Instantiate(GameObject prefab)
+    private GameObject Instantiate(GameObject prefab, Transform parent)
     {
-        GameObject go = Object.Instantiate(prefab, transform) as GameObject;
+        GameObject go = Object.Instantiate(prefab, parent) as GameObject;
         go.name = prefab.name;
         return go;
     }

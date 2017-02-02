@@ -43,7 +43,7 @@ public class Attack : MonoBehaviour {
 		attacking = true;
 		canAttack = false;
 		attackTrigger.enabled = true;
-        GameManager.Instance.dyno.Attacking = true;
+        GameManager.Instance.Dyno.Attacking = true;
 
         attackTimer = attackDur;
 		cdTimer = attackCd;
@@ -70,11 +70,11 @@ public class Attack : MonoBehaviour {
             } else {
                 attacking = false;
                 attackTrigger.enabled = false;
-                GameManager.Instance.dyno.Attacking = false;
+                GameManager.Instance.Dyno.Attacking = false;
             }
         }
 
         anim.SetBool("Attacking", attacking);
-        GameManager.Instance.dyno.AttackCd = (int)(((attackCd - cdTimer) / attackCd) * 100f);
+        GameManager.Instance.Dyno.AttackCd = (int)(((attackCd - cdTimer) / attackCd) * 100f);
     }
 }

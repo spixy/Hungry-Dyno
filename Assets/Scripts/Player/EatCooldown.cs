@@ -15,7 +15,7 @@ public class EatCooldown : MonoBehaviour {
         if (GameManager.Instance.State != State.InGame)
             return;
 
-        int cd = GameManager.Instance.dyno.AttackCd;
+        int cd = GameManager.Instance.Dyno.AttackCd;
 
         if (cd != lastCd) {
             lastCd = cd;

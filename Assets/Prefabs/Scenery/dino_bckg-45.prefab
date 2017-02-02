@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014052254434}
   - 212: {fileID: 212000013124866968}
-  - 114: {fileID: 114000010510440314}
   m_Layer: 10
   m_Name: dino_bckg-45
   m_TagString: Untagged
@@ -41,18 +40,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &114000010510440314
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014169980098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fe41177e51f73546810f5be498d4e58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
 --- !u!212 &212000013124866968
 SpriteRenderer:
   m_ObjectHideFlags: 1

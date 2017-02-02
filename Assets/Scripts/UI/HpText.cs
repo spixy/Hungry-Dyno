@@ -24,7 +24,7 @@ public class HpText : MonoBehaviour
 		if (GameManager.Instance.State != State.InGame)
 			return;
 
-		int hp = (int) GameManager.Instance.dyno.Hp;
+		int hp = (int) GameManager.Instance.Dyno.Hp;
 
 		if (hp != lastHP)
 		{

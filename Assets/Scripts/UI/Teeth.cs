@@ -7,7 +7,7 @@ public class Teeth : MonoBehaviour
 
 	public void OnCompleteAnim()
 	{
-		GameManager.Instance.gui.MainMenu.OnCompleteAnimation();
+		GameManager.Instance.Gui.MainMenu.OnCompleteAnimation();
 	}
 
 	public void CloseAnim()

@@ -17,6 +17,9 @@ public class BgSpawner : AutoSpawner
 	[SerializeField]
 	private GameObject[] nature;
 
+	[SerializeField]
+	private Transform parent;
+
 	private State state = State.None;
 
 	public override void Spawn(float x)
@@ -32,7 +35,7 @@ public class BgSpawner : AutoSpawner
 				return;
 
 			case State.City:
-				go = this.SpawnObject(this.obj.GetRandomItem());
+				go = this.SpawnObject(this.obj.GetRandomItem(), parent);
 				if (random < 0.3f)
 				{
 					state = (State)Random.Range(0, 3);
@@ -40,7 +43,7 @@ public class BgSpawner : AutoSpawner
 				break;
 
 			case State.Nature:
-				go = this.SpawnObject(this.nature.GetRandomItem());
+				go = this.SpawnObject(this.nature.GetRandomItem(), parent);
 				if (random < 0.3f)
 				{
 					state = (State)Random.Range(0, 4);
@@ -48,7 +51,7 @@ public class BgSpawner : AutoSpawner
 				break;
 
 			case State.Vulcano:
-				go = this.SpawnObject(this.vulcano);
+				go = this.SpawnObject(this.vulcano, parent);
 				if (random < 0.75f)
 				{
 					state = State.Nature;

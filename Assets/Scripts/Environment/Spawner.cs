@@ -28,8 +28,8 @@ public class Spawner : MonoBehaviour
         };
     }
 
-    protected GameObject SpawnObject(GameObject go)
+    protected GameObject SpawnObject(GameObject go, Transform parent = null)
     {
-		return GameManager.Instance.poolManager.AddToScene (go);
+		return GameManager.Instance.PoolManager.AddToScene (go, parent);
     }
 }

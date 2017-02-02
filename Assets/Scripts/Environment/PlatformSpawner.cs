@@ -101,7 +101,7 @@ public class PlatformSpawner : MonoBehaviour
 
 	private void SpawnPlatform(GameObject go, Vector3 pos, float width, bool generateOtherObjects)
     {
-		GameObject newGO = GameManager.Instance.poolManager.AddToScene (go);
+		GameObject newGO = GameManager.Instance.PoolManager.AddToScene (go);
 		newGO.transform.position = pos;
         newGO.transform.SetParent(parent, true);
 
