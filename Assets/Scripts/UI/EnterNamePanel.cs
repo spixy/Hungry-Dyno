@@ -4,10 +4,15 @@ using UnityEngine.UI;
 public class EnterNamePanel : MonoBehaviour
 {
 	[SerializeField]
+	private Text scoreText;
+
+	[SerializeField]
 	private InputField inputField;
 
 	private void OnEnable()
 	{
+		scoreText.text = "Your score: " + (int) GameManager.Instance.Score;
+
 		if (!string.IsNullOrEmpty(GameManager.Instance.PlayerName))
 		{
 			inputField.placeholder.GetComponent<Text>().text = GameManager.Instance.PlayerName;

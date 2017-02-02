@@ -5,11 +5,15 @@ using UnityEngine.UI;
 public class TopScorePanel : MonoBehaviour
 {
 	[SerializeField]
-	private Text inputField;
+	private Text player;
+
+	[SerializeField]
+	private Text scores;
 
 	private void OnEnable()
 	{
-		inputField.text = string.Empty;
+		player.text = string.Empty;
+		scores.text = string.Empty;
 
 		var table = GameManager.Instance.scoreStorage.GetTopScoreTable();
 
@@ -17,7 +21,8 @@ public class TopScorePanel : MonoBehaviour
 
 		foreach (var item in table)
 		{
-			inputField.text += "Player " + ++counter +": " + item.Key + ", Score: " + item.Value + "\r\n";
+			player.text += ++counter + ":   " + item.Key + "\r\n";
+			scores.text += item.Value + "\r\n";
 		}
 	}
 
