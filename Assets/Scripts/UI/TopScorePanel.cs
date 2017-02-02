@@ -13,9 +13,11 @@ public class TopScorePanel : MonoBehaviour
 
 		var table = GameManager.Instance.scoreStorage.GetTopScoreTable();
 
+		int counter = 0;
+
 		foreach (var item in table)
 		{
-			inputField.text += "Player: " + item.Key + ", Score: " + item.Value + "\r\n";
+			inputField.text += "Player " + ++counter +": " + item.Key + ", Score: " + item.Value + "\r\n";
 		}
 	}
 
