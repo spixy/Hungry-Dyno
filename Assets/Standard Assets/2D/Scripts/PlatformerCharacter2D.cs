@@ -49,25 +49,42 @@ namespace UnityStandardAssets._2D
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
         }
 
+		public void MoveBack(float move)
+		{
+			Debug.Log("MoveBack");
 
-        public void Move(float move, bool jump)
+			// The Speed animator parameter is set to the absolute value of the horizontal input.
+			m_Anim.SetFloat("Speed", 0);
+
+			// Move the character
+			m_Rigidbody2D.velocity = new Vector2(-move * actualSpeeed, m_Rigidbody2D.velocity.y);
+
+			if (m_Grounded)
+			{
+				// Add a vertical force to the player.
+				m_Grounded = false;
+				m_Anim.SetBool("Ground", false);
+				m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+			}
+		}
+
+		public void Move(float move, bool jump)
         {
-
-            //only control the player if grounded or airControl is turned on
-            if (m_Grounded || m_AirControl)
+			//only control the player if grounded or airControl is turned on
+			if (m_Grounded || m_AirControl)
             {
-
-                // The Speed animator parameter is set to the absolute value of the horizontal input.
-                m_Anim.SetFloat("Speed", Mathf.Abs(move));
+				// The Speed animator parameter is set to the absolute value of the horizontal input.
+				m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
                 // Move the character
                 m_Rigidbody2D.velocity = new Vector2(move * actualSpeeed, m_Rigidbody2D.velocity.y);
             }
             // If the player should jump...
             if (m_Grounded && jump && m_Anim.GetBool("Ground"))
-            {
-                // Add a vertical force to the player.
-                m_Grounded = false;
+			{
+				Debug.Log("Jump");
+				// Add a vertical force to the player.
+				m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
             }

@@ -8,6 +8,9 @@ public class CameraRunner : MonoBehaviour
 	[SerializeField]
 	private float speedRatio;
 
+	[SerializeField]
+	private bool stopOnReverse;
+
 	private float xOffset;
 	private float lastX;
 
@@ -19,7 +22,7 @@ public class CameraRunner : MonoBehaviour
 
 	void LateUpdate()
 	{
-		if (this.player.position.x <= lastX)
+		if (stopOnReverse && player.position.x <= lastX)
 			return;
 
 		this.transform.position = new Vector3(this.player.position.x + xOffset, this.transform.position.y, -1f);

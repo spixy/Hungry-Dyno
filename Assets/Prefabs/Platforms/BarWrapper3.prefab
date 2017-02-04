@@ -22,9 +22,10 @@ GameObject:
   - 212: {fileID: 212000012293806730}
   - 68: {fileID: 68000012239570472}
   - 251: {fileID: 251000013971193246}
+  - 68: {fileID: 68000013520303404}
   m_Layer: 9
   m_Name: Bar
-  m_TagString: Untagged
+  m_TagString: Bar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +133,21 @@ EdgeCollider2D:
   m_Points:
   - {x: -16.5, y: 4.7}
   - {x: 15, y: 4.7}
+--- !u!68 &68000013520303404
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012954458796}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -16.7, y: 2.7}
+  - {x: -16.7, y: 4.9}
 --- !u!114 &114000013225095830
 MonoBehaviour:
   m_ObjectHideFlags: 1

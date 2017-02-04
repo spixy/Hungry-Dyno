@@ -287,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 462141329}
   speedRatio: -4
+  stopOnReverse: 1
 --- !u!4 &376251051
 Transform:
   m_ObjectHideFlags: 0
@@ -1228,6 +1229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 462141329}
   speedRatio: 0
+  stopOnReverse: 0
 --- !u!4 &1284045271 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012740949052, guid: 313154613a4be9f4aa77a957b97466ff,
@@ -1333,6 +1335,11 @@ Prefab:
         type: 2}
       propertyPath: m_Size.x
       value: 2.1385896
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000013960691174, guid: 7cfd5cfb92b47bc448496ccaa6b879cf,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61000010539643678, guid: 7cfd5cfb92b47bc448496ccaa6b879cf, type: 2}
