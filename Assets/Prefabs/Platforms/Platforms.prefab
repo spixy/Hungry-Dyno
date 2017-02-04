@@ -64,5 +64,5 @@ MonoBehaviour:
   - {fileID: 1000011841617476, guid: 9f3113cc76b70de45bd132508db34491, type: 2}
   minY: -2.25
   maxY: -2.25
-  timer: 3
-  timerDelay: 2
+  timer: 2.5
+  timerDelay: 2.5
