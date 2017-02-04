@@ -52,6 +52,10 @@ public class Enemy : MonoBehaviour
 
     public void Eat()
     {
+        if (hit) {
+            return;
+        } 
+
         // Gives as much score as he restores hp
         dyno.UpdateHP(hpRestore);
         GameManager.Instance.Score += hpRestore;
