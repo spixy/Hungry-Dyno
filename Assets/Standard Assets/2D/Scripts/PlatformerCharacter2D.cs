@@ -51,8 +51,6 @@ namespace UnityStandardAssets._2D
 
 		public void MoveBack(float move)
 		{
-			Debug.Log("MoveBack");
-
 			// The Speed animator parameter is set to the absolute value of the horizontal input.
 			m_Anim.SetFloat("Speed", 0);
 
@@ -82,7 +80,6 @@ namespace UnityStandardAssets._2D
             // If the player should jump...
             if (m_Grounded && jump && m_Anim.GetBool("Ground"))
 			{
-				Debug.Log("Jump");
 				// Add a vertical force to the player.
 				m_Grounded = false;
                 m_Anim.SetBool("Ground", false);

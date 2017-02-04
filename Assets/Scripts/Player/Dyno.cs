@@ -120,7 +120,6 @@ public class Dyno : MonoBehaviour
 	{
 		if (col.gameObject.CompareTag("Bar"))
 		{
-			UpdateHP(-1);
 			platformerCharacter2d.MoveBack(0.25f);
 		}
 	}
