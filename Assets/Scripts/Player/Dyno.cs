@@ -115,14 +115,6 @@ public class Dyno : MonoBehaviour
 
 		platformerCharacter2d.SetFactor(factor);
 	}
-
-	private void OnTriggerEnter2D(Collider2D col)
-	{
-		if (col.gameObject.CompareTag("Bar"))
-		{
-			platformerCharacter2d.MoveBack(0.25f);
-		}
-	}
 	
 	public void UpdateHP(float diff)
 	{

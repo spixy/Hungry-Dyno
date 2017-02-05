@@ -229,8 +229,6 @@ MonoBehaviour:
   damage: 35
   damageChance: 0.65
   givesGodmode: 1
-  animator: {fileID: 95000012210092416}
-  renderer: {fileID: 212000013201628956}
   givesBerserk: 0
   isPickup: 0
 --- !u!114 &114000012892528694
@@ -248,8 +246,6 @@ MonoBehaviour:
   damage: 20
   damageChance: 0.2
   givesGodmode: 0
-  animator: {fileID: 95000011990206122}
-  renderer: {fileID: 212000010950573310}
   givesBerserk: 0
   isPickup: 0
 --- !u!212 &212000010950573310
@@ -364,7 +360,7 @@ PlatformEffector2D:
     m_Bits: 2048
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
+  m_SurfaceArc: 60
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 0
