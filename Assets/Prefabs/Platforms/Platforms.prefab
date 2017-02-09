@@ -56,6 +56,7 @@ MonoBehaviour:
   - {fileID: 1000011841617476, guid: 9f3113cc76b70de45bd132508db34491, type: 2}
   - {fileID: 1000011484172558, guid: c102b4e520f3788478c53dd1839a0b60, type: 2}
   - {fileID: 1000013071844234, guid: 4991a1b746bfa7145a087056daadf454, type: 2}
+  - {fileID: 1000010211520264, guid: 02d05850f63a37c46ac14e60b53bfeb1, type: 2}
   minY: -2.25
   maxY: -2.25
   timer: 2.5

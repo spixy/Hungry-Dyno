@@ -13,7 +13,7 @@ public class ObstacleSpawner : Spawner {
 
     private Coroutine coroutine = null;
 
-    private Vector2 BOX = new Vector2(6f, 2f);
+    private Vector2 BOX = new Vector2(8f, 2f);
 
     public void Start() {
         this.coroutine = StartCoroutine(this.SpawningLoop());

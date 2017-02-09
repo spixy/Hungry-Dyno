@@ -302,8 +302,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obj:
   - {fileID: 1000013089445534, guid: 16d63c5b6f4ce004ca018dc95408691a, type: 2}
-  minY: -4
-  maxY: -4
+  - {fileID: 1000013089445534, guid: 16d63c5b6f4ce004ca018dc95408691a, type: 2}
+  - {fileID: 1000013089445534, guid: 4ef497c44d108f14fb29a9907e025aac, type: 2}
+  minY: -4.25
+  maxY: -4.25
   timer: 4
   refresh: 0.1
   hitbox: {fileID: 0}
