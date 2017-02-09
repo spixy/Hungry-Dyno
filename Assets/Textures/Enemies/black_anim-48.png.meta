@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: a3fc75b1e41d19d44b52b6dec8a388c4
+timeCreated: 1486624916
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: black_anim-48_0
+    21300002: black_anim-48_1
+    21300004: black_anim-48_2
+    21300006: black_anim-48_3
+    21300008: black_anim-48_4
+    21300010: black_anim-48_5
+    21300012: black_anim-48_6
+    21300014: black_anim-48_7
+    21300016: black_anim-48_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: black_anim-48_0
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 145
+        width: 895
+        height: 2525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: black_anim-48_1
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 145
+        width: 900
+        height: 2525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: black_anim-48_2
+      rect:
+        serializedVersion: 2
+        x: 3384
+        y: 139
+        width: 932
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: black_anim-48_3
+      rect:
+        serializedVersion: 2
+        x: 4705
+        y: 139
+        width: 931
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: black_anim-48_4
+      rect:
+        serializedVersion: 2
+        x: 5989
+        y: 139
+        width: 980
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: black_anim-48_5
+      rect:
+        serializedVersion: 2
+        x: 7333
+        y: 139
+        width: 839
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: black_anim-48_6
+      rect:
+        serializedVersion: 2
+        x: 8598
+        y: 139
+        width: 833
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: black_anim-48_7
+      rect:
+        serializedVersion: 2
+        x: 9875
+        y: 139
+        width: 925
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: black_anim-48_8
+      rect:
+        serializedVersion: 2
+        x: 11054
+        y: 145
+        width: 900
+        height: 2525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

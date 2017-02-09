@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: e318424bf6c79e440abbc021daf11790
+timeCreated: 1486625555
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bruneta_anim-47_0
+    21300002: bruneta_anim-47_1
+    21300004: bruneta_anim-47_2
+    21300006: bruneta_anim-47_3
+    21300008: bruneta_anim-47_4
+    21300010: bruneta_anim-47_5
+    21300012: bruneta_anim-47_6
+    21300014: bruneta_anim-47_7
+    21300016: bruneta_anim-47_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bruneta_anim-47_0
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 139
+        width: 895
+        height: 2525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bruneta_anim-47_1
+      rect:
+        serializedVersion: 2
+        x: 1842
+        y: 139
+        width: 900
+        height: 2525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bruneta_anim-47_2
+      rect:
+        serializedVersion: 2
+        x: 3384
+        y: 133
+        width: 932
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bruneta_anim-47_3
+      rect:
+        serializedVersion: 2
+        x: 4705
+        y: 133
+        width: 931
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bruneta_anim-47_4
+      rect:
+        serializedVersion: 2
+        x: 5994
+        y: 133
+        width: 975
+        height: 2536
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bruneta_anim-47_5
+      rect:
+        serializedVersion: 2
+        x: 7336
+        y: 133
+        width: 836
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bruneta_anim-47_6
+      rect:
+        serializedVersion: 2
+        x: 8598
+        y: 133
+        width: 838
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bruneta_anim-47_7
+      rect:
+        serializedVersion: 2
+        x: 9875
+        y: 133
+        width: 925
+        height: 2531
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: bruneta_anim-47_8
+      rect:
+        serializedVersion: 2
+        x: 11060
+        y: 139
+        width: 900
+        height: 2525
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

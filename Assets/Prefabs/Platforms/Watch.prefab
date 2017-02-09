@@ -55,7 +55,6 @@ GameObject:
   - 212: {fileID: 212000013201628956}
   - 61: {fileID: 61000012503336304}
   - 114: {fileID: 114000010385893708}
-  - 95: {fileID: 95000012210092416}
   m_Layer: 12
   m_Name: GodmodeHuman
   m_TagString: Enemy
@@ -74,7 +73,6 @@ GameObject:
   - 212: {fileID: 212000010950573310}
   - 61: {fileID: 61000010041905738}
   - 114: {fileID: 114000012892528694}
-  - 95: {fileID: 95000011990206122}
   m_Layer: 12
   m_Name: BasicHuman
   m_TagString: Enemy
@@ -180,40 +178,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -15.1251135, y: 0.8988426}
   - {x: 15.127221, y: 0.9297401}
---- !u!95 &95000011990206122
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013368957108}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a261526b5f8452243b177e12d7a6cd3b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95000012210092416
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013131855462}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a261526b5f8452243b177e12d7a6cd3b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000010385893708
 MonoBehaviour:
   m_ObjectHideFlags: 1

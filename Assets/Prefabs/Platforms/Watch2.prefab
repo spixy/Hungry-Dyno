@@ -22,7 +22,6 @@ GameObject:
   - 212: {fileID: 212000010024472214}
   - 61: {fileID: 61000010214424590}
   - 114: {fileID: 114000011714912526}
-  - 95: {fileID: 95000012070744128}
   m_Layer: 12
   m_Name: BasicHuman (1)
   m_TagString: Enemy
@@ -74,7 +73,6 @@ GameObject:
   - 212: {fileID: 212000011882519162}
   - 61: {fileID: 61000012068203600}
   - 114: {fileID: 114000014216996684}
-  - 95: {fileID: 95000011954887450}
   m_Layer: 12
   m_Name: BerserkHuman
   m_TagString: Enemy
@@ -93,7 +91,6 @@ GameObject:
   - 212: {fileID: 212000012044611840}
   - 61: {fileID: 61000014276704316}
   - 114: {fileID: 114000014126159966}
-  - 95: {fileID: 95000013379417708}
   m_Layer: 12
   m_Name: BasicHuman
   m_TagString: Enemy
@@ -227,57 +224,6 @@ EdgeCollider2D:
   m_Points:
   - {x: -15.125114, y: 1.2627833}
   - {x: 15.208097, y: 1.2936808}
---- !u!95 &95000011954887450
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013622883742}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a261526b5f8452243b177e12d7a6cd3b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95000012070744128
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010549631344}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a261526b5f8452243b177e12d7a6cd3b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95000013379417708
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013886486052}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a261526b5f8452243b177e12d7a6cd3b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000011714912526
 MonoBehaviour:
   m_ObjectHideFlags: 1

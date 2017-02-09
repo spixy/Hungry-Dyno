@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: d01954e0700b7754396af1daf61b44e1
+timeCreated: 1486625600
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: guy_anim-51_0
+    21300002: guy_anim-51_1
+    21300004: guy_anim-51_2
+    21300006: guy_anim-51_3
+    21300008: guy_anim-51_4
+    21300010: guy_anim-51_5
+    21300012: guy_anim-51_6
+    21300014: guy_anim-51_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: guy_anim-51_0
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 102
+        width: 1400
+        height: 2685
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guy_anim-51_1
+      rect:
+        serializedVersion: 2
+        x: 2015
+        y: 120
+        width: 1289
+        height: 2648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guy_anim-51_2
+      rect:
+        serializedVersion: 2
+        x: 3545
+        y: 120
+        width: 1159
+        height: 2648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guy_anim-51_3
+      rect:
+        serializedVersion: 2
+        x: 4921
+        y: 120
+        width: 1288
+        height: 2648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guy_anim-51_4
+      rect:
+        serializedVersion: 2
+        x: 6359
+        y: 120
+        width: 1362
+        height: 2648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guy_anim-51_5
+      rect:
+        serializedVersion: 2
+        x: 7988
+        y: 139
+        width: 1362
+        height: 2629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guy_anim-51_6
+      rect:
+        serializedVersion: 2
+        x: 9517
+        y: 120
+        width: 1357
+        height: 2648
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guy_anim-51_7
+      rect:
+        serializedVersion: 2
+        x: 11066
+        y: 139
+        width: 1357
+        height: 2629
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
