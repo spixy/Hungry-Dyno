@@ -17,7 +17,7 @@ public class ScoreText : MonoBehaviour
 
 		if (score != lastScore)
 		{
-			textComponent.text = "Score: " + score;
+			textComponent.text = score.ToString();
 			lastScore = score;
 		}
 	}

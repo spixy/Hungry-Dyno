@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class BgRunner : MonoBehaviour {
+public class BgRunner : MonoBehaviour
+{
     [SerializeField]
     private Transform player;
 

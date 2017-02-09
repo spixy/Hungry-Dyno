@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class TopScorePanel : MonoBehaviour
@@ -15,14 +14,14 @@ public class TopScorePanel : MonoBehaviour
 		player.text = string.Empty;
 		scores.text = string.Empty;
 
-		var table = GameManager.Instance.scoreStorage.GetTopScoreTable();
+		var table = GameManager.Instance.scoreStorage.GetTopScoreTable(10);
 
 		int counter = 0;
 
 		foreach (var item in table)
 		{
-			player.text += ++counter + ":   " + item.Key + "\r\n";
-			scores.text += item.Value + "\r\n";
+			player.text += ++counter + ":   " + item.Key + "\n";
+			scores.text += item.Value + "\n";
 		}
 	}
 

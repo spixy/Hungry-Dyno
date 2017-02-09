@@ -59,10 +59,17 @@ public class ScoreStorage
 	/// <summary>
 	/// Vrati skore zoradene od najvyssieho
 	/// </summary>
-	public List<KeyValuePair<string, int>> GetTopScoreTable()
+	/// <param name="limit">limituje vysledok na top XXX hracov</param>
+	public List<KeyValuePair<string, int>> GetTopScoreTable(int limit = int.MaxValue)
 	{
 		var kvpList = scoreTable.ToList();
 		kvpList.Sort((a, b) => b.Value.CompareTo(a.Value));
+
+		if (kvpList.Count > limit)
+		{
+			kvpList.RemoveRange(limit, kvpList.Count - limit);
+		}
+
 		return kvpList;
 	}
 
