@@ -43,11 +43,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Sky
-    uniqueID: 2565088111
-    locked: 0
   - name: BackObjects
     uniqueID: 1449639529
+    locked: 0
+  - name: Sky
+    uniqueID: 2565088111
     locked: 0
   - name: Terrain
     uniqueID: 3014886647

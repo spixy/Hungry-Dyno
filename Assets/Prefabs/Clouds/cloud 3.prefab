@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000010883907998}
   - 114: {fileID: 114000012247136746}
   - 114: {fileID: 114000014009687972}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cloud 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
