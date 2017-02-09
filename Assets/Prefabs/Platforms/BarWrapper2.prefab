@@ -37,6 +37,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012713331130}
+  - 61: {fileID: 61000013960516606}
   m_Layer: 0
   m_Name: BarWrapper2
   m_TagString: Untagged
@@ -117,6 +118,20 @@ BoxCollider2D:
   m_Offset: {x: -0.20771742, y: 3.9466155}
   serializedVersion: 2
   m_Size: {x: 14.117279, y: 21.640026}
+--- !u!61 &61000013960516606
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011484172558}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.07434845, y: 0.5390105}
+  serializedVersion: 2
+  m_Size: {x: 9.029409, y: 4.085372}
 --- !u!68 &68000012600836750
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -149,6 +164,7 @@ MonoBehaviour:
   givesGodmode: 0
   givesBerserk: 0
   isPickup: 1
+  isObstacle: 0
 --- !u!212 &212000011636728012
 SpriteRenderer:
   m_ObjectHideFlags: 1

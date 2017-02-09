@@ -39,10 +39,12 @@ public class GameManager : MonoBehaviour
 
 	public ScoreStorage scoreStorage { get; private set; }
 
-	/// <summary>
-	/// Vrati instanciu na game manager singleton
-	/// </summary>
-	public static GameManager Instance { get; private set; }
+    public bool spawnersStopped { get; set; }
+
+    /// <summary>
+    /// Vrati instanciu na game manager singleton
+    /// </summary>
+    public static GameManager Instance { get; private set; }
 
 	public GUI Gui
 	{
@@ -109,7 +111,8 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
 
-		Score = 0;
+        spawnersStopped = false;
+        Score = 0;
 		State = State.MainMenu;
 		scoreStorage = new ScoreStorage();
 

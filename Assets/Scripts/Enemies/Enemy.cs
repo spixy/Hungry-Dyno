@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private bool isPickup = false;
 
+    [SerializeField]
+    private bool isObstacle = false;
+
     private Dyno dyno;
     private Sfx sfx;
 
@@ -37,22 +40,28 @@ public class Enemy : MonoBehaviour
 	}
 
     void OnTriggerEnter2D(Collider2D c) {
-        if (!dead && !hit && !dyno.Attacking && c.gameObject.CompareTag("Player")) {
-            if (dyno.State != DynoState.Godmode && Random.value < damageChance) {
-				if (Debug.isDebugBuild)
-					Debug.Log("OUCH! Damaged.");
+        if (isObstacle && c.gameObject.CompareTag("Player")) {
+            TryDamage();
+        } else if (!dead && !hit && !dyno.Attacking && c.gameObject.CompareTag("Player")) {
+            TryDamage();
+        }
+    }
 
-                dyno.UpdateHP(-damage);
-                hit = true;
+    void TryDamage() {
+        if (dyno.State != DynoState.Godmode && Random.value < damageChance) {
+            if (Debug.isDebugBuild)
+                Debug.Log("OUCH! Damaged.");
 
-                sfx.Slap();
-            }
+            dyno.UpdateHP(-damage);
+            hit = true;
+
+            sfx.Slap();
         }
     }
 
     public void Eat()
     {
-        if (hit) {
+        if (hit || isObstacle) {
             return;
         } 
 
