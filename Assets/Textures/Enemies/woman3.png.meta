@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a3fc75b1e41d19d44b52b6dec8a388c4
-timeCreated: 1486624916
+timeCreated: 1486628947
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,15 @@ TextureImporter:
     21300012: black_anim-48_6
     21300014: black_anim-48_7
     21300016: black_anim-48_8
+    21300018: woman3_0
+    21300020: woman3_1
+    21300022: woman3_2
+    21300024: woman3_3
+    21300026: woman3_4
+    21300028: woman3_5
+    21300030: woman3_6
+    21300032: woman3_7
+    21300034: woman3_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,119 +71,119 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: black_anim-48_0
+      name: woman3_0
       rect:
         serializedVersion: 2
-        x: 509
-        y: 145
-        width: 895
-        height: 2525
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 89
+        y: 25
+        width: 157
+        height: 443
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_anim-48_1
+      name: woman3_1
       rect:
         serializedVersion: 2
-        x: 1842
-        y: 145
-        width: 900
-        height: 2525
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 323
+        y: 25
+        width: 158
+        height: 443
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_anim-48_2
+      name: woman3_2
       rect:
         serializedVersion: 2
-        x: 3384
-        y: 139
-        width: 932
-        height: 2531
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 594
+        y: 23
+        width: 163
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_anim-48_3
+      name: woman3_3
       rect:
         serializedVersion: 2
-        x: 4705
-        y: 139
-        width: 931
-        height: 2531
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 825
+        y: 23
+        width: 163
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_anim-48_4
+      name: woman3_4
       rect:
         serializedVersion: 2
-        x: 5989
-        y: 139
-        width: 980
-        height: 2531
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1051
+        y: 23
+        width: 171
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_anim-48_5
+      name: woman3_5
       rect:
         serializedVersion: 2
-        x: 7333
-        y: 139
-        width: 839
-        height: 2531
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1286
+        y: 23
+        width: 147
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_anim-48_6
+      name: woman3_6
       rect:
         serializedVersion: 2
-        x: 8598
-        y: 139
-        width: 833
-        height: 2531
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1508
+        y: 23
+        width: 146
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_anim-48_7
+      name: woman3_7
       rect:
         serializedVersion: 2
-        x: 9875
-        y: 139
-        width: 925
-        height: 2531
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1731
+        y: 23
+        width: 163
+        height: 445
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_anim-48_8
+      name: woman3_8
       rect:
         serializedVersion: 2
-        x: 11054
-        y: 145
-        width: 900
-        height: 2525
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1938
+        y: 25
+        width: 159
+        height: 443
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7fd9d26b5b3084b4a94b81773abd45d3
-timeCreated: 1486624963
+timeCreated: 1486629645
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,14 @@ TextureImporter:
     21300010: black_guy2_anim-55_5
     21300012: black_guy2_anim-55_6
     21300014: black_guy2_anim-55_7
+    21300016: godmode1_0
+    21300018: godmode1_1
+    21300020: godmode1_2
+    21300022: godmode1_3
+    21300024: godmode1_4
+    21300026: godmode1_5
+    21300028: godmode1_6
+    21300030: godmode1_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -61,106 +69,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: black_guy2_anim-55_0
+      name: godmode1_0
       rect:
         serializedVersion: 2
-        x: 367
-        y: 127
-        width: 1363
-        height: 2666
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 66
+        y: 23
+        width: 244
+        height: 477
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_guy2_anim-55_1
+      name: godmode1_1
       rect:
         serializedVersion: 2
-        x: 2015
-        y: 127
-        width: 1289
-        height: 2666
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 360
+        y: 23
+        width: 231
+        height: 477
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_guy2_anim-55_2
+      name: godmode1_2
       rect:
         serializedVersion: 2
-        x: 3545
-        y: 127
-        width: 1159
-        height: 2666
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 634
+        y: 23
+        width: 208
+        height: 477
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_guy2_anim-55_3
+      name: godmode1_3
       rect:
         serializedVersion: 2
-        x: 4921
-        y: 127
-        width: 1288
-        height: 2666
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 880
+        y: 23
+        width: 231
+        height: 477
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_guy2_anim-55_4
+      name: godmode1_4
       rect:
         serializedVersion: 2
-        x: 6359
-        y: 127
-        width: 1362
-        height: 2666
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1138
+        y: 23
+        width: 244
+        height: 477
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_guy2_anim-55_5
+      name: godmode1_5
       rect:
         serializedVersion: 2
-        x: 7988
-        y: 145
-        width: 1362
-        height: 2648
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1430
+        y: 26
+        width: 243
+        height: 474
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_guy2_anim-55_6
+      name: godmode1_6
       rect:
         serializedVersion: 2
-        x: 9517
-        y: 127
-        width: 1357
-        height: 2666
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1703
+        y: 23
+        width: 243
+        height: 477
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: black_guy2_anim-55_7
+      name: godmode1_7
       rect:
         serializedVersion: 2
-        x: 11066
-        y: 145
-        width: 1357
-        height: 2648
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1980
+        y: 26
+        width: 243
+        height: 474
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
