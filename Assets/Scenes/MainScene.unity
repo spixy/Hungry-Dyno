@@ -236,11 +236,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 376251049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d59afbe366a2ec54ebc1d28fddf6549a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e63f3e0dcd0b73409c5ed4c6b4c4ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 462141329}
-  speedRatio: -2
+  speedRatio: 0.8
   stopOnReverse: 1
 --- !u!4 &376251051
 Transform:
@@ -308,7 +308,6 @@ MonoBehaviour:
   maxY: -4.25
   timer: 4
   refresh: 0.1
-  hitbox: {fileID: 0}
 --- !u!4 &722331390 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010072810964, guid: d3acdb2c7690c4c4c9e3f17d3a659960,
