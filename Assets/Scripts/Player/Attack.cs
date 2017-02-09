@@ -18,15 +18,17 @@ public class Attack : MonoBehaviour {
     [SerializeField]
     private const float berserkRatio = 2f;
 
+    public float factor = 1f;
+
     // Can be modified with berserk
     public float attackCd = baseCd;
 
+    private bool berserk = false;
+
     public void SetBerserk(bool berserk) {
+        this.berserk = berserk;
         if (berserk) {
-            attackCd /= berserkRatio;
             cdTimer = 0;  // Berserk resets eat cooldown
-        } else {
-            attackCd = baseCd;
         }
     }
 
@@ -51,7 +53,13 @@ public class Attack : MonoBehaviour {
 
     void Update()
     {
-	    if (canAttack && CrossPlatformInputManager.GetButtonDown("Fire1"))
+        if (berserk) {
+            attackCd = baseCd / (berserkRatio * factor);
+        } else {
+            attackCd = baseCd / factor;
+        }
+
+        if (canAttack && CrossPlatformInputManager.GetButtonDown("Fire1"))
 	    {
 		    Eat();
 	    }

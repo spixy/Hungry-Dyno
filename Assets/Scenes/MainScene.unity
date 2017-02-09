@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 462141329}
-  speedRatio: -4
+  speedRatio: -2
   stopOnReverse: 1
 --- !u!4 &376251051
 Transform:
@@ -1240,7 +1240,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011703140662, guid: d6173d404aca0ca4cae949a90877bfc8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 30
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4000011703140662, guid: d6173d404aca0ca4cae949a90877bfc8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1379,6 +1379,11 @@ Prefab:
     - target: {fileID: 4000012740949052, guid: 313154613a4be9f4aa77a957b97466ff, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011240236424, guid: 313154613a4be9f4aa77a957b97466ff,
+        type: 2}
+      propertyPath: speedup
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 313154613a4be9f4aa77a957b97466ff, type: 2}

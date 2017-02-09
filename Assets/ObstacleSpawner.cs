@@ -8,9 +8,6 @@ public class ObstacleSpawner : Spawner {
     [SerializeField]
     private float refresh = 0.1f;
 
-    [SerializeField]
-    private Transform hitbox;
-
     private Coroutine coroutine = null;
 
     private Vector2 BOX = new Vector2(8f, 2f);

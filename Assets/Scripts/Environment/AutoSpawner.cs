@@ -9,6 +9,9 @@ public class AutoSpawner : Spawner
     [SerializeField]
     private float timerDelay = 0f;
 
+    [SerializeField]
+    private bool speedup = true;
+
     private float factor = 1f;
 
     private Coroutine coroutine = null;
@@ -19,10 +22,14 @@ public class AutoSpawner : Spawner
     }
 
     public void Update() {
+        if (!speedup) {
+            return;
+        }
+
         float f = 1f - (transform.position.x - 1000) / 1000;
-        if (f > 1f) {  // speed it up to 300%
+        if (f > 1f) {
             factor = 1f;
-        } else if (f > 0.33f) {
+        } else if (f > 0.4f) {  // speed up
             factor = f;
         }
     }

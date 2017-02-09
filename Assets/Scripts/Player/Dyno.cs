@@ -114,6 +114,7 @@ public class Dyno : MonoBehaviour
 		UpdateHP(Time.deltaTime * factor * -hpDecay);
 
 		platformerCharacter2d.SetFactor(factor);
+        attack.factor = Mathf.Clamp(factor, 1f, 1.5f);
 	}
 	
 	public void UpdateHP(float diff)

@@ -87,10 +87,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpRestore: 15
   damage: 20
-  damageChance: 0.2
+  damageChance: 0
   givesGodmode: 0
   givesBerserk: 0
   isPickup: 0
+  isObstacle: 0
 --- !u!212 &212000010513582702
 SpriteRenderer:
   m_ObjectHideFlags: 1
